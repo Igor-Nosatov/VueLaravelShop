@@ -53018,19 +53018,154 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(5),
+      _c("nav", { staticClass: "main_nav" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "main_nav_content d-flex flex-row" }, [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("div", { staticClass: "main_nav_menu ml-auto" }, [
+                  _c(
+                    "ul",
+                    { staticClass: "standard_dropdown main_nav_dropdown" },
+                    [
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            { staticClass: "nav-link", attrs: { to: "/" } },
+                            [_vm._v("Home")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _vm._m(7),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "hassubs" }, [
+                        _vm._m(8),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _vm._m(9),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: "/product" }
+                                },
+                                [_vm._v("Product")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: "/blog_single" }
+                                },
+                                [_vm._v("BlogSingle")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: "/blog" }
+                                },
+                                [_vm._v("Blog")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm._m(10),
+                          _vm._v(" "),
+                          _vm._m(11),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "nav-link",
+                                  attrs: { to: "/contact" }
+                                },
+                                [_vm._v("Contact")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            { staticClass: "nav-link", attrs: { to: "/blog" } },
+                            [_vm._v("Blog")]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: "/contact" }
+                            },
+                            [_vm._v("Contact")]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(12)
+              ])
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "page_menu" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col" }, [
               _c("div", { staticClass: "page_menu_content" }, [
-                _vm._m(6),
+                _vm._m(13),
                 _vm._v(" "),
                 _c("ul", { staticClass: "page_menu_nav" }, [
-                  _vm._m(7),
+                  _vm._m(14),
                   _vm._v(" "),
-                  _vm._m(8),
+                  _vm._m(15),
                   _vm._v(" "),
                   _c(
                     "li",
@@ -53045,11 +53180,11 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(9),
+                  _vm._m(16),
                   _vm._v(" "),
-                  _vm._m(10),
+                  _vm._m(17),
                   _vm._v(" "),
-                  _vm._m(11),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c(
                     "li",
@@ -53078,7 +53213,7 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(12)
+                _vm._m(19)
               ])
             ])
           ])
@@ -53336,390 +53471,343 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "main_nav" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "main_nav_content d-flex flex-row" }, [
-              _c("div", { staticClass: "cat_menu_container" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "cat_menu_title d-flex flex-row align-items-center justify-content-start"
-                  },
-                  [
-                    _c("div", { staticClass: "cat_burger" }, [
-                      _c("span"),
-                      _c("span"),
-                      _c("span")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "cat_menu_text" }, [
-                      _vm._v("categories")
-                    ])
-                  ]
-                ),
+    return _c("div", { staticClass: "cat_menu_container" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "cat_menu_title d-flex flex-row align-items-center justify-content-start"
+        },
+        [
+          _c("div", { staticClass: "cat_burger" }, [
+            _c("span"),
+            _c("span"),
+            _c("span")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "cat_menu_text" }, [_vm._v("categories")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "cat_menu" }, [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Computers & Laptops "),
+            _c("i", { staticClass: "fas fa-chevron-right ml-auto" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Cameras & Photos"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "hassubs" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Hardware"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", { staticClass: "hassubs" }, [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-right" })
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Menu Item"),
+                    _c("i", { staticClass: "fas fa-chevron-right" })
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("ul", { staticClass: "cat_menu" }, [
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Computers & Laptops "),
-                      _c("i", { staticClass: "fas fa-chevron-right ml-auto" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Cameras & Photos"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "hassubs" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Hardware"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", [
-                      _c("li", { staticClass: "hassubs" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Menu Item"),
-                          _c("i", { staticClass: "fas fa-chevron-right" })
-                        ]),
-                        _vm._v(" "),
-                        _c("ul", [
-                          _c("li", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Menu Item"),
-                              _c("i", { staticClass: "fas fa-chevron-right" })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Menu Item"),
-                              _c("i", { staticClass: "fas fa-chevron-right" })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Menu Item"),
-                              _c("i", { staticClass: "fas fa-chevron-right" })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "#" } }, [
-                              _vm._v("Menu Item"),
-                              _c("i", { staticClass: "fas fa-chevron-right" })
-                            ])
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Menu Item"),
-                          _c("i", { staticClass: "fas fa-chevron-right" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Menu Item"),
-                          _c("i", { staticClass: "fas fa-chevron-right" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Menu Item"),
-                          _c("i", { staticClass: "fas fa-chevron-right" })
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Smartphones & Tablets"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("TV & Audio"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Gadgets"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Car Electronics"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Video Games & Consoles"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v("Accessories"),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ])
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Menu Item"),
+                    _c("i", { staticClass: "fas fa-chevron-right" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Menu Item"),
+                    _c("i", { staticClass: "fas fa-chevron-right" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Menu Item"),
+                    _c("i", { staticClass: "fas fa-chevron-right" })
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "main_nav_menu ml-auto" }, [
-                _c(
-                  "ul",
-                  { staticClass: "standard_dropdown main_nav_dropdown" },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index.html" } }, [
-                        _vm._v("Home"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "hassubs" }, [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Super Deals"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ]),
-                      _vm._v(" "),
-                      _c("ul", [
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ]),
-                          _vm._v(" "),
-                          _c("ul", [
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "hassubs" }, [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Featured Brands"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ]),
-                      _vm._v(" "),
-                      _c("ul", [
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ]),
-                          _vm._v(" "),
-                          _c("ul", [
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Menu Item"),
-                                _c("i", { staticClass: "fas fa-chevron-down" })
-                              ])
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _vm._v("Menu Item"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "hassubs" }, [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("Pages"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ]),
-                      _vm._v(" "),
-                      _c("ul", [
-                        _c("li", [
-                          _c("a", { attrs: { href: "shop.html" } }, [
-                            _vm._v("Shop"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "product.html" } }, [
-                            _vm._v("Product"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "blog.html" } }, [
-                            _vm._v("Blog"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "blog_single.html" } }, [
-                            _vm._v("Blog Post"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "regular.html" } }, [
-                            _vm._v("Regular Post"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "cart.html" } }, [
-                            _vm._v("Cart"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "contact.html" } }, [
-                            _vm._v("Contact"),
-                            _c("i", { staticClass: "fas fa-chevron-down" })
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "blog.html" } }, [
-                        _vm._v("Blog"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "contact.html" } }, [
-                        _vm._v("Contact"),
-                        _c("i", { staticClass: "fas fa-chevron-down" })
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "menu_trigger_container ml-auto" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "menu_trigger d-flex flex-row align-items-center justify-content-end"
-                  },
-                  [
-                    _c("div", { staticClass: "menu_burger" }, [
-                      _c("div", { staticClass: "menu_trigger_text" }, [
-                        _vm._v("menu")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "cat_burger menu_burger_inner" },
-                        [_c("span"), _c("span"), _c("span")]
-                      )
-                    ])
-                  ]
-                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-right" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-right" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-right" })
               ])
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Smartphones & Tablets"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("TV & Audio"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Gadgets"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Car Electronics"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Video Games & Consoles"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Accessories"),
+            _c("i", { staticClass: "fas fa-chevron-right" })
+          ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "hassubs" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _vm._v("Super Deals"),
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "hassubs" }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _vm._v("Featured Brands"),
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("Menu Item"),
+                _c("i", { staticClass: "fas fa-chevron-down" })
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Menu Item"),
+            _c("i", { staticClass: "fas fa-chevron-down" })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _vm._v("Pages"),
+      _c("i", { staticClass: "fas fa-chevron-down" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "shop.html" } }, [
+        _vm._v("Shop"),
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "regular.html" } }, [
+        _vm._v("Regular Post"),
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "cart.html" } }, [
+        _vm._v("Cart"),
+        _c("i", { staticClass: "fas fa-chevron-down" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "menu_trigger_container ml-auto" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "menu_trigger d-flex flex-row align-items-center justify-content-end"
+        },
+        [
+          _c("div", { staticClass: "menu_burger" }, [
+            _c("div", { staticClass: "menu_trigger_text" }, [_vm._v("menu")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "cat_burger menu_burger_inner" }, [
+              _c("span"),
+              _c("span"),
+              _c("span")
+            ])
+          ])
+        ]
+      )
     ])
   },
   function() {
