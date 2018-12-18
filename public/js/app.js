@@ -14034,7 +14034,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(69);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
@@ -14058,8 +14058,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_BlogSingleComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_BlogSingleComponent_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_ProductComponent_vue__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_ProductComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_ProductComponent_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ContactComponent_vue__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ContactComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_ContactComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_CartComponent_vue__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_CartComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_CartComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_ContactComponent_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_ContactComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_ContactComponent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_ShopComponent_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_ShopComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_ShopComponent_vue__);
 __webpack_require__(15);
 
 window.Vue = __webpack_require__(37);
@@ -14077,13 +14081,13 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_1_vue_axios___default.a, __WEBPACK_IMPORTED_MO
 
 
 
-//import CartComponent from './components/CartComponent.vue';
 
-//import ShopComponent from './components/ShopComponent.vue';
 
-Vue.component('header-component', __webpack_require__(60));
-Vue.component('footer-component', __webpack_require__(63));
-Vue.component('subscribe', __webpack_require__(66));
+
+
+Vue.component('header-component', __webpack_require__(66));
+Vue.component('footer-component', __webpack_require__(69));
+Vue.component('subscribe', __webpack_require__(72));
 var routes = [{
     name: 'blog',
     path: '/blog',
@@ -14095,7 +14099,7 @@ var routes = [{
 }, {
     name: 'contact',
     path: '/contact',
-    component: __WEBPACK_IMPORTED_MODULE_8__components_ContactComponent_vue___default.a
+    component: __WEBPACK_IMPORTED_MODULE_9__components_ContactComponent_vue___default.a
 }, {
     name: 'home',
     path: '/',
@@ -14104,6 +14108,10 @@ var routes = [{
     name: 'product',
     path: '/product',
     component: __WEBPACK_IMPORTED_MODULE_7__components_ProductComponent_vue___default.a
+}, {
+    name: 'cart',
+    path: '/cart',
+    component: __WEBPACK_IMPORTED_MODULE_8__components_CartComponent_vue___default.a
 }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({ mode: 'history', routes: routes });
@@ -52265,6 +52273,290 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/js/components/CartComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e7ab8a3c", Component.options)
+  } else {
+    hotAPI.reload("data-v-e7ab8a3c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cart_section" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-10 offset-lg-1" }, [
+            _c("div", { staticClass: "cart_container" }, [
+              _c("div", { staticClass: "cart_title" }, [
+                _vm._v("Shopping Cart")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "cart_items" }, [
+                _c("ul", { staticClass: "cart_list" }, [
+                  _c("li", { staticClass: "cart_item clearfix" }, [
+                    _c("div", { staticClass: "cart_item_image" }, [
+                      _c("img", {
+                        attrs: { src: "images/shopping_cart.jpg", alt: "" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "cart_item_info d-flex flex-md-row flex-column justify-content-between"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "cart_item_name cart_info_col" },
+                          [
+                            _c("div", { staticClass: "cart_item_title" }, [
+                              _vm._v("Name")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "cart_item_text" }, [
+                              _vm._v("MacBook Air 13")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "cart_item_color cart_info_col" },
+                          [
+                            _c("div", { staticClass: "cart_item_title" }, [
+                              _vm._v("Color")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "cart_item_text" }, [
+                              _c("span", {
+                                staticStyle: { "background-color": "#999999" }
+                              }),
+                              _vm._v("Silver")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "cart_item_quantity cart_info_col" },
+                          [
+                            _c("div", { staticClass: "cart_item_title" }, [
+                              _vm._v("Quantity")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "cart_item_text" }, [
+                              _vm._v("1")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "cart_item_price cart_info_col" },
+                          [
+                            _c("div", { staticClass: "cart_item_title" }, [
+                              _vm._v("Price")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "cart_item_text" }, [
+                              _vm._v("$2000")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "cart_item_total cart_info_col" },
+                          [
+                            _c("div", { staticClass: "cart_item_title" }, [
+                              _vm._v("Total")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "cart_item_text" }, [
+                              _vm._v("$2000")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "order_total" }, [
+                _c(
+                  "div",
+                  { staticClass: "order_total_content text-md-right" },
+                  [
+                    _c("div", { staticClass: "order_total_title" }, [
+                      _vm._v("Order Total:")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "order_total_amount" }, [
+                      _vm._v("$2000")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "cart_buttons" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button cart_button_clear",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Add to Cart")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button cart_button_checkout",
+                    attrs: { type: "button" }
+                  },
+                  [_vm._v("Add to Cart")]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e7ab8a3c", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/js/components/ContactComponent.vue"
 
 /* hot reload */
@@ -52287,7 +52579,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52368,7 +52660,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52578,15 +52870,2244 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/ShopComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2cbbc6cc", Component.options)
+  } else {
+    hotAPI.reload("data-v-2cbbc6cc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    }
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "home" }, [
+        _c("div", {
+          staticClass: "home_background parallax-window",
+          attrs: {
+            "data-parallax": "scroll",
+            "data-image-src": "images/shop_background.jpg"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "home_overlay" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "home_content d-flex flex-column align-items-center justify-content-center"
+          },
+          [
+            _c("h2", { staticClass: "home_title" }, [
+              _vm._v("Smartphones & Tablets")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "shop" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-3" }, [
+              _c("div", { staticClass: "shop_sidebar" }, [
+                _c("div", { staticClass: "sidebar_section" }, [
+                  _c("div", { staticClass: "sidebar_title" }, [
+                    _vm._v("Categories")
+                  ]),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "sidebar_categories" }, [
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Computers & Laptops")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Cameras & Photos")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Hardware")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Smartphones & Tablets")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("TV & Audio")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Gadgets")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Car Electronics")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [
+                        _vm._v("Video Games & Consoles")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Accessories")])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "sidebar_section filter_by_section" },
+                  [
+                    _c("div", { staticClass: "sidebar_title" }, [
+                      _vm._v("Filter By")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "sidebar_subtitle" }, [
+                      _vm._v("Price")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "filter_price" }, [
+                      _c("div", {
+                        staticClass: "slider_range",
+                        attrs: { id: "slider-range" }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Range: ")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("input", {
+                          staticClass: "amount",
+                          staticStyle: { border: "0", "font-weight": "bold" },
+                          attrs: { type: "text", id: "amount", readonly: "" }
+                        })
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "sidebar_section" }, [
+                  _c(
+                    "div",
+                    { staticClass: "sidebar_subtitle color_subtitle" },
+                    [_vm._v("Color")]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "colors_list" }, [
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: { background: "#b19c83" },
+                        attrs: { href: "#" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: { background: "#000000" },
+                        attrs: { href: "#" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: { background: "#999999" },
+                        attrs: { href: "#" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: { background: "#0e8ce4" },
+                        attrs: { href: "#" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: { background: "#df3b3b" },
+                        attrs: { href: "#" }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "color" }, [
+                      _c("a", {
+                        staticStyle: {
+                          background: "#ffffff",
+                          border: "solid 1px #e1e1e1"
+                        },
+                        attrs: { href: "#" }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "sidebar_section" }, [
+                  _c(
+                    "div",
+                    { staticClass: "sidebar_subtitle brands_subtitle" },
+                    [_vm._v("Brands")]
+                  ),
+                  _vm._v(" "),
+                  _c("ul", { staticClass: "brands_list" }, [
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Apple")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Beoplay")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Google")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Meizu")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("OnePlus")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Samsung")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Sony")])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "brand" }, [
+                      _c("a", { attrs: { href: "#" } }, [_vm._v("Xiaomi")])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-9" }, [
+              _c("div", { staticClass: "shop_content" }, [
+                _c("div", { staticClass: "shop_bar clearfix" }, [
+                  _c("div", { staticClass: "shop_product_count" }, [
+                    _c("span", [_vm._v("186")]),
+                    _vm._v(" products found")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "shop_sorting" }, [
+                    _c("span", [_vm._v("Sort by:")]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("li", [
+                        _c("span", { staticClass: "sorting_text" }, [
+                          _vm._v("highest rated")
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c(
+                            "li",
+                            {
+                              staticClass: "shop_sorting_button",
+                              attrs: {
+                                "data-isotope-option":
+                                  '{ "sortBy": "original-order" }'
+                              }
+                            },
+                            [_vm._v("highest rated")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            {
+                              staticClass: "shop_sorting_button",
+                              attrs: {
+                                "data-isotope-option": '{ "sortBy": "name" }'
+                              }
+                            },
+                            [_vm._v("name")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "li",
+                            {
+                              staticClass: "shop_sorting_button",
+                              attrs: {
+                                "data-isotope-option": '{ "sortBy": "price" }'
+                              }
+                            },
+                            [_vm._v("price")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "product_grid" }, [
+                  _c("div", { staticClass: "product_grid_border" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product_item is_new" }, [
+                    _c("div", { staticClass: "product_border" }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "product_image d-flex flex-column align-items-center justify-content-center"
+                      },
+                      [
+                        _c("img", {
+                          attrs: { src: "images/new_5.jpg", alt: "" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_content" }, [
+                      _c("div", { staticClass: "product_price" }, [
+                        _vm._v("$225")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_name" }, [
+                        _c("div", [
+                          _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                            _vm._v("Philips BT6900A")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_fav" }, [
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item discount" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_1.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225"),
+                          _c("span", [_vm._v("$300")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Huawei MediaPad...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_2.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Apple iPod shuffle")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_3.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Sony MDRZX310W")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_4.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("LUNA Smartphone")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/shop_1.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Canon IXUS 175...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_5.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379"),
+                          _c("span", [_vm._v("$300")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Canon STM Kit...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_6.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225"),
+                          _c("span", [_vm._v("$300")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Samsung J330F")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_7.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Lenovo IdeaPad")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_8.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Digitus EDNET...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_1.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Astro M2 Black")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_2.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Transcend T.Sonic")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_3.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Xiaomi Band 2...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_4.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Rapoo T8 White")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item discount" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_1.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225"),
+                          _c("span", [_vm._v("$300")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Huawei MediaPad...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_6.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Nokia 3310 (2017)")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_7.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Rapoo 7100p Gray")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/new_8.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Canon EF")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/shop_2.jpg", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$225")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Gembird SPK-103")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product_item is_new" }, [
+                      _c("div", { staticClass: "product_border" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "product_image d-flex flex-column align-items-center justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/featured_5.png", alt: "" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_content" }, [
+                        _c("div", { staticClass: "product_price" }, [
+                          _vm._v("$379")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "product_name" }, [
+                          _c("div", [
+                            _c("a", { attrs: { href: "#", tabindex: "0" } }, [
+                              _vm._v("Canon STM Kit...")
+                            ])
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product_fav" }),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "product_marks" }, [
+                        _c(
+                          "li",
+                          { staticClass: "product_mark product_discount" },
+                          [_vm._v("-25%")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "product_mark product_new" }, [
+                          _vm._v("new")
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "shop_page_nav d-flex flex-row" }, [
+                    _c("div", {
+                      staticClass:
+                        "page_prev d-flex flex-column align-items-center justify-content-center"
+                    }),
+                    _vm._v(" "),
+                    _c("ul", { staticClass: "page_nav d-flex flex-row" }, [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("1")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("2")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("3")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("...")])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [_vm._v("21")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass:
+                        "page_next d-flex flex-column align-items-center justify-content-center"
+                    })
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "viewed" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "viewed_title_container" }, [
+                _c("h3", { staticClass: "viewed_title" }, [
+                  _vm._v("Recently Viewed")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "viewed_nav_container" }, [
+                  _c("div", { staticClass: "viewed_nav viewed_prev" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "viewed_nav viewed_next" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "viewed_slider_container" }, [
+                _c(
+                  "div",
+                  { staticClass: "owl-carousel owl-theme viewed_slider" },
+                  [
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_1.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$225"),
+                                _c("span", [_vm._v("$300")])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Beoplay H7")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_2.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$379")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("LUNA Smartphone")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_3.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$225")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Samsung J730F...")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_4.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$379")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Huawei MediaPad...")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_5.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$225"),
+                                _c("span", [_vm._v("$300")])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Sony PS4 Slim")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "viewed_item d-flex flex-column align-items-center justify-content-center text-center"
+                        },
+                        [
+                          _c("div", { staticClass: "viewed_image" }, [
+                            _c("img", {
+                              attrs: { src: "images/view_6.jpg", alt: "" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "viewed_content text-center" },
+                            [
+                              _c("div", { staticClass: "viewed_price" }, [
+                                _vm._v("$375")
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "viewed_name" }, [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Speedlink...")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ul", { staticClass: "item_marks" }, [
+                            _c(
+                              "li",
+                              { staticClass: "item_mark item_discount" },
+                              [_vm._v("-25%")]
+                            ),
+                            _vm._v(" "),
+                            _c("li", { staticClass: "item_mark item_new" }, [
+                              _vm._v("new")
+                            ])
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "brands" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "brands_slider_container" }, [
+                _c(
+                  "div",
+                  { staticClass: "owl-carousel owl-theme brands_slider" },
+                  [
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_1.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_2.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_3.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_4.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_5.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_6.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_7.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "owl-item" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "brands_item d-flex flex-column justify-content-center"
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: "images/brands_8.jpg", alt: "" }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "brands_nav brands_prev" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "brands_nav brands_next" })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2cbbc6cc", module.exports)
+  }
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(67)
+/* template */
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52625,7 +55146,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52911,7 +55432,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 62 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53975,15 +56496,15 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(64)
+var __vue_script__ = __webpack_require__(70)
 /* template */
-var __vue_template__ = __webpack_require__(65)
+var __vue_template__ = __webpack_require__(71)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54022,7 +56543,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 64 */
+/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54110,7 +56631,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 65 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54317,15 +56838,15 @@ if (false) {
 }
 
 /***/ }),
-/* 66 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(73)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(74)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -54364,7 +56885,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54400,7 +56921,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 68 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -54483,7 +57004,7 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
+/* 75 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

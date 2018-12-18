@@ -15,9 +15,9 @@ import HomeComponent from './components/HomeComponent.vue';
 import BlogComponent from './components/BlogComponent.vue';
 import BlogSingleComponent from './components/BlogSingleComponent.vue';
 import ProductComponent from './components/ProductComponent.vue';
-//import CartComponent from './components/CartComponent.vue';
+import CartComponent from './components/CartComponent.vue';
 import ContactComponent from './components/ContactComponent.vue';
-//import ShopComponent from './components/ShopComponent.vue';
+import ShopComponent from './components/ShopComponent.vue';
 
 Vue.component('header-component', require('./includes/HeaderComponent'));
 Vue.component('footer-component', require('./includes/FooterComponent'));
@@ -47,6 +47,11 @@ const routes = [
       name: 'product',
       path: '/product',
       component: ProductComponent
+  },
+  {
+      name: 'cart',
+      path: '/cart',
+      component: CartComponent
   }
 
 ];

@@ -69,7 +69,7 @@
   								<span>Sort by:</span>
   								<ul>
   									<li>
-  										<span class="sorting_text">highest rated
+  										<span class="sorting_text">highest rated</span>
   										<ul>
   											<li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>highest rated</li>
   											<li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name</li>
@@ -357,7 +357,7 @@
   				</div>
   			</div>
   		</div>
-  	</div>
+  	</div></div>
   	<div class="viewed">
   		<div class="container">
   			<div class="row">
