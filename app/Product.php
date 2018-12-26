@@ -24,9 +24,9 @@ class Product extends Model
         return $this->belongsToMany('App\Color');
     }
 
-    public function orders()
+    public function cart()
         {
-            return $this->hasMany('App\Order');
+            return $this->hasMany('App\Cart');
         }
 
 }

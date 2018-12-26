@@ -20,6 +20,6 @@ use Laravel\Passport\HasApiTokens;
 
       public function cart()
       {
-          return $this->hasMany(Cart::class);
+          return $this->hasMany('App\Cart');
       }
   }
