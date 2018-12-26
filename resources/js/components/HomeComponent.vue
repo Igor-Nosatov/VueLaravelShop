@@ -16,6 +16,7 @@
     </div>
   </div>
 </div>
+
   <div class="viewed">
 		<div class="container">
 			<div class="row">
@@ -29,82 +30,13 @@
 					</div>
 					<div class="viewed_slider_container">
 						<div class="owl-carousel owl-theme viewed_slider">
-							<div class="owl-item">
+							<div v-for="category in categories" class="owl-item">
 								<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_1.jpg" alt=""></div>
+									<div class="viewed_image"><img :src="'/images/' + category.img"/></div>
 									<div class="viewed_content text-center">
-										<div class="viewed_price">$225<span>$300</span></div>
-										<div class="viewed_name"><a href="#">Beoplay H7</a></div>
+										<div class="viewed_price">${{ category.price }}</div>
+										<div class="viewed_name"><a href="#">{{ category.name }}</a></div>
 									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
-								</div>
-							</div>
-							<div class="owl-item">
-								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_2.jpg" alt=""></div>
-									<div class="viewed_content text-center">
-										<div class="viewed_price">$379</div>
-										<div class="viewed_name"><a href="#">LUNA Smartphone</a></div>
-									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
-								</div>
-							</div>
-							<div class="owl-item">
-								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_3.jpg" alt=""></div>
-									<div class="viewed_content text-center">
-										<div class="viewed_price">$225</div>
-										<div class="viewed_name"><a href="#">Samsung J730F...</a></div>
-									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
-								</div>
-							</div>
-							<div class="owl-item">
-								<div class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_4.jpg" alt=""></div>
-									<div class="viewed_content text-center">
-										<div class="viewed_price">$379</div>
-										<div class="viewed_name"><a href="#">Huawei MediaPad...</a></div>
-									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
-								</div>
-							</div>
-							<div class="owl-item">
-								<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_5.jpg" alt=""></div>
-									<div class="viewed_content text-center">
-										<div class="viewed_price">$225<span>$300</span></div>
-										<div class="viewed_name"><a href="#">Sony PS4 Slim</a></div>
-									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
-								</div>
-							</div>
-							<div class="owl-item">
-								<div class="viewed_item d-flex flex-column align-items-center justify-content-center text-center">
-									<div class="viewed_image"><img src="images/view_6.jpg" alt=""></div>
-									<div class="viewed_content text-center">
-										<div class="viewed_price">$375</div>
-										<div class="viewed_name"><a href="#">Speedlink...</a></div>
-									</div>
-									<ul class="item_marks">
-										<li class="item_mark item_discount">-25%</li>
-										<li class="item_mark item_new">new</li>
-									</ul>
 								</div>
 							</div>
 						</div>
@@ -117,9 +49,14 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
+export default {
+        data(){
+            return {
+                categories : []
+            }
+        },
+        mounted(){
+            axios.get("api/home/").then(response => this.categories = response.data)
         }
     }
 </script>

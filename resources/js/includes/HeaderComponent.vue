@@ -1,9 +1,6 @@
 <template>
   <div>
     <header class="header">
-
-		<!-- Top Bar -->
-
 		<div class="top_bar">
 			<div class="container">
 				<div class="row">
@@ -42,20 +39,14 @@
 			</div>
 		</div>
 
-		<!-- Header Main -->
-
 		<div class="header_main">
 			<div class="container">
 				<div class="row">
-
-					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
 							<div class="logo"><a href="#">OneTech</a></div>
 						</div>
 					</div>
-
-					<!-- Search -->
 					<div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
 						<div class="header_search">
 							<div class="header_search_content">
@@ -68,11 +59,9 @@
 												<i class="fas fa-chevron-down"></i>
 												<ul class="custom_list clc">
 													<li><a class="clc" href="#">All Categories</a></li>
-													<li><a class="clc" href="#">Computers</a></li>
-													<li><a class="clc" href="#">Laptops</a></li>
-													<li><a class="clc" href="#">Cameras</a></li>
-													<li><a class="clc" href="#">Hardware</a></li>
-													<li><a class="clc" href="#">Smartphones</a></li>
+                          <li v-for="category in categories">
+                              <a class="clc" href="#">{{ category.name }}</a>
+                          </li>
 												</ul>
 											</div>
 										</div>
@@ -119,90 +108,24 @@
 									<div class="cat_menu_text">categories</div>
 								</div>
 								<ul class="cat_menu">
-									<li><a href="#">Computers & Laptops <i class="fas fa-chevron-right ml-auto"></i></a></li>
-									<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
-									<li class="hassubs">
-										<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
-										<ul>
-											<li class="hassubs">
-												<a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-										</ul>
-									</li>
-									<li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a></li>
-									<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
+                  <li v-for="category in categories">
+                      <a class="clc" href="#">{{ category.category.name }}</a>
+                  </li>
 								</ul>
 							</div>
-
-							<!-- Main Nav Menu -->
-
 							<div class="main_nav_menu ml-auto">
 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><router-link to="/" class="nav-link">Home</router-link></li>
 									<li class="hassubs">
-										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
+										<router-link to="/shop" class="nav-link">Shop</router-link>
 									</li>
 									<li class="hassubs">
-										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
+										<router-link to="/cart" class="nav-link">Cart</router-link>
 									</li>
-									<li class="hassubs">
-										<a href="#">Pages<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-											<li><router-link to="/product" class="nav-link">Product</router-link></li>
-											<li><router-link to="/blog_single" class="nav-link">BlogSingle</router-link></li>
-											<li><router-link to="/blog" class="nav-link">Blog</router-link></li>
-											<li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-											<li><router-link to="/contact" class="nav-link">Contact</router-link></li>
-										</ul>
-									</li>
-								<li><router-link to="/blog" class="nav-link">Blog</router-link></li>
+								  <li><router-link to="/blog" class="nav-link">Blog</router-link></li>
 									<li><router-link to="/contact" class="nav-link">Contact</router-link></li>
 								</ul>
 							</div>
-
-							<!-- Menu Trigger -->
-
 							<div class="menu_trigger_container ml-auto">
 								<div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
 									<div class="menu_burger">
@@ -211,7 +134,6 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -276,8 +198,15 @@
 </template>
 
 <script>
-    export default {
-
+export default {
+        data(){
+            return {
+                categories : []
+            }
+        },
+        mounted(){
+            axios.get("api/home/").then(response => this.categories = response.data)
+        }
     }
 
 </script>
