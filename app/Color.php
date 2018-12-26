@@ -9,8 +9,7 @@ class Color extends Model
   protected $table = 'colors';
   protected $fillable =['name'];
 
-  public function product()
-  {
-      return $this->belongsToMany('App\Product');
-  }
+  public function product() {
+        return $this->hasMany('App\Product');
+    }
 }

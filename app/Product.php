@@ -11,17 +11,17 @@ class Product extends Model
 
     public function category()
     {
-        return $this->hasMany('App\Category');
+        return $this->belongsTo('App\Category');
     }
 
     public function brand()
     {
-        return $this->hasMany('App\Brand');
+        return $this->belongsTo('App\Brand');
     }
 
     public function color()
     {
-        return $this->hasMany('App\Color');
+        return $this->belongsToMany('App\Color');
     }
 
 

@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Brands extends Model
 {
-  public function product()
-  {
-      return $this->belongsToMany('App\Product');
-  }
+  protected $table = 'brands';
+  protected $fillable =['name'];
+
+  public function product() {
+        return $this->hasMany('App\Product');
+    }
 }

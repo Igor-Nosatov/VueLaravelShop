@@ -9,8 +9,7 @@ class Category extends Model
   protected $table = 'categories';
   protected $fillable =['name'];
 
-  public function product()
-  {
-      return $this->belongsToMany('App\Product');
-  }
+  public function product() {
+        return $this->hasMany('App\Product');
+    }
 }

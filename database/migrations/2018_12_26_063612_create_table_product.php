@@ -19,6 +19,9 @@ class CreateTableProduct extends Migration
             $table->string('img');
             $table->text('description');
             $table->integer('price');
+            $table->integer('category_id');
+            $table->integer('brand_id');
+            $table->integer('color_id');
             $table->timestamps();
         });
     }
