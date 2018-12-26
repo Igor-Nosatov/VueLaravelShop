@@ -20,6 +20,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '215',
+          'category_id' => '1',
+          'brand_id' => '1',
+          'color_id' => '1',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -30,6 +33,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '915',
+          'category_id' => '2',
+          'brand_id' => '2',
+          'color_id' => '2',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -40,6 +46,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '515',
+          'category_id' => '3',
+          'brand_id' => '3',
+          'color_id' => '3',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -50,6 +59,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '615',
+          'category_id' => '4',
+          'brand_id' => '4',
+          'color_id' => '4',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -60,6 +72,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '815',
+          'category_id' => '5',
+          'brand_id' => '5',
+          'color_id' => '5',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -70,6 +85,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '115',
+          'category_id' => '1',
+          'brand_id' => '1',
+          'color_id' => '1',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -80,6 +98,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '615',
+          'category_id' => '2',
+          'brand_id' => '2',
+          'color_id' => '2',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -90,6 +111,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '515',
+          'category_id' => '3',
+          'brand_id' => '3',
+          'color_id' => '3',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -100,6 +124,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '715',
+          'category_id' => '4',
+          'brand_id' => '4',
+          'color_id' => '4',
       ]);
       DB::table('products')->insert([
           'name' => 'Apple',
@@ -110,6 +137,9 @@ class ProductTableSeeder extends Seeder
            It has survived not only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.',
           'price' => '315',
+          'category_id' => '5',
+          'brand_id' => '5',
+          'color_id' => '5',
       ]);
     }
 }
