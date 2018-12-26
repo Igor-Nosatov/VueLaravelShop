@@ -1,60 +1,22 @@
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
 require('./bootstrap');
 
 window.Vue = require('vue');
 
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-import VueAxios from 'vue-axios';
-import axios from 'axios';
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-import App from './App.vue';
-Vue.use(VueAxios, axios);
-
-import HomeComponent from './components/HomeComponent.vue';
-import BlogComponent from './components/BlogComponent.vue';
-import BlogSingleComponent from './components/BlogSingleComponent.vue';
-import ProductComponent from './components/ProductComponent.vue';
-import CartComponent from './components/CartComponent.vue';
-import ContactComponent from './components/ContactComponent.vue';
-import ShopComponent from './components/ShopComponent.vue';
-
-Vue.component('header-component', require('./includes/HeaderComponent'));
-Vue.component('footer-component', require('./includes/FooterComponent'));
-Vue.component('subscribe', require('./includes/SubscribeComponent'));
-const routes = [
-  {
-      name: 'blog',
-      path: '/blog',
-      component: BlogComponent
-  },
-  {
-      name: 'blog_single',
-      path: '/blog_single',
-      component: BlogSingleComponent
-  },
-  {
-      name: 'contact',
-      path: '/contact',
-      component: ContactComponent
-  },
-  {
-      name: 'home',
-      path: '/',
-      component: HomeComponent
-  },
-  {
-      name: 'product',
-      path: '/product',
-      component: ProductComponent
-  },
-  {
-      name: 'cart',
-      path: '/cart',
-      component: CartComponent
-  }
-
-];
-
-const router = new VueRouter({ mode: 'history', routes: routes});
-const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const app = new Vue({
+    el: '#app'
+});
