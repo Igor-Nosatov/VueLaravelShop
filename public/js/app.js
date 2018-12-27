@@ -2142,471 +2142,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      products: []
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    axios.get("api/").then(function (response) {
+      return _this.products = response.data;
+    });
   }
 });
 
@@ -2864,6 +2411,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37834,1818 +37391,721 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "owl-carousel active-product-area section_gap" },
+      [
+        _c("div", { staticClass: "single-product-slider" }, [
+          _c("div", { staticClass: "container" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.products, function(product) {
+                return _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+                  _c("div", { staticClass: "single-product" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: { src: product.image, alt: product.name }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("h6", [_vm._v(_vm._s(product.name))]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [
+                        _c("h6", [_vm._v("$" + _vm._s(product.new_price))]),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "l-through" }, [
+                          _vm._v("$" + _vm._s(product.old_price))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4, true)
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "single-product-slider" }, [
+          _c("div", { staticClass: "container" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.products, function(product) {
+                return _c("div", { staticClass: "col-lg-3 col-md-6" }, [
+                  _c("div", { staticClass: "single-product" }, [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: { src: product.image, alt: product.name }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "product-details" }, [
+                      _c("h6", [_vm._v(_vm._s(product.name))]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [
+                        _c("h6", [_vm._v("$" + _vm._s(product.new_price))]),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "l-through" }, [
+                          _vm._v("$" + _vm._s(product.old_price))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(6, true)
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(7),
+    _vm._v(" "),
+    _vm._m(8)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("section", { staticClass: "banner-area" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "row fullscreen align-items-center justify-content-start"
-            },
-            [
-              _c("div", { staticClass: "col-lg-12" }, [
+    return _c("section", { staticClass: "banner-area" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "row fullscreen align-items-center justify-content-start"
+          },
+          [
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "active-banner-slider owl-carousel" }, [
                 _c(
                   "div",
-                  { staticClass: "active-banner-slider owl-carousel" },
+                  { staticClass: "row single-slide align-items-center d-flex" },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "row single-slide align-items-center d-flex"
-                      },
-                      [
-                        _c("div", { staticClass: "col-lg-5 col-md-6" }, [
-                          _c("div", { staticClass: "banner-content" }, [
-                            _c("h1", [
-                              _vm._v("Nike New "),
-                              _c("br"),
-                              _vm._v("Collection!")
-                            ]),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "add-bag d-flex align-items-center"
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "add-btn",
-                                    attrs: { href: "" }
-                                  },
-                                  [_c("span", { staticClass: "lnr lnr-cross" })]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  { staticClass: "add-text text-uppercase" },
-                                  [_vm._v("Add to Bag")]
-                                )
-                              ]
-                            )
-                          ])
+                    _c("div", { staticClass: "col-lg-5 col-md-6" }, [
+                      _c("div", { staticClass: "banner-content" }, [
+                        _c("h1", [
+                          _vm._v("Nike New "),
+                          _c("br"),
+                          _vm._v("Collection!")
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-lg-7" }, [
-                          _c("div", { staticClass: "banner-img" }, [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              attrs: {
-                                src: "img/banner/banner-img.png",
-                                alt: ""
-                              }
-                            })
-                          ])
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row single-slide" }, [
-                      _c("div", { staticClass: "col-lg-5" }, [
-                        _c("div", { staticClass: "banner-content" }, [
-                          _c("h1", [
-                            _vm._v("Nike New "),
-                            _c("br"),
-                            _vm._v("Collection!")
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "add-bag d-flex align-items-center"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { staticClass: "add-btn", attrs: { href: "" } },
-                                [_c("span", { staticClass: "lnr lnr-cross" })]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "add-text text-uppercase" },
-                                [_vm._v("Add to Bag")]
-                              )
-                            ]
+                        _c("p", [
+                          _vm._v(
+                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
                           )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-lg-7" }, [
-                        _c("div", { staticClass: "banner-img" }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/banner/banner-img.png", alt: "" }
-                          })
-                        ])
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "features-area section_gap" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row features-inner" }, [
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "single-features" }, [
-                _c("div", { staticClass: "f-icon" }, [
-                  _c("img", {
-                    attrs: { src: "img/features/f-icon1.png", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h6", [_vm._v("Free Delivery")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Free Shipping on all order")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "single-features" }, [
-                _c("div", { staticClass: "f-icon" }, [
-                  _c("img", {
-                    attrs: { src: "img/features/f-icon2.png", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h6", [_vm._v("Return Policy")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Free Shipping on all order")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "single-features" }, [
-                _c("div", { staticClass: "f-icon" }, [
-                  _c("img", {
-                    attrs: { src: "img/features/f-icon3.png", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h6", [_vm._v("24/7 Support")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Free Shipping on all order")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "single-features" }, [
-                _c("div", { staticClass: "f-icon" }, [
-                  _c("img", {
-                    attrs: { src: "img/features/f-icon4.png", alt: "" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("h6", [_vm._v("Secure Payment")]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Free Shipping on all order")])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "category-area" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row justify-content-center" }, [
-            _c("div", { staticClass: "col-lg-8 col-md-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-8 col-md-8" }, [
-                  _c("div", { staticClass: "single-deal" }, [
-                    _c("div", { staticClass: "overlay" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "img-fluid w-100",
-                      attrs: { src: "img/category/c1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-pop-up",
-                        attrs: { href: "img/category/c1.jpg", target: "_blank" }
-                      },
-                      [
-                        _c("div", { staticClass: "deal-details" }, [
-                          _c("h6", { staticClass: "deal-title" }, [
-                            _vm._v("Sneaker for Sports")
-                          ])
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-                  _c("div", { staticClass: "single-deal" }, [
-                    _c("div", { staticClass: "overlay" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "img-fluid w-100",
-                      attrs: { src: "img/category/c2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-pop-up",
-                        attrs: { href: "img/category/c2.jpg", target: "_blank" }
-                      },
-                      [
-                        _c("div", { staticClass: "deal-details" }, [
-                          _c("h6", { staticClass: "deal-title" }, [
-                            _vm._v("Sneaker for Sports")
-                          ])
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4 col-md-4" }, [
-                  _c("div", { staticClass: "single-deal" }, [
-                    _c("div", { staticClass: "overlay" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "img-fluid w-100",
-                      attrs: { src: "img/category/c3.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-pop-up",
-                        attrs: { href: "img/category/c3.jpg", target: "_blank" }
-                      },
-                      [
-                        _c("div", { staticClass: "deal-details" }, [
-                          _c("h6", { staticClass: "deal-title" }, [
-                            _vm._v("Product for Couple")
-                          ])
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-8 col-md-8" }, [
-                  _c("div", { staticClass: "single-deal" }, [
-                    _c("div", { staticClass: "overlay" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "img-fluid w-100",
-                      attrs: { src: "img/category/c4.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-pop-up",
-                        attrs: { href: "img/category/c4.jpg", target: "_blank" }
-                      },
-                      [
-                        _c("div", { staticClass: "deal-details" }, [
-                          _c("h6", { staticClass: "deal-title" }, [
-                            _vm._v("Sneaker for Sports")
-                          ])
-                        ])
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-              _c("div", { staticClass: "single-deal" }, [
-                _c("div", { staticClass: "overlay" }),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "img-fluid w-100",
-                  attrs: { src: "img/category/c5.jpg", alt: "" }
-                }),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "img-pop-up",
-                    attrs: { href: "img/category/c5.jpg", target: "_blank" }
-                  },
-                  [
-                    _c("div", { staticClass: "deal-details" }, [
-                      _c("h6", { staticClass: "deal-title" }, [
-                        _vm._v("Sneaker for Sports")
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "owl-carousel active-product-area section_gap" },
-        [
-          _c("div", { staticClass: "single-product-slider" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row justify-content-center" }, [
-                _c("div", { staticClass: "col-lg-6 text-center" }, [
-                  _c("div", { staticClass: "section-title" }, [
-                    _c("h1", [_vm._v("Latest Products")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                dolore\n                magna aliqua."
-                      )
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
+                        ]),
                         _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
                         _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
+                          "div",
+                          { staticClass: "add-bag d-flex align-items-center" },
                           [
-                            _c("span", { staticClass: "ti-bag" }),
+                            _c(
+                              "a",
+                              { staticClass: "add-btn", attrs: { href: "" } },
+                              [_c("span", { staticClass: "lnr lnr-cross" })]
+                            ),
                             _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
+                            _c(
+                              "span",
+                              { staticClass: "add-text text-uppercase" },
+                              [_vm._v("Add to Bag")]
+                            )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p2.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p3.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p4.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p5.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p6.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p7.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p8.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "single-product-slider" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row justify-content-center" }, [
-                _c("div", { staticClass: "col-lg-6 text-center" }, [
-                  _c("div", { staticClass: "section-title" }, [
-                    _c("h1", [_vm._v("Coming Products")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                dolore\n                magna aliqua."
-                      )
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p6.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p8.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p3.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p5.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p4.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p1.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-md-6" }, [
-                  _c("div", { staticClass: "single-product" }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "img/product/p8.jpg", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "product-details" }, [
-                      _c("h6", [
-                        _vm._v(
-                          "addidas New Hammer sole\n                  for Sports person"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price" }, [
-                        _c("h6", [_vm._v("$150.00")]),
-                        _vm._v(" "),
-                        _c("h6", { staticClass: "l-through" }, [
-                          _vm._v("$210.00")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "prd-bottom" }, [
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "ti-bag" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("add to bag")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-heart" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("Wishlist")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-sync" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("compare")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          { staticClass: "social-info", attrs: { href: "" } },
-                          [
-                            _c("span", { staticClass: "lnr lnr-move" }),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "hover-text" }, [
-                              _vm._v("view more")
-                            ])
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("section", { staticClass: "exclusive-deal-area" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c(
-            "div",
-            { staticClass: "row justify-content-center align-items-center" },
-            [
-              _c("div", { staticClass: "col-lg-6 no-padding exclusive-left" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "row clock_sec clockdiv",
-                    attrs: { id: "clockdiv" }
-                  },
-                  [
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("h1", [_vm._v("Exclusive Hot Deal Ends Soon!")]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          "Who are in extremely love with eco friendly system."
                         )
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("div", { staticClass: "row clock-wrap" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col clockinner1 clockinner" },
-                          [
-                            _c("h1", { staticClass: "days" }, [_vm._v("150")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "smalltext" }, [
-                              _vm._v("Days")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col clockinner clockinner1" },
-                          [
-                            _c("h1", { staticClass: "hours" }, [_vm._v("23")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "smalltext" }, [
-                              _vm._v("Hours")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col clockinner clockinner1" },
-                          [
-                            _c("h1", { staticClass: "minutes" }, [
-                              _vm._v("47")
-                            ]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "smalltext" }, [
-                              _vm._v("Mins")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "col clockinner clockinner1" },
-                          [
-                            _c("h1", { staticClass: "seconds" }, [
-                              _vm._v("59")
-                            ]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "smalltext" }, [
-                              _vm._v("Secs")
-                            ])
-                          ]
-                        )
+                    _c("div", { staticClass: "col-lg-7" }, [
+                      _c("div", { staticClass: "banner-img" }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "img/banner/banner-img.png", alt: "" }
+                        })
                       ])
                     ])
                   ]
                 ),
                 _vm._v(" "),
-                _c("a", { staticClass: "primary-btn", attrs: { href: "" } }, [
-                  _vm._v("Shop Now")
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-lg-6 no-padding exclusive-right" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "active-exclusive-product-slider" },
-                    [
-                      _c("div", { staticClass: "single-exclusive-slider" }, [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "img/product/e-p1.png", alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-details" }, [
-                          _c("div", { staticClass: "price" }, [
-                            _c("h6", [_vm._v("$150.00")]),
-                            _vm._v(" "),
-                            _c("h6", { staticClass: "l-through" }, [
-                              _vm._v("$210.00")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("h4", [
-                            _vm._v(
-                              "addidas New Hammer sole\n                  for Sports person"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "add-bag d-flex align-items-center justify-content-center"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { staticClass: "add-btn", attrs: { href: "" } },
-                                [_c("span", { staticClass: "ti-bag" })]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "add-text text-uppercase" },
-                                [_vm._v("Add to Bag")]
-                              )
-                            ]
-                          )
-                        ])
+                _c("div", { staticClass: "row single-slide" }, [
+                  _c("div", { staticClass: "col-lg-5" }, [
+                    _c("div", { staticClass: "banner-content" }, [
+                      _c("h1", [
+                        _vm._v("Nike New "),
+                        _c("br"),
+                        _vm._v("Collection!")
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "single-exclusive-slider" }, [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "img/product/e-p1.png", alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-details" }, [
-                          _c("div", { staticClass: "price" }, [
-                            _c("h6", [_vm._v("$150.00")]),
-                            _vm._v(" "),
-                            _c("h6", { staticClass: "l-through" }, [
-                              _vm._v("$210.00")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("h4", [
-                            _vm._v(
-                              "addidas New Hammer sole\n                  for Sports person"
-                            )
-                          ]),
+                      _c("p", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "add-bag d-flex align-items-center" },
+                        [
+                          _c(
+                            "a",
+                            { staticClass: "add-btn", attrs: { href: "" } },
+                            [_c("span", { staticClass: "lnr lnr-cross" })]
+                          ),
                           _vm._v(" "),
                           _c(
-                            "div",
-                            {
-                              staticClass:
-                                "add-bag d-flex align-items-center justify-content-center"
-                            },
-                            [
-                              _c(
-                                "a",
-                                { staticClass: "add-btn", attrs: { href: "" } },
-                                [_c("span", { staticClass: "ti-bag" })]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { staticClass: "add-text text-uppercase" },
-                                [_vm._v("Add to Bag")]
-                              )
-                            ]
+                            "span",
+                            { staticClass: "add-text text-uppercase" },
+                            [_vm._v("Add to Bag")]
                           )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-7" }, [
+                    _c("div", { staticClass: "banner-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/banner/banner-img.png", alt: "" }
+                      })
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "features-area section_gap" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row features-inner" }, [
+          _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
+            _c("div", { staticClass: "single-features" }, [
+              _c("div", { staticClass: "f-icon" }, [
+                _c("img", {
+                  attrs: { src: "img/features/f-icon1.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Free Delivery")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Free Shipping on all order")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
+            _c("div", { staticClass: "single-features" }, [
+              _c("div", { staticClass: "f-icon" }, [
+                _c("img", {
+                  attrs: { src: "img/features/f-icon2.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Return Policy")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Free Shipping on all order")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
+            _c("div", { staticClass: "single-features" }, [
+              _c("div", { staticClass: "f-icon" }, [
+                _c("img", {
+                  attrs: { src: "img/features/f-icon3.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("24/7 Support")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Free Shipping on all order")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 col-md-6 col-sm-6" }, [
+            _c("div", { staticClass: "single-features" }, [
+              _c("div", { staticClass: "f-icon" }, [
+                _c("img", {
+                  attrs: { src: "img/features/f-icon4.png", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h6", [_vm._v("Secure Payment")]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Free Shipping on all order")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "category-area" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-8 col-md-12" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-8 col-md-8" }, [
+                _c("div", { staticClass: "single-deal" }, [
+                  _c("div", { staticClass: "overlay" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img-fluid w-100",
+                    attrs: { src: "img/category/c1.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "img-pop-up",
+                      attrs: { href: "img/category/c1.jpg", target: "_blank" }
+                    },
+                    [
+                      _c("div", { staticClass: "deal-details" }, [
+                        _c("h6", { staticClass: "deal-title" }, [
+                          _vm._v("Sneaker for Sports")
                         ])
                       ])
                     ]
                   )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-md-4" }, [
+                _c("div", { staticClass: "single-deal" }, [
+                  _c("div", { staticClass: "overlay" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img-fluid w-100",
+                    attrs: { src: "img/category/c2.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "img-pop-up",
+                      attrs: { href: "img/category/c2.jpg", target: "_blank" }
+                    },
+                    [
+                      _c("div", { staticClass: "deal-details" }, [
+                        _c("h6", { staticClass: "deal-title" }, [
+                          _vm._v("Sneaker for Sports")
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-md-4" }, [
+                _c("div", { staticClass: "single-deal" }, [
+                  _c("div", { staticClass: "overlay" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img-fluid w-100",
+                    attrs: { src: "img/category/c3.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "img-pop-up",
+                      attrs: { href: "img/category/c3.jpg", target: "_blank" }
+                    },
+                    [
+                      _c("div", { staticClass: "deal-details" }, [
+                        _c("h6", { staticClass: "deal-title" }, [
+                          _vm._v("Product for Couple")
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-8 col-md-8" }, [
+                _c("div", { staticClass: "single-deal" }, [
+                  _c("div", { staticClass: "overlay" }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "img-fluid w-100",
+                    attrs: { src: "img/category/c4.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "img-pop-up",
+                      attrs: { href: "img/category/c4.jpg", target: "_blank" }
+                    },
+                    [
+                      _c("div", { staticClass: "deal-details" }, [
+                        _c("h6", { staticClass: "deal-title" }, [
+                          _vm._v("Sneaker for Sports")
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+            _c("div", { staticClass: "single-deal" }, [
+              _c("div", { staticClass: "overlay" }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "img-fluid w-100",
+                attrs: { src: "img/category/c5.jpg", alt: "" }
+              }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "img-pop-up",
+                  attrs: { href: "img/category/c5.jpg", target: "_blank" }
+                },
+                [
+                  _c("div", { staticClass: "deal-details" }, [
+                    _c("h6", { staticClass: "deal-title" }, [
+                      _vm._v("Sneaker for Sports")
+                    ])
+                  ])
                 ]
               )
-            ]
-          )
+            ])
+          ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-6 text-center" }, [
+        _c("div", { staticClass: "section-title" }, [
+          _c("h1", [_vm._v("Latest Products")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n\t\t\t\t\t\t\t\tdolore\n\t\t\t\t\t\t\t\tmagna aliqua."
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "prd-bottom" }, [
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "ti-bag" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("add to bag")])
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "brand-area section_gap" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "img-fluid d-block mx-auto",
-                attrs: { src: "img/brand/1.png", alt: "" }
-              })
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-heart" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("Wishlist")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-sync" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("compare")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-move" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("view more")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-lg-6 text-center" }, [
+        _c("div", { staticClass: "section-title" }, [
+          _c("h1", [_vm._v("Coming Products")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\n    \t\t\t\t\t\t\t\tdolore\n    \t\t\t\t\t\t\t\tmagna aliqua."
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "prd-bottom" }, [
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "ti-bag" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("add to bag")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-heart" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("Wishlist")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-sync" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("compare")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "social-info", attrs: { href: "" } }, [
+        _c("span", { staticClass: "lnr lnr-move" }),
+        _vm._v(" "),
+        _c("p", { staticClass: "hover-text" }, [_vm._v("view more")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "exclusive-deal-area" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c(
+          "div",
+          { staticClass: "row justify-content-center align-items-center" },
+          [
+            _c("div", { staticClass: "col-lg-6 no-padding exclusive-left" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "row clock_sec clockdiv",
+                  attrs: { id: "clockdiv" }
+                },
+                [
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("h1", [_vm._v("Exclusive Hot Deal Ends Soon!")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "Who are in extremely love with eco friendly system."
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "row clock-wrap" }, [
+                      _c("div", { staticClass: "col clockinner1 clockinner" }, [
+                        _c("h1", { staticClass: "days" }, [_vm._v("150")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "smalltext" }, [
+                          _vm._v("Days")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col clockinner clockinner1" }, [
+                        _c("h1", { staticClass: "hours" }, [_vm._v("23")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "smalltext" }, [
+                          _vm._v("Hours")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col clockinner clockinner1" }, [
+                        _c("h1", { staticClass: "minutes" }, [_vm._v("47")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "smalltext" }, [
+                          _vm._v("Mins")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col clockinner clockinner1" }, [
+                        _c("h1", { staticClass: "seconds" }, [_vm._v("59")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "smalltext" }, [
+                          _vm._v("Secs")
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("a", { staticClass: "primary-btn", attrs: { href: "" } }, [
+                _vm._v("Shop Now")
+              ])
             ]),
             _vm._v(" "),
-            _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "img-fluid d-block mx-auto",
-                attrs: { src: "img/brand/2.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "img-fluid d-block mx-auto",
-                attrs: { src: "img/brand/3.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "img-fluid d-block mx-auto",
-                attrs: { src: "img/brand/4.png", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
-              _c("img", {
-                staticClass: "img-fluid d-block mx-auto",
-                attrs: { src: "img/brand/5.png", alt: "" }
-              })
+            _c("div", { staticClass: "col-lg-6 no-padding exclusive-right" }, [
+              _c("div", { staticClass: "active-exclusive-product-slider" }, [
+                _c("div", { staticClass: "single-exclusive-slider" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: { src: "img/product/e-p1.png", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product-details" }, [
+                    _c("div", { staticClass: "price" }, [
+                      _c("h6", [_vm._v("$150.00")]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "l-through" }, [
+                        _vm._v("$210.00")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("h4", [
+                      _vm._v(
+                        "addidas New Hammer sole\n                      for Sports person"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "add-bag d-flex align-items-center justify-content-center"
+                      },
+                      [
+                        _c(
+                          "a",
+                          { staticClass: "add-btn", attrs: { href: "" } },
+                          [_c("span", { staticClass: "ti-bag" })]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "add-text text-uppercase" }, [
+                          _vm._v("Add to Bag")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "single-exclusive-slider" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: { src: "img/product/e-p1.png", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product-details" }, [
+                    _c("div", { staticClass: "price" }, [
+                      _c("h6", [_vm._v("$150.00")]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "l-through" }, [
+                        _vm._v("$210.00")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("h4", [
+                      _vm._v(
+                        "addidas New Hammer sole\n                      for Sports person"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "add-bag d-flex align-items-center justify-content-center"
+                      },
+                      [
+                        _c(
+                          "a",
+                          { staticClass: "add-btn", attrs: { href: "" } },
+                          [_c("span", { staticClass: "ti-bag" })]
+                        ),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "add-text text-uppercase" }, [
+                          _vm._v("Add to Bag")
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
             ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "brand-area section_gap" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "img-fluid d-block mx-auto",
+              attrs: { src: "img/brand/1.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "img-fluid d-block mx-auto",
+              attrs: { src: "img/brand/2.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "img-fluid d-block mx-auto",
+              attrs: { src: "img/brand/3.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "img-fluid d-block mx-auto",
+              attrs: { src: "img/brand/4.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "col single-img", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "img-fluid d-block mx-auto",
+              attrs: { src: "img/brand/5.png", alt: "" }
+            })
           ])
         ])
       ])
@@ -40123,51 +38583,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("header", { staticClass: "header_area sticky-header" }, [
-        _c("div", { staticClass: "main_menu" }, [
-          _c(
-            "nav",
-            { staticClass: "navbar navbar-expand-lg navbar-light main_box" },
-            [
-              _c("div", { staticClass: "container" }, [
+  return _c("div", [
+    _c("header", { staticClass: "header_area sticky-header" }, [
+      _c("div", { staticClass: "main_menu" }, [
+        _c(
+          "nav",
+          { staticClass: "navbar navbar-expand-lg navbar-light main_box" },
+          [
+            _c(
+              "div",
+              { staticClass: "container" },
+              [
                 _c(
-                  "a",
-                  {
-                    staticClass: "navbar-brand logo_h",
-                    attrs: { href: "index.html" }
-                  },
+                  "router-link",
+                  { staticClass: "nav-link", attrs: { to: "/" } },
                   [_c("img", { attrs: { src: "img/logo.png", alt: "" } })]
                 ),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "navbar-toggler",
-                    attrs: {
-                      type: "button",
-                      "data-toggle": "collapse",
-                      "data-target": "#navbarSupportedContent",
-                      "aria-controls": "navbarSupportedContent",
-                      "aria-expanded": "false",
-                      "aria-label": "Toggle navigation"
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "icon-bar" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-bar" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-bar" })
-                  ]
-                ),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -40180,16 +38613,7 @@ var staticRenderFns = [
                       "ul",
                       { staticClass: "nav navbar-nav menu_nav ml-auto" },
                       [
-                        _c("li", { staticClass: "nav-item active" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { href: "index.html" }
-                            },
-                            [_vm._v("Home")]
-                          )
-                        ]),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c("li", { staticClass: "nav-item submenu dropdown" }, [
                           _c(
@@ -40208,219 +38632,289 @@ var staticRenderFns = [
                           ),
                           _vm._v(" "),
                           _c("ul", { staticClass: "dropdown-menu" }, [
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "category.html" }
-                                },
-                                [_vm._v("Shop Category")]
-                              )
-                            ]),
+                            _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: "/" }
+                                  },
+                                  [_vm._v("Shop Category")]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "single-product.html" }
-                                },
-                                [_vm._v("Product Details")]
-                              )
-                            ]),
+                            _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: "/" }
+                                  },
+                                  [_vm._v("Product Details")]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "checkout.html" }
-                                },
-                                [_vm._v("Product Checkout")]
-                              )
-                            ]),
+                            _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: "/" }
+                                  },
+                                  [_vm._v("Product Checkout")]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "cart.html" }
-                                },
-                                [_vm._v("Shopping Cart")]
-                              )
-                            ]),
+                            _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: "/" }
+                                  },
+                                  [_vm._v("Shopping Cart")]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "confirmation.html" }
-                                },
-                                [_vm._v("Confirmation")]
-                              )
-                            ])
+                            _c(
+                              "li",
+                              { staticClass: "nav-item" },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "nav-link",
+                                    attrs: { to: "/" }
+                                  },
+                                  [_vm._v("Confirmation")]
+                                )
+                              ],
+                              1
+                            )
                           ])
                         ]),
                         _vm._v(" "),
-                        _c("li", { staticClass: "nav-item submenu dropdown" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link dropdown-toggle",
-                              attrs: {
-                                href: "#",
-                                "data-toggle": "dropdown",
-                                role: "button",
-                                "aria-haspopup": "true",
-                                "aria-expanded": "false"
-                              }
-                            },
-                            [_vm._v("Blog")]
-                          ),
-                          _vm._v(" "),
-                          _c("ul", { staticClass: "dropdown-menu" }, [
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "blog.html" }
-                                },
-                                [_vm._v("Blog")]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "single-blog.html" }
-                                },
-                                [_vm._v("Blog Details")]
-                              )
-                            ])
-                          ])
-                        ]),
+                        _vm._m(2),
                         _vm._v(" "),
-                        _c("li", { staticClass: "nav-item submenu dropdown" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link dropdown-toggle",
-                              attrs: {
-                                href: "#",
-                                "data-toggle": "dropdown",
-                                role: "button",
-                                "aria-haspopup": "true",
-                                "aria-expanded": "false"
-                              }
-                            },
-                            [_vm._v("Pages")]
-                          ),
-                          _vm._v(" "),
-                          _c("ul", { staticClass: "dropdown-menu" }, [
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "login.html" }
-                                },
-                                [_vm._v("Login")]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "tracking.html" }
-                                },
-                                [_vm._v("Tracking")]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("li", { staticClass: "nav-item" }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: { href: "elements.html" }
-                                },
-                                [_vm._v("Elements")]
-                              )
-                            ])
-                          ])
-                        ]),
+                        _vm._m(3),
                         _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { href: "contact.html" }
-                            },
-                            [_vm._v("Contact")]
-                          )
-                        ])
+                        _vm._m(4)
                       ]
                     ),
                     _vm._v(" "),
-                    _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c("a", { staticClass: "cart", attrs: { href: "#" } }, [
-                          _c("span", { staticClass: "ti-bag" })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "nav-item" }, [
-                        _c("button", { staticClass: "search" }, [
-                          _c("span", {
-                            staticClass: "lnr lnr-magnifier",
-                            attrs: { id: "search" }
-                          })
-                        ])
-                      ])
-                    ])
+                    _vm._m(5)
                   ]
                 )
-              ])
-            ]
+              ],
+              1
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(6)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent",
+          "aria-controls": "navbarSupportedContent",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [
+        _c("span", { staticClass: "icon-bar" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon-bar" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon-bar" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item active" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "index.html" } }, [
+        _vm._v("Home")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item submenu dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            "data-toggle": "dropdown",
+            role: "button",
+            "aria-haspopup": "true",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("Blog")]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c("a", { staticClass: "nav-link", attrs: { href: "blog.html" } }, [
+            _vm._v("Blog")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "single-blog.html" } },
+            [_vm._v("Blog Details")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item submenu dropdown" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link dropdown-toggle",
+          attrs: {
+            href: "#",
+            "data-toggle": "dropdown",
+            role: "button",
+            "aria-haspopup": "true",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("Pages")]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "dropdown-menu" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c("a", { staticClass: "nav-link", attrs: { href: "login.html" } }, [
+            _vm._v("Login")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "tracking.html" } },
+            [_vm._v("Tracking")]
           )
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "search_input", attrs: { id: "search_input_box" } },
-          [
-            _c("div", { staticClass: "container" }, [
-              _c("form", { staticClass: "d-flex justify-content-between" }, [
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "search_input",
-                    placeholder: "Search Here"
-                  }
-                }),
-                _vm._v(" "),
-                _c("button", { staticClass: "btn", attrs: { type: "submit" } }),
-                _vm._v(" "),
-                _c("span", {
-                  staticClass: "lnr lnr-cross",
-                  attrs: { id: "close_search", title: "Close Search" }
-                })
-              ])
-            ])
-          ]
-        )
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            { staticClass: "nav-link", attrs: { href: "elements.html" } },
+            [_vm._v("Elements")]
+          )
+        ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "contact.html" } }, [
+        _vm._v("Contact")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c("a", { staticClass: "cart", attrs: { href: "#" } }, [
+          _c("span", { staticClass: "ti-bag" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c("button", { staticClass: "search" }, [
+          _c("span", {
+            staticClass: "lnr lnr-magnifier",
+            attrs: { id: "search" }
+          })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "search_input", attrs: { id: "search_input_box" } },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("form", { staticClass: "d-flex justify-content-between" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "search_input",
+                placeholder: "Search Here"
+              }
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn", attrs: { type: "submit" } }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "lnr lnr-cross",
+              attrs: { id: "close_search", title: "Close Search" }
+            })
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
