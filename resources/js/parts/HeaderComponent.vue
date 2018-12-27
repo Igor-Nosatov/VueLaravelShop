@@ -4,7 +4,7 @@
       <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light main_box">
           <div class="container">
-            <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+            <router-link to="/" class="nav-link"><img src="img/logo.png" alt=""></router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-bar"></span>
@@ -18,11 +18,21 @@
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                    <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                    <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                    <li class="nav-item">
+                      <router-link to="/" class="nav-link">Shop Category</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/" class="nav-link">Product Details</router-link>
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/" class="nav-link">Product Checkout</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/" class="nav-link">Shopping Cart</router-link>
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/" class="nav-link">Confirmation</router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-item submenu dropdown">
@@ -70,6 +80,6 @@
 
 <script>
     export default {
-        
+
     }
 </script>
