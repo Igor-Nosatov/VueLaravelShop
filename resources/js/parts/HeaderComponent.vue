@@ -15,7 +15,7 @@
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item active"><router-link to="/" class="nav-link">Home</router-link></li>
                 <li class="nav-item submenu dropdown">
-                  <router-link to="/category" class="nav-link">Shop</router-link>
+                  <router-link to="/shop" class="nav-link">Shop</router-link>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"

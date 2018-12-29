@@ -1778,38 +1778,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      products: []
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get("api/products").then(function (response) {
-      return _this.products = response.data;
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomeComponent.vue?vue&type=script&lang=js& ***!
@@ -2184,6 +2152,458 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("/api/products").then(function (response) {
+      return _this.products = response.data;
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShopComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      products: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get("api/products").then(function (response) {
       return _this.products = response.data;
     });
   }
@@ -37390,30 +37810,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978& ***!
-  \********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div")
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HomeComponent.vue?vue&type=template&id=782dcf83& ***!
@@ -38156,6 +38552,1624 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "banner-area organic-breadcrumb" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end"
+            },
+            [
+              _c("div", { staticClass: "col-first" }, [
+                _c("h1", [_vm._v("Shop Category page")]),
+                _vm._v(" "),
+                _c("nav", { staticClass: "d-flex align-items-center" }, [
+                  _c("a", { attrs: { href: "index.html" } }, [
+                    _vm._v("Home"),
+                    _c("span", { staticClass: "lnr lnr-arrow-right" })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Shop"),
+                    _c("span", { staticClass: "lnr lnr-arrow-right" })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "category.html" } }, [
+                    _vm._v("Fashon Category")
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-xl-3 col-lg-4 col-md-5" }, [
+            _c("div", { staticClass: "sidebar-categories" }, [
+              _c("div", { staticClass: "head" }, [_vm._v("Browse Categories")]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "main-categories" }, [
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#fruitsVegetable",
+                        "aria-expanded": "false",
+                        "aria-controls": "fruitsVegetable"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Fruits and Vegetables"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(53)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "fruitsVegetable",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "fruitsVegetable"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#meatFish",
+                        "aria-expanded": "false",
+                        "aria-controls": "meatFish"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Meat and Fish"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(53)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "meatFish",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "meatFish"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#cooking",
+                        "aria-expanded": "false",
+                        "aria-controls": "cooking"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Cooking"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(53)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "cooking",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "cooking"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#beverages",
+                        "aria-expanded": "false",
+                        "aria-controls": "beverages"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Beverages"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(24)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "beverages",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "beverages"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#homeClean",
+                        "aria-expanded": "false",
+                        "aria-controls": "homeClean"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Home and Cleaning"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(53)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "homeClean",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "homeClean"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Pest Control"),
+                    _c("span", { staticClass: "number" }, [_vm._v("(24)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#officeProduct",
+                        "aria-expanded": "false",
+                        "aria-controls": "officeProduct"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Office Products"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(77)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "officeProduct",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "officeProduct"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#beauttyProduct",
+                        "aria-expanded": "false",
+                        "aria-controls": "beauttyProduct"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Beauty Products"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(65)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "beauttyProduct",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "beauttyProduct"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#healthProduct",
+                        "aria-expanded": "false",
+                        "aria-controls": "healthProduct"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Health Products"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(29)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "healthProduct",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "healthProduct"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("Pet Care"),
+                    _c("span", { staticClass: "number" }, [_vm._v("(29)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#homeAppliance",
+                        "aria-expanded": "false",
+                        "aria-controls": "homeAppliance"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Home Appliances"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(15)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "homeAppliance",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "homeAppliance"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(11)")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "main-nav-list" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "border-bottom-0",
+                      attrs: {
+                        "data-toggle": "collapse",
+                        href: "#babyCare",
+                        "aria-expanded": "false",
+                        "aria-controls": "babyCare"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
+                      _vm._v("Baby Care"),
+                      _c("span", { staticClass: "number" }, [_vm._v("(48)")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    {
+                      staticClass: "collapse",
+                      attrs: {
+                        id: "babyCare",
+                        "data-toggle": "collapse",
+                        "aria-expanded": "false",
+                        "aria-controls": "babyCare"
+                      }
+                    },
+                    [
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Frozen Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(13)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Dried Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(09)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Fresh Fish"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(17)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _vm._v("Meat Alternatives"),
+                          _c("span", { staticClass: "number" }, [
+                            _vm._v("(01)")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "main-nav-list child" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "border-bottom-0",
+                            attrs: { href: "#" }
+                          },
+                          [
+                            _vm._v("Meat"),
+                            _c("span", { staticClass: "number" }, [
+                              _vm._v("(11)")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sidebar-filter mt-50" }, [
+              _c("div", { staticClass: "top-filter-head" }, [
+                _vm._v("Product Filters")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "common-filter" }, [
+                _c("div", { staticClass: "head" }, [_vm._v("Brands")]),
+                _vm._v(" "),
+                _c("form", { attrs: { action: "#" } }, [
+                  _c("ul", [
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "apple", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "apple" } }, [
+                        _vm._v("Apple"),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "asus", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "asus" } }, [
+                        _vm._v("Asus"),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "gionee", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "gionee" } }, [
+                        _vm._v("Gionee"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "micromax", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "micromax" } }, [
+                        _vm._v("Micromax"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "samsung", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "samsung" } }, [
+                        _vm._v("Samsung"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "common-filter" }, [
+                _c("div", { staticClass: "head" }, [_vm._v("Color")]),
+                _vm._v(" "),
+                _c("form", { attrs: { action: "#" } }, [
+                  _c("ul", [
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "black", name: "color" }
+                      }),
+                      _c("label", { attrs: { for: "black" } }, [
+                        _vm._v("Black"),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: {
+                          type: "radio",
+                          id: "balckleather",
+                          name: "color"
+                        }
+                      }),
+                      _c("label", { attrs: { for: "balckleather" } }, [
+                        _vm._v("Black\n                  Leather"),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "blackred", name: "color" }
+                      }),
+                      _c("label", { attrs: { for: "blackred" } }, [
+                        _vm._v("Black\n                  with red"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "gold", name: "color" }
+                      }),
+                      _c("label", { attrs: { for: "gold" } }, [
+                        _vm._v("Gold"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "spacegrey", name: "color" }
+                      }),
+                      _c("label", { attrs: { for: "spacegrey" } }, [
+                        _vm._v("Spacegrey"),
+                        _c("span", [_vm._v("(19)")])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "common-filter" }, [
+                _c("div", { staticClass: "head" }, [_vm._v("Price")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "price-range-area" }, [
+                  _c("div", { attrs: { id: "price-range" } }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "value-wrapper d-flex" }, [
+                    _c("div", { staticClass: "price" }, [_vm._v("Price:")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("$")]),
+                    _vm._v(" "),
+                    _c("div", { attrs: { id: "lower-value" } }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "to" }, [_vm._v("to")]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("$")]),
+                    _vm._v(" "),
+                    _c("div", { attrs: { id: "upper-value" } })
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
+            _c(
+              "div",
+              { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
+              [
+                _c("div", { staticClass: "sorting" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Default sorting")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Default sorting")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Default sorting")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "sorting mr-auto" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Show 12")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Show 12")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "pagination" }, [
+                  _c("a", { staticClass: "prev-arrow", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-long-arrow-left",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "active", attrs: { href: "#" } }, [
+                    _vm._v("1")
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("2")]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("3")]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "dot-dot", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-ellipsis-h",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("6")]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "next-arrow", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-long-arrow-right",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "section",
+              { staticClass: "lattest-product-area pb-40 category-list" },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p1.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p2.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p3.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p4.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p5.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c("div", { staticClass: "single-product" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: { src: "img/product/p6.jpg", alt: "" }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "product-details" }, [
+                        _c("h6", [
+                          _vm._v(
+                            "addidas New Hammer sole\n                  for Sports person"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "price" }, [
+                          _c("h6", [_vm._v("$150.00")]),
+                          _vm._v(" "),
+                          _c("h6", { staticClass: "l-through" }, [
+                            _vm._v("$210.00")
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "prd-bottom" }, [
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "ti-bag" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("add to bag")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-heart" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("Wishlist")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-sync" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("compare")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            { staticClass: "social-info", attrs: { href: "" } },
+                            [
+                              _c("span", { staticClass: "lnr lnr-move" }),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "hover-text" }, [
+                                _vm._v("view more")
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
+              [
+                _c("div", { staticClass: "sorting mr-auto" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Show 12")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Show 12")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "pagination" }, [
+                  _c("a", { staticClass: "prev-arrow", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-long-arrow-left",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "active", attrs: { href: "#" } }, [
+                    _vm._v("1")
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("2")]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("3")]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "dot-dot", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-ellipsis-h",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("6")]),
+                  _vm._v(" "),
+                  _c("a", { staticClass: "next-arrow", attrs: { href: "#" } }, [
+                    _c("i", {
+                      staticClass: "fa fa-long-arrow-right",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/parts/DealsComponent.vue?vue&type=template&id=76903d3a&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/parts/DealsComponent.vue?vue&type=template&id=76903d3a& ***!
@@ -38672,7 +40686,7 @@ var render = function() {
                               "router-link",
                               {
                                 staticClass: "nav-link",
-                                attrs: { to: "/category" }
+                                attrs: { to: "/shop" }
                               },
                               [_vm._v("Shop")]
                             )
@@ -52937,75 +54951,6 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/CategoryComponent.vue":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/CategoryComponent.vue ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryComponent.vue?vue&type=template&id=3991b978& */ "./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978&");
-/* harmony import */ var _CategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoryComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CategoryComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CategoryComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978& ***!
-  \**************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryComponent.vue?vue&type=template&id=3991b978& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CategoryComponent.vue?vue&type=template&id=3991b978&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/HomeComponent.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/HomeComponent.vue ***!
@@ -53070,6 +55015,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeComponent_vue_vue_type_template_id_782dcf83___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ShopComponent.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ShopComponent.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShopComponent.vue?vue&type=template&id=2cbbc6cc& */ "./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc&");
+/* harmony import */ var _ShopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShopComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ShopComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ShopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ShopComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ShopComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/ShopComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ShopComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ShopComponent.vue?vue&type=template&id=2cbbc6cc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ShopComponent.vue?vue&type=template&id=2cbbc6cc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopComponent_vue_vue_type_template_id_2cbbc6cc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -53292,7 +55306,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_HomeComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/HomeComponent.vue */ "./resources/js/components/HomeComponent.vue");
-/* harmony import */ var _components_CategoryComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue");
+/* harmony import */ var _components_ShopComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ShopComponent.vue */ "./resources/js/components/ShopComponent.vue");
 
 
 var routes = [{
@@ -53300,9 +55314,9 @@ var routes = [{
   path: '/',
   component: _components_HomeComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
-  path: '/category',
-  name: 'category',
-  component: _components_CategoryComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  path: '/shop',
+  name: 'shop',
+  component: _components_ShopComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 
