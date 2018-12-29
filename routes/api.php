@@ -2,4 +2,4 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', 'HomeController@index');
+Route::get('/products', 'HomeController@index');

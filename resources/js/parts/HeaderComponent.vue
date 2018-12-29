@@ -13,27 +13,9 @@
             </button>
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
               <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item active"><router-link to="/" class="nav-link">Home</router-link></li>
                 <li class="nav-item submenu dropdown">
-                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item">
-                      <router-link to="/" class="nav-link">Shop Category</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link">Product Details</router-link>
-                    </li>
-                    <li class="nav-item">
-                      <router-link to="/" class="nav-link">Product Checkout</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link">Shopping Cart</router-link>
-                    </li>
-                    <li class="nav-item">
-                      <router-link to="/" class="nav-link">Confirmation</router-link>
-                    </li>
-                  </ul>
+                  <router-link to="/category" class="nav-link">Shop</router-link>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"

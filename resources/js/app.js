@@ -1,4 +1,3 @@
-
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -13,12 +12,14 @@ import App from './App.vue';
 Vue.use(VueAxios, axios);
 import Router from './routes/routing.js'
 
-Vue.component('header-component', require ('./parts/HeaderComponent.vue').default);
-Vue.component('deals-component', require ('./parts/DealsComponent.vue').default);
-Vue.component('footer-component', require ('./parts/FooterComponent.vue').default);
+Vue.component('header-component', require('./parts/HeaderComponent.vue').default);
+Vue.component('deals-component', require('./parts/DealsComponent.vue').default);
+Vue.component('footer-component', require('./parts/FooterComponent.vue').default);
 
 const router = new VueRouter({
-  routes: Router
+    routes: Router
 })
 
-const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const app = new Vue(Vue.util.extend({
+    router
+}, App)).$mount('#app');
