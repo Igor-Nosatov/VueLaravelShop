@@ -20,14 +20,12 @@ class CreateTableProduct extends Migration
             $table->text('description');
             $table->float('old_price');
             $table->string('image');
-            $table->integer('category_id')->unsigned();
-            $table->integer('brand_id')->unsigned();
-            $table->integer('color_id')->unsigned();
             $table->timestamps();
 
+            $table->unsignedInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
-            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
+
+
         });
     }
 
