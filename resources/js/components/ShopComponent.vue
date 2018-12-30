@@ -20,9 +20,10 @@
        <div class="sidebar-categories">
          <div class="head">Browse Categories</div>
          <ul class="main-categories">
-           <li v-for="category in categories" class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
-                class="lnr lnr-arrow-right"></span>{{  category.name }}<span class="number">(53)</span></a>
-           </li>
+
+        <li @click="toggle(category.id,category.name)"
+        v-for="category in categories" :class="{active: active == category.id}">{{ category.name }}</li>
+
          </ul>
        </div>
        <div class="sidebar-filter mt-50">
@@ -100,7 +101,7 @@
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
 
-           <div class="col-lg-4 col-md-6" v-for="product in products">
+           <div class="col-lg-4 col-md-6" v-for="product in categoryProducts">
              <div class="single-product">
                <img :src="product.image" :alt="product.name" class="img-fluid">
                <div class="product-details">
@@ -163,6 +164,7 @@
     export default {
       data(){
               return {
+                active: '1',
                 categories : [],
                 products : [],
                 allProducts : [],
@@ -177,7 +179,20 @@
                    this.allProducts = this.products;
                   }).catch(error => {
                  console.log(error)
-    });
-          }
+                 });
+          },
+          computed: {
+  	categoryProducts () {
+    	let that = this
+    	return this.products.filter(p => p.category_id === that.active)
+    }
+  },
+  methods: {
+    toggle(i, v) {
+      this.active = i
+      console.log(i)
+      //this.currentView = v
+    }
+  }
     }
 </script>

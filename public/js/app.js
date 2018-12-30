@@ -2329,9 +2329,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      active: '1',
       categories: [],
       products: [],
       allProducts: []
@@ -2348,6 +2350,20 @@ __webpack_require__.r(__webpack_exports__);
     }).catch(function (error) {
       console.log(error);
     });
+  },
+  computed: {
+    categoryProducts: function categoryProducts() {
+      var that = this;
+      return this.products.filter(function (p) {
+        return p.category_id === that.active;
+      });
+    }
+  },
+  methods: {
+    toggle: function toggle(i, v) {
+      this.active = i;
+      console.log(i); //this.currentView = v
+    }
   }
 });
 
@@ -38322,24 +38338,18 @@ var render = function() {
               "ul",
               { staticClass: "main-categories" },
               _vm._l(_vm.categories, function(category) {
-                return _c("li", { staticClass: "main-nav-list" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        "data-toggle": "collapse",
-                        href: "#fruitsVegetable",
-                        "aria-expanded": "false",
-                        "aria-controls": "fruitsVegetable"
+                return _c(
+                  "li",
+                  {
+                    class: { active: _vm.active == category.id },
+                    on: {
+                      click: function($event) {
+                        _vm.toggle(category.id, category.name)
                       }
-                    },
-                    [
-                      _c("span", { staticClass: "lnr lnr-arrow-right" }),
-                      _vm._v(_vm._s(category.name)),
-                      _c("span", { staticClass: "number" }, [_vm._v("(53)")])
-                    ]
-                  )
-                ])
+                    }
+                  },
+                  [_vm._v(_vm._s(category.name))]
+                )
               }),
               0
             )
@@ -38358,7 +38368,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "row" },
-                _vm._l(_vm.products, function(product) {
+                _vm._l(_vm.categoryProducts, function(product) {
                   return _c("div", { staticClass: "col-lg-4 col-md-6" }, [
                     _c("div", { staticClass: "single-product" }, [
                       _c("img", {

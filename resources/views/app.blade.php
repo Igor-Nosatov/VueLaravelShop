@@ -21,6 +21,13 @@
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet" />
 	<meta name="csrf-token" value="{{ csrf_token() }}" />
+	<style>
+	.active {
+ color: red;
+ border-bottom: 1px solid red;
+}
+
+	</style>
 </head>
 <body>
 
