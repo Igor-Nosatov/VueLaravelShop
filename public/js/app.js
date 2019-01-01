@@ -2334,6 +2334,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log(response.data);
       _this.categories = response.data.categories;
       _this.products = response.data.products;
+      _this.colors = response.data.colors;
+      _this.brands = response.data.brands;
     }).catch(function (error) {
       console.log(error);
     });

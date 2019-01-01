@@ -164,6 +164,8 @@
                    console.log(response.data);
                    this.categories = response.data.categories;
                    this.products = response.data.products;
+                   this.colors = response.data.colors;
+                   this.brands = response.data.brands;
                   }).catch(error => {
                  console.log(error)
                  });
