@@ -361,7 +361,7 @@
               }
           },
           mounted(){
-              axios.get("/api/products").then(response => this.products = response.data)
+              axios.get("/api").then(response => this.products = response.data)
           }
     }
 </script>

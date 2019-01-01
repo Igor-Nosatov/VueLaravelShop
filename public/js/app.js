@@ -2151,7 +2151,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/products").then(function (response) {
+    axios.get("/api").then(function (response) {
       return _this.products = response.data;
     });
   }
@@ -2318,52 +2318,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      active: '1',
       categories: [],
       products: [],
-      allProducts: []
+      colors: [],
+      brands: []
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios.get("/api/shop/category").then(function (response) {
+    axios.get("/api/shop").then(function (response) {
       console.log(response.data);
       _this.categories = response.data.categories;
       _this.products = response.data.products;
-      _this.allProducts = _this.products;
     }).catch(function (error) {
       console.log(error);
     });
-  },
-  computed: {
-    categoryProducts: function categoryProducts() {
-      var that = this;
-      return this.products.filter(function (p) {
-        return p.category_id === that.active;
-      });
-    }
-  },
-  methods: {
-    toggle: function toggle(i, v) {
-      this.active = i;
-      console.log(i); //this.currentView = v
-    }
   }
 });
 
@@ -38338,24 +38311,69 @@ var render = function() {
               "ul",
               { staticClass: "main-categories" },
               _vm._l(_vm.categories, function(category) {
-                return _c(
-                  "li",
-                  {
-                    class: { active: _vm.active == category.id },
-                    on: {
-                      click: function($event) {
-                        _vm.toggle(category.id, category.name)
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(category.name))]
-                )
+                return _c("li", { class: _vm.a }, [
+                  _c("a", { on: { click: _vm.showCategory } }, [
+                    _vm._v(_vm._s(category.name))
+                  ])
+                ])
               }),
               0
             )
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _c("div", { staticClass: "sidebar-filter mt-50" }, [
+            _c("div", { staticClass: "top-filter-head" }, [
+              _vm._v("Product Filters")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "common-filter" }, [
+              _c("div", { staticClass: "head" }, [_vm._v("Brands")]),
+              _vm._v(" "),
+              _c("form", { attrs: { action: "#" } }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.brands, function(brand) {
+                    return _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "apple", name: "brand" }
+                      }),
+                      _c("label", { attrs: { for: "apple" } }, [
+                        _vm._v(_vm._s(brand.name)),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "common-filter" }, [
+              _c("div", { staticClass: "head" }, [_vm._v("Color")]),
+              _vm._v(" "),
+              _c("form", { attrs: { action: "#" } }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.colors, function(color) {
+                    return _c("li", { staticClass: "filter-list" }, [
+                      _c("input", {
+                        staticClass: "pixel-radio",
+                        attrs: { type: "radio", id: "black", name: "color" }
+                      }),
+                      _c("label", { attrs: { for: "black" } }, [
+                        _vm._v(_vm._s(color.name)),
+                        _c("span", [_vm._v("(29)")])
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
@@ -38368,7 +38386,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "row" },
-                _vm._l(_vm.categoryProducts, function(product) {
+                _vm._l(_vm.products, function(product) {
                   return _c("div", { staticClass: "col-lg-4 col-md-6" }, [
                     _c("div", { staticClass: "single-product" }, [
                       _c("img", {
@@ -38432,7 +38450,7 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("a", { attrs: { href: "category.html" } }, [
-                  _vm._v("Fashon Category")
+                  _vm._v("Fashion Category")
                 ])
               ])
             ])
@@ -38445,156 +38463,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sidebar-filter mt-50" }, [
-      _c("div", { staticClass: "top-filter-head" }, [
-        _vm._v("Product Filters")
-      ]),
+    return _c("div", { staticClass: "common-filter" }, [
+      _c("div", { staticClass: "head" }, [_vm._v("Price")]),
       _vm._v(" "),
-      _c("div", { staticClass: "common-filter" }, [
-        _c("div", { staticClass: "head" }, [_vm._v("Brands")]),
+      _c("div", { staticClass: "price-range-area" }, [
+        _c("div", { attrs: { id: "price-range" } }),
         _vm._v(" "),
-        _c("form", { attrs: { action: "#" } }, [
-          _c("ul", [
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "apple", name: "brand" }
-              }),
-              _c("label", { attrs: { for: "apple" } }, [
-                _vm._v("Apple"),
-                _c("span", [_vm._v("(29)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "asus", name: "brand" }
-              }),
-              _c("label", { attrs: { for: "asus" } }, [
-                _vm._v("Asus"),
-                _c("span", [_vm._v("(29)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "gionee", name: "brand" }
-              }),
-              _c("label", { attrs: { for: "gionee" } }, [
-                _vm._v("Gionee"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "micromax", name: "brand" }
-              }),
-              _c("label", { attrs: { for: "micromax" } }, [
-                _vm._v("Micromax"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "samsung", name: "brand" }
-              }),
-              _c("label", { attrs: { for: "samsung" } }, [
-                _vm._v("Samsung"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "common-filter" }, [
-        _c("div", { staticClass: "head" }, [_vm._v("Color")]),
-        _vm._v(" "),
-        _c("form", { attrs: { action: "#" } }, [
-          _c("ul", [
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "black", name: "color" }
-              }),
-              _c("label", { attrs: { for: "black" } }, [
-                _vm._v("Black"),
-                _c("span", [_vm._v("(29)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "balckleather", name: "color" }
-              }),
-              _c("label", { attrs: { for: "balckleather" } }, [
-                _vm._v("Black\n                  Leather"),
-                _c("span", [_vm._v("(29)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "blackred", name: "color" }
-              }),
-              _c("label", { attrs: { for: "blackred" } }, [
-                _vm._v("Black\n                  with red"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "gold", name: "color" }
-              }),
-              _c("label", { attrs: { for: "gold" } }, [
-                _vm._v("Gold"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "filter-list" }, [
-              _c("input", {
-                staticClass: "pixel-radio",
-                attrs: { type: "radio", id: "spacegrey", name: "color" }
-              }),
-              _c("label", { attrs: { for: "spacegrey" } }, [
-                _vm._v("Spacegrey"),
-                _c("span", [_vm._v("(19)")])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "common-filter" }, [
-        _c("div", { staticClass: "head" }, [_vm._v("Price")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "price-range-area" }, [
-          _c("div", { attrs: { id: "price-range" } }),
+        _c("div", { staticClass: "value-wrapper d-flex" }, [
+          _c("div", { staticClass: "price" }, [_vm._v("Price:")]),
           _vm._v(" "),
-          _c("div", { staticClass: "value-wrapper d-flex" }, [
-            _c("div", { staticClass: "price" }, [_vm._v("Price:")]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$")]),
-            _vm._v(" "),
-            _c("div", { attrs: { id: "lower-value" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "to" }, [_vm._v("to")]),
-            _vm._v(" "),
-            _c("span", [_vm._v("$")]),
-            _vm._v(" "),
-            _c("div", { attrs: { id: "upper-value" } })
-          ])
+          _c("span", [_vm._v("$")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "lower-value" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "to" }, [_vm._v("to")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("$")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "upper-value" } })
         ])
       ])
     ])

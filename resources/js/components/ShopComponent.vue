@@ -8,7 +8,7 @@
          <nav class="d-flex align-items-center">
            <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
            <a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-           <a href="category.html">Fashon Category</a>
+           <a href="category.html">Fashion Category</a>
          </nav>
        </div>
      </div>
@@ -20,10 +20,8 @@
        <div class="sidebar-categories">
          <div class="head">Browse Categories</div>
          <ul class="main-categories">
-
-        <li @click="toggle(category.id,category.name)"
-        v-for="category in categories" :class="{active: active == category.id}">{{ category.name }}</li>
-
+        <li
+        v-for="category in categories" :class="a"><a v-on:click="showCategory" >{{ category.name }}</a></li>
          </ul>
        </div>
        <div class="sidebar-filter mt-50">
@@ -32,11 +30,7 @@
            <div class="head">Brands</div>
            <form action="#">
              <ul>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+               <li class="filter-list" v-for="brand in brands"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
              </ul>
            </form>
          </div>
@@ -44,13 +38,7 @@
            <div class="head">Color</div>
            <form action="#">
              <ul>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-                   Leather<span>(29)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-                   with red<span>(19)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-               <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
+               <li class="filter-list" v-for="color in colors"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">{{ color.name }}<span>(29)</span></label></li>
              </ul>
            </form>
          </div>
@@ -101,7 +89,7 @@
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
 
-           <div class="col-lg-4 col-md-6" v-for="product in categoryProducts">
+           <div class="col-lg-4 col-md-6" v-for="product in products">
              <div class="single-product">
                <img :src="product.image" :alt="product.name" class="img-fluid">
                <div class="product-details">
@@ -164,35 +152,21 @@
     export default {
       data(){
               return {
-                active: '1',
                 categories : [],
                 products : [],
-                allProducts : [],
+                colors : [],
+                brands : []
               }
           },
-          mounted(){
-            axios.get("/api/shop/category")
+    mounted(){
+            axios.get("/api/shop")
                  .then(response => {
                    console.log(response.data);
                    this.categories = response.data.categories;
                    this.products = response.data.products;
-                   this.allProducts = this.products;
                   }).catch(error => {
                  console.log(error)
                  });
-          },
-          computed: {
-  	categoryProducts () {
-    	let that = this
-    	return this.products.filter(p => p.category_id === that.active)
-    }
-  },
-  methods: {
-    toggle(i, v) {
-      this.active = i
-      console.log(i)
-      //this.currentView = v
-    }
+          }
   }
-    }
 </script>
