@@ -155,17 +155,19 @@
       data(){
               return {
                 products : [],
+                pagination: {
+                 'current_page': 1
+                 },
                 categories : [],
                 colors : [],
-                brands : [],
-                allProducts : []
+                brands : []
+
               }
           },
     mounted(){
             axios.get("/api/shop")
                  .then(response => {
-                   console.log(response.data);
-                   this.products = response.data.products;
+                   this.products = response.data.products.products.data;
                    this.categories = response.data.categories;
                    this.colors = response.data.colors;
                    this.brands = response.data.brands;

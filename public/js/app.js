@@ -2513,16 +2513,14 @@ __webpack_require__.r(__webpack_exports__);
       products: [],
       categories: [],
       colors: [],
-      brands: [],
-      allProducts: []
+      brands: []
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     axios.get("/api/shop").then(function (response) {
-      console.log(response.data);
-      _this.products = response.data.products;
+      _this.products = response.data.products.products.data;
       _this.categories = response.data.categories;
       _this.colors = response.data.colors;
       _this.brands = response.data.brands;
