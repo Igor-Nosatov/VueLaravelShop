@@ -162,7 +162,6 @@
                 brands : []
               }
           },
-
             mounted(){
               let uri = `/api/shop/${this.$route.params.id}/products`;
                 this.axios.get(uri).then((response) => {
@@ -172,7 +171,6 @@
                     this.brands = response.data.brands;
                 });
             }
-
   }
 
 </script>

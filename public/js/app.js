@@ -39028,7 +39028,7 @@ var render = function() {
     [
       _c("header-component"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("router-view", { key: _vm.$route.fullPath }),
       _vm._v(" "),
       _c("deals-component"),
       _vm._v(" "),
@@ -55242,6 +55242,7 @@ Vue.component('deals-component', __webpack_require__(/*! ./parts/DealsComponent.
 Vue.component('footer-component', __webpack_require__(/*! ./parts/FooterComponent.vue */ "./resources/js/parts/FooterComponent.vue").default);
 Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js").default);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  mode: 'history',
   routes: _routes_routing_js__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 var app = new Vue(Vue.util.extend({

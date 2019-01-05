@@ -1,7 +1,7 @@
 <template>
     <div>
       <header-component></header-component>
-       <router-view></router-view>
+       <router-view :key="$route.fullPath"></router-view>
        <deals-component></deals-component>
        <footer-component></footer-component>
 

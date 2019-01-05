@@ -18,6 +18,7 @@ Vue.component('footer-component', require('./parts/FooterComponent.vue').default
 Vue.component('pagination', require('laravel-vue-pagination').default);
 
 const router = new VueRouter({
+    mode: 'history',
     routes: Router
 })
 
