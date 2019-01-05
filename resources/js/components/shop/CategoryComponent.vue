@@ -162,23 +162,17 @@
                 brands : []
               }
           },
-          created: function(){
-                    this.getProductByCategory();
-                },
 
-                methods: {
-                    getProductByCategory()
-                    {
-                      let uri = `/api/shop/${this.$route.params.id}/products`;
-                        this.axios.get(uri).then((response) => {
-                            this.products = response.data.products.products;
-                            this.categories = response.data.categories;
-                            this.colors = response.data.colors;
-                            this.brands = response.data.brands;
-                        });
-                    }
+            mounted(){
+              let uri = `/api/shop/${this.$route.params.id}/products`;
+                this.axios.get(uri).then((response) => {
+                    this.products = response.data.products.products;
+                    this.categories = response.data.categories;
+                    this.colors = response.data.colors;
+                    this.brands = response.data.brands;
+                });
+            }
 
-                }
   }
 
 </script>

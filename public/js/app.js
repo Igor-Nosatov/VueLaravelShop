@@ -2331,21 +2331,16 @@ __webpack_require__.r(__webpack_exports__);
       brands: []
     };
   },
-  created: function created() {
-    this.getProductByCategory();
-  },
-  methods: {
-    getProductByCategory: function getProductByCategory() {
-      var _this = this;
+  mounted: function mounted() {
+    var _this = this;
 
-      var uri = "/api/shop/".concat(this.$route.params.id, "/products");
-      this.axios.get(uri).then(function (response) {
-        _this.products = response.data.products.products;
-        _this.categories = response.data.categories;
-        _this.colors = response.data.colors;
-        _this.brands = response.data.brands;
-      });
-    }
+    var uri = "/api/shop/".concat(this.$route.params.id, "/products");
+    this.axios.get(uri).then(function (response) {
+      _this.products = response.data.products.products;
+      _this.categories = response.data.categories;
+      _this.colors = response.data.colors;
+      _this.brands = response.data.brands;
+    });
   }
 });
 
