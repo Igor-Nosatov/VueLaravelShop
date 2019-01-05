@@ -15,6 +15,7 @@ import Router from './routes/routing.js'
 Vue.component('header-component', require('./parts/HeaderComponent.vue').default);
 Vue.component('deals-component', require('./parts/DealsComponent.vue').default);
 Vue.component('footer-component', require('./parts/FooterComponent.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination').default);
 
 const router = new VueRouter({
     routes: Router

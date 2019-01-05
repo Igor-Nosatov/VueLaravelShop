@@ -1,5 +1,6 @@
 import HomeComponent from '../components/HomeComponent.vue';
-import ShopComponent from '../components/ShopComponent.vue';
+import ShopComponent from '../components/shop/ShopComponent.vue';
+import CategoryComponent from '../components/shop/CategoryComponent.vue';
 
 const routes = [
   {
@@ -11,6 +12,12 @@ const routes = [
      path: '/shop',
      name: 'shop',
      component: ShopComponent
+  }
+  ,
+  {
+     path: '/shop/:id/products',
+     name: 'category',
+     component: CategoryComponent
   }
 ];
 

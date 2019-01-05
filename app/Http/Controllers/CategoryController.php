@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
-  public function category()
+  public function index()
  {
        $data['products'] = Product::get();
        $data['categories'] = Category::get();
@@ -19,5 +19,13 @@ class CategoryController extends Controller
        $data['brands'] = Brand::get();
        return response()->json($data, 200);
  }
+ public function category($id)
+    {
+        $data['products'] = Category::with('products')->findOrFail($id);
+        $data['categories'] = Category::get();
+        $data['colors'] = Color::get();
+        $data['brands'] = Brand::get();
+        return response()->json($data, 200);
+    }
 
 }

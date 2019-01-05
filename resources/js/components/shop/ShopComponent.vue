@@ -20,8 +20,9 @@
        <div class="sidebar-categories">
          <div class="head">Browse Categories</div>
          <ul class="main-categories">
-        <li
-        v-for="category in categories" :class="a"><a v-on:click="showCategory" >{{ category.name }}</a></li>
+           <li  v-for="category in categories">
+             <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
+          </li>
          </ul>
        </div>
        <div class="sidebar-filter mt-50">
@@ -141,6 +142,7 @@
            <a href="#">6</a>
            <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
          </div>
+
        </div>
      </div>
    </div>
@@ -152,18 +154,19 @@
     export default {
       data(){
               return {
-                categories : [],
                 products : [],
+                categories : [],
                 colors : [],
-                brands : []
+                brands : [],
+                allProducts : []
               }
           },
     mounted(){
             axios.get("/api/shop")
                  .then(response => {
                    console.log(response.data);
-                   this.categories = response.data.categories;
                    this.products = response.data.products;
+                   this.categories = response.data.categories;
                    this.colors = response.data.colors;
                    this.brands = response.data.brands;
                   }).catch(error => {
