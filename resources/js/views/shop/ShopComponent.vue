@@ -149,7 +149,7 @@
    mounted(){
             axios.get("/api/shop")
                  .then(response => {
-                   this.products = response.data.products.products.data;
+                   this.products = response.data.product;
                    this.categories = response.data.categories;
                    this.colors = response.data.colors;
                    this.brands = response.data.brands;

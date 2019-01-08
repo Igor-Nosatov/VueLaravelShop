@@ -28,11 +28,15 @@
                 <li class="nav-item submenu dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Pages</a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                  </ul>
+                   <ul class="navbar-nav ml-auto">
+                             <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
+                             <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
+                             <span v-if="isLoggedIn">
+                                 <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
+                                 <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link>
+                             </span>
+                             <li class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</li>
+                         </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
               </ul>

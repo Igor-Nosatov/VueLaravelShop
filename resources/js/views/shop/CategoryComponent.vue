@@ -165,7 +165,7 @@
             mounted(){
               let uri = `/api/shop/${this.$route.params.id}/products`;
                 this.axios.get(uri).then((response) => {
-                    this.products = response.data.products.products;
+                    this.products = response.data.product;
                     this.categories = response.data.categories;
                     this.colors = response.data.colors;
                     this.brands = response.data.brands;

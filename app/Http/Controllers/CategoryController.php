@@ -13,19 +13,7 @@ class CategoryController extends Controller
 
   public function index()
  {
-
-       $product = Product::paginate(6);
-       $data['products'] = [
-            'pagination' => [
-                'total' => $product->total(),
-                'per_page' => $product->perPage(),
-                'current_page' => $product->currentPage(),
-                'last_page' => $product->lastPage(),
-                'from' => $product->firstItem(),
-                'to' => $product->lastItem()
-            ],
-            'products' => $product
-        ];
+       $data['product'] = Product::get();
        $data['categories'] = Category::get();
        $data['colors'] = Color::get();
        $data['brands'] = Brand::get();
