@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" href="img/fav.png">
-	<meta name="author" content="CodePixar">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{csrf_token()}}">
 	<title>Vue Lara Shop</title>
 	<link rel="stylesheet" href="{{asset('css/linearicons.css')}}">
 	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
@@ -20,13 +18,10 @@
 	<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet" />
-	<meta name="csrf-token" value="{{ csrf_token() }}" />
-	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 
-	<div id="app">
-		 </div>
+	<div id="app"></div>
 
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 	<script src="{{asset('js/vendor/jquery-2.2.4.min.js')}}"></script>
