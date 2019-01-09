@@ -91,9 +91,9 @@
 
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
-
-           <div class="col-lg-4 col-md-6" v-for="product in products">
+           <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">>
              <div class="single-product">
+               <router-link :to="{ path: '/products/'+product.id}">
                <img :src="product.image" :alt="product.name" class="img-fluid">
                <div class="product-details">
                  <h6>{{ product.name }}</h6>
@@ -102,7 +102,6 @@
                    <h6 class="l-through">${{ product.old_price }}</h6>
                  </div>
                  <div class="prd-bottom">
-
                    <a href="" class="social-info">
                      <span class="ti-bag"></span>
                      <p class="hover-text">add to bag</p>
@@ -121,9 +120,9 @@
                    </a>
                  </div>
                </div>
+             </router-link>
              </div>
            </div>
-
          </div>
        </section>
 

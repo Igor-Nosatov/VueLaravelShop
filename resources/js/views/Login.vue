@@ -29,24 +29,27 @@
  				<div class="col-lg-6">
  					<div class="login_form_inner">
  						<h3>Log in to enter</h3>
+
  						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
  							<div class="col-md-12 form-group">
- 								<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+ 								<input type="text" class="form-control" id="name" name="name"
+                 v-model="name"  placeholder="Username" onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Username'"  required autofocus>
  							</div>
  							<div class="col-md-12 form-group">
- 								<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+ 								<input type="password" class="form-control" id="name"
+                name="password" placeholder="Password"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"
+                 v-model="password" required>
  							</div>
  							<div class="col-md-12 form-group">
- 								<div class="creat_account">
- 									<input type="checkbox" id="f-option2" name="selector">
- 									<label for="f-option2">Keep me logged in</label>
- 								</div>
- 							</div>
- 							<div class="col-md-12 form-group">
- 								<button type="submit" value="submit" class="primary-btn">Log In</button>
- 								<a href="#">Forgot Password?</a>
+                <button type="submit" class="btn btn-primary" @click="handleSubmit">
+                                            Login
+                                        </button>
  							</div>
  						</form>
+
+
  					</div>
  				</div>
  			</div>
@@ -55,9 +58,40 @@
  </div>
 </template>
 
-<script>
-  export default
-  {
 
-  }
-</script>
+<script>
+      export default {
+          data() {
+              return {
+                  email: "",
+                  password: ""
+              }
+          },
+          methods: {
+              handleSubmit(e) {
+                  e.preventDefault()
+                  if (this.password.length > 0) {
+                      let email = this.email
+                      let password = this.password
+
+                      axios.post('api/login', {email, password}).then(response => {
+                          let user = response.data.user
+                          let is_admin = user.is_admin
+
+                          localStorage.setItem('LaravelVueShop.user', JSON.stringify(user))
+                          localStorage.setItem('LaravelVueShop.jwt', response.data.token)
+
+                          if (localStorage.getItem('LaravelVueShop.jwt') != null) {
+                              this.$emit('loggedIn')
+                              if (this.$route.params.nextUrl != null) {
+                                  this.$router.push(this.$route.params.nextUrl)
+                              } else {
+                                  this.$router.push((is_admin == 1 ? 'admin' : 'dashboard'))
+                              }
+                          }
+                      });
+                  }
+              }
+          }
+      }
+  </script>

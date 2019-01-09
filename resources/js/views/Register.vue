@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
-					<h1>Login/Register</h1>
+					<h1>Register</h1>
 					<nav class="d-flex align-items-center">
 						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
 						<a href="category.html">Login/Register</a>
@@ -28,23 +28,32 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Log in to enter</h3>
+						<h3>Register</h3>
 						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<input type="text" class="form-control" id="name"
+                 name="name" placeholder="Username"
+                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" v-model="name" required autofocus>
+							</div>
+              <div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="name"
+                name="email" placeholder="Email"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" v-model="email" required>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="password"
+                name="password" placeholder="Password"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" v-model="password" required>
+							</div>
+              <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password-confirm"
+                name="name" placeholder="Password Confirm"
+                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password Confirm'" v-model="password_confirmation" required>
 							</div>
 							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
-									<label for="f-option2">Keep me logged in</label>
-								</div>
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Log In</button>
-								<a href="#">Forgot Password?</a>
+                <button type="submit" class="btn btn-primary" @click="handleSubmit">
+                      Register
+                </button>
 							</div>
 						</form>
 					</div>
@@ -56,8 +65,39 @@
 </template>
 
 <script>
-  export default
-  {
-
-  }
-</script>
+    export default {
+        props : ['nextUrl'],
+        data(){
+            return {
+                name : "",
+                email : "",
+                password : "",
+                password_confirmation : ""
+            }
+        },
+        methods : {
+            handleSubmit(e) {
+                e.preventDefault()
+                if (this.password !== this.password_confirmation || this.password.length <= 0) {
+                    this.password = ""
+                    this.password_confirmation = ""
+                    return alert('Passwords do not match')
+                }
+                let name = this.name
+                let email = this.email
+                let password = this.password
+                let c_password = this.password_confirmation
+                axios.post('api/register', {name, email, password, c_password}).then(response => {
+                    let data = response.data
+                    localStorage.setItem('LaravelVueShop.user', JSON.stringify(data.user))
+                    localStorage.setItem('LaravelVueShop.jwt', data.token)
+                    if (localStorage.getItem('LaravelVueShop.jwt') != null) {
+                        this.$emit('loggedIn')
+                        let nextUrl = this.$route.params.nextUrl
+                        this.$router.push((nextUrl != null ? nextUrl : '/'))
+                    }
+                })
+            }
+        }
+    }
+    </script>
