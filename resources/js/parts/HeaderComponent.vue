@@ -29,13 +29,13 @@
                   <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                    aria-expanded="false">Pages</a>
                    <ul class="navbar-nav ml-auto">
-                             <router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link>
-                             <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link>
+                             <li class="nav-item"><router-link :to="{ name: 'login' }" class="nav-link" v-if="!isLoggedIn">Login</router-link></li>
+                            <li class="nav-item"> <router-link :to="{ name: 'register' }" class="nav-link" v-if="!isLoggedIn">Register</router-link></li>
                              <span v-if="isLoggedIn">
-                                 <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link>
-                                 <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link>
+                                <li class="nav-item"> <router-link :to="{ name: 'userboard' }" class="nav-link" v-if="user_type == 0"> Hi, {{name}}</router-link></li>
+                                <li class="nav-item"> <router-link :to="{ name: 'admin' }" class="nav-link" v-if="user_type == 1"> Hi, {{name}}</router-link></li>
                              </span>
-                             <li class="nav-link" v-if="isLoggedIn" @click="logout"> Logout</li>
+                             <li class="nav-item" v-if="isLoggedIn" @click="logout"> Logout</li>
                          </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>

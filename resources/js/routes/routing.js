@@ -1,28 +1,29 @@
-import HomeComponent from '../views/HomeComponent';
-import ShopComponent from '../views/shop/ShopComponent';
-import CategoryComponent from '../views/shop/CategoryComponent';
+import Home from '../views/Home';
+import Shop from '../views/shop/Shop';
+import Category from '../views/shop/Category';
 import Login from '../views/Login'
 import Register from '../views/Register'
-import SingleProduct from '../views/SingleProduct'
+import SingleProduct from '../views/single_product/SingleProduct'
 import Checkout from '../views/Checkout'
 import Confirmation from '../views/Confirmation'
 import UserBoard from '../views/UserBoard'
 import Admin from '../views/Admin'
+import Order from '../views/Order'
 
 const routes = [{
         name: 'home',
         path: '/',
-        component: HomeComponent
+        component: Home
     },
     {
         path: '/shop',
         name: 'shop',
-        component: ShopComponent
+        component: Shop
     },
     {
         path: '/shop/:id/products',
         name: 'category',
-        component: ShopComponent
+        component: Shop
     },
     {
         path: '/login',
@@ -43,6 +44,12 @@ const routes = [{
         path: '/confirmation',
         name: 'confirmation',
         component: Confirmation
+    },
+    {
+        path: '/order',
+        name: 'order',
+        component: Order,
+        
     },
     {
         path: '/checkout',
