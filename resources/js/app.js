@@ -10,6 +10,10 @@ import axios from 'axios';
 
 import App from './App.vue';
 Vue.use(VueAxios, axios);
+
+import InstantSearch from 'vue-instantsearch';
+Vue.use(InstantSearch);
+
 import Router from './routes/routing.js'
 
 Vue.component('header-component', require('./parts/HeaderComponent.vue').default);

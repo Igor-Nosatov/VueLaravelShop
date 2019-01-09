@@ -20,7 +20,7 @@
        <div class="sidebar-categories">
          <div class="head">Browse Categories</div>
          <ul class="main-categories">
-           <li  v-for="category in categories">
+           <li  v-for="(category,index) in categories"  @key="index">
              <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
           </li>
          </ul>
@@ -31,7 +31,7 @@
            <div class="head">Brands</div>
            <form action="#">
              <ul>
-               <li class="filter-list" v-for="brand in brands"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
+               <li class="filter-list"  v-for="(brand,index) in brands"  @key="index"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
              </ul>
            </form>
          </div>
@@ -39,7 +39,7 @@
            <div class="head">Color</div>
            <form action="#">
              <ul>
-               <li class="filter-list" v-for="color in colors"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">{{ color.name }}<span>(29)</span></label></li>
+               <li class="filter-list" v-for="(color,index) in colors"  @key="index"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">{{ color.name }}<span>(29)</span></label></li>
              </ul>
            </form>
          </div>
@@ -83,7 +83,7 @@
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
 
-           <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">">
+           <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
              <div class="single-product">
                <router-link :to="{ path: '/products/'+product.id}">
                <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -113,7 +113,7 @@
                    </a>
                  </div>
                </div>
-            </router-link> 
+            </router-link>
              </div>
            </div>
 

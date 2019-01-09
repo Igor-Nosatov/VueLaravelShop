@@ -3,12 +3,13 @@
 namespace App;
 
 use App\Product;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, Searchable;
 
   protected $fillable = ['name', 'new_price',
      'old_price', 'description', 'image',
