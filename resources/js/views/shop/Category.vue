@@ -8,7 +8,7 @@
          <nav class="d-flex align-items-center">
            <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
            <a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-           <a href="category.html">Fashion Category</a>
+           <a href="category.html">{{category_name.name}}</a>
          </nav>
        </div>
      </div>
@@ -139,6 +139,7 @@
     export default {
         data(){
             return {
+                category_name : [],
                 products : [],
                 categories : [],
                 colors : [],
@@ -148,6 +149,7 @@
         beforeMount(){
             let url = `/api/category/${this.$route.params.id}`
             axios.get(url).then(response => {
+              this.category_name = response.data.products;
               this.products = response.data.products.products;
               this.categories = response.data.categories;
               this.colors = response.data.colors;

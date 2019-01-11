@@ -3268,6 +3268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      category_name: [],
       products: [],
       categories: [],
       colors: [],
@@ -3279,6 +3280,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var url = "/api/category/".concat(this.$route.params.id);
     axios.get(url).then(function (response) {
+      _this.category_name = response.data.products;
       _this.products = response.data.products.products;
       _this.categories = response.data.categories;
       _this.colors = response.data.colors;
@@ -67400,7 +67402,32 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("section", { staticClass: "banner-area organic-breadcrumb" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end"
+          },
+          [
+            _c("div", { staticClass: "col-first" }, [
+              _c("h1", [_vm._v("Shop Category page")]),
+              _vm._v(" "),
+              _c("nav", { staticClass: "d-flex align-items-center" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "category.html" } }, [
+                  _vm._v(_vm._s(_vm.category_name.name))
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
@@ -67493,12 +67520,12 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(2)
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
-          _vm._m(2),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "section",
@@ -67621,7 +67648,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(4)
         ])
       ])
     ])
@@ -67632,37 +67659,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "banner-area organic-breadcrumb" }, [
-      _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end"
-          },
-          [
-            _c("div", { staticClass: "col-first" }, [
-              _c("h1", [_vm._v("Shop Category page")]),
-              _vm._v(" "),
-              _c("nav", { staticClass: "d-flex align-items-center" }, [
-                _c("a", { attrs: { href: "index.html" } }, [
-                  _vm._v("Home"),
-                  _c("span", { staticClass: "lnr lnr-arrow-right" })
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("Shop"),
-                  _c("span", { staticClass: "lnr lnr-arrow-right" })
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "category.html" } }, [
-                  _vm._v("Fashion Category")
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
+    return _c("a", { attrs: { href: "index.html" } }, [
+      _vm._v("Home"),
+      _c("span", { staticClass: "lnr lnr-arrow-right" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _vm._v("Shop"),
+      _c("span", { staticClass: "lnr lnr-arrow-right" })
     ])
   },
   function() {
