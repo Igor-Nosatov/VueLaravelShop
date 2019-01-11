@@ -1,6 +1,7 @@
 import Home from '../views/Home';
 import Shop from '../views/shop/Shop';
 import Category from '../views/shop/Category';
+import Search from '../views/shop/Search';
 import Login from '../views/Login'
 import Register from '../views/Register'
 import SingleProduct from '../views/single_product/SingleProduct'
@@ -21,9 +22,14 @@ const routes = [{
         component: Shop
     },
     {
-        path: '/shop/:id/products',
+        path: '/category/:id',
         name: 'category',
-        component: Shop
+        component: Category
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: Search
     },
     {
         path: '/login',

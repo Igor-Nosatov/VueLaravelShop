@@ -20,9 +20,11 @@
        <div class="sidebar-categories">
          <div class="head">Browse Categories</div>
          <ul class="main-categories">
-           <li  v-for="(category,index) in categories"  @key="index">
-             <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
-          </li>
+
+        <li  v-for="(category,index) in categories"  @key="index">
+          <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
+       </li>
+
          </ul>
        </div>
        <div class="sidebar-filter mt-50">
@@ -31,7 +33,7 @@
            <div class="head">Brands</div>
            <form action="#">
              <ul>
-               <li class="filter-list"  v-for="(brand,index) in brands"  @key="index"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
+               <li class="filter-list" v-for="(brand,index) in brands"  @key="index"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
              </ul>
            </form>
          </div>
@@ -69,6 +71,13 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
+         <div class="sorting mr-auto">
+           <select>
+             <option value="1">Show 12</option>
+             <option value="1">Show 12</option>
+             <option value="1">Show 12</option>
+           </select>
+         </div>
          <div class="pagination">
            <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
            <a href="#" class="active">1</a>
@@ -82,7 +91,6 @@
 
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
-
            <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
              <div class="single-product">
                <router-link :to="{ path: '/products/'+product.id}">
@@ -94,7 +102,6 @@
                    <h6 class="l-through">${{ product.old_price }}</h6>
                  </div>
                  <div class="prd-bottom">
-
                    <a href="" class="social-info">
                      <span class="ti-bag"></span>
                      <p class="hover-text">add to bag</p>
@@ -113,21 +120,30 @@
                    </a>
                  </div>
                </div>
-            </router-link>
+             </router-link>
              </div>
            </div>
-
          </div>
        </section>
 
        <div class="filter-bar d-flex flex-wrap align-items-center">
-         <div class="sorting">
+         <div class="sorting mr-auto">
            <select>
-             <option value="1">Default sorting</option>
-             <option value="1">Default sorting</option>
-             <option value="1">Default sorting</option>
+             <option value="1">Show 12</option>
+             <option value="1">Show 12</option>
+             <option value="1">Show 12</option>
            </select>
          </div>
+         <div class="pagination">
+           <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+           <a href="#" class="active">1</a>
+           <a href="#">2</a>
+           <a href="#">3</a>
+           <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+           <a href="#">6</a>
+           <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+         </div>
+
        </div>
      </div>
    </div>
@@ -137,22 +153,23 @@
 
 <script>
     export default {
-        data(){
-            return {
+      data(){
+              return {
                 products : [],
                 categories : [],
                 colors : [],
                 brands : []
+              }
+          },
+            mounted(){
+              let uri = `/api/shop/${this.$route.params.id}/products`;
+                this.axios.get(uri).then((response) => {
+                    this.products = response.data.product;
+                    this.categories = response.data.categories;
+                    this.colors = response.data.colors;
+                    this.brands = response.data.brands;
+                });
             }
-        },
-        beforeMount(){
-            let url = `/api/category/${this.$route.params.id}`
-            axios.get(url).then(response => {
-              this.products = response.data.products.products;
-              this.categories = response.data.categories;
-              this.colors = response.data.colors;
-              this.brands = response.data.brands;
-            })
-        }
-    }
-    </script>
+  }
+
+</script>

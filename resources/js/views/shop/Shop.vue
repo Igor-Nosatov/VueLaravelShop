@@ -148,7 +148,7 @@
               brands : []
               }
           },
-   mounted(){
+   beforeMount(){
             axios.get("/api/shop")
                  .then(response => {
                    this.products = response.data.product;

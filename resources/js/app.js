@@ -16,10 +16,9 @@ Vue.use(InstantSearch);
 
 import Router from './routes/routing.js'
 
-Vue.component('header-component', require('./parts/HeaderComponent.vue').default);
-Vue.component('deals-component', require('./parts/DealsComponent.vue').default);
-Vue.component('footer-component', require('./parts/FooterComponent.vue').default);
-Vue.component('pagination', require('./parts/PaginationComponent.vue').default);
+Vue.component('header-component', require('./parts/HeaderComponent').default);
+Vue.component('deals-component', require('./parts/DealsComponent').default);
+Vue.component('footer-component', require('./parts/FooterComponent').default);
 
 const router = new VueRouter({
     mode: 'history',

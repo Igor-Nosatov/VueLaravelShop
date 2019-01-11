@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'CategoryController@index');
-Route::get('/shop/{shop}/products', 'CategoryController@category');
+Route::get('/category/{shop}', 'CategoryController@category');
 Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::get('/products', 'ProductController@index');
