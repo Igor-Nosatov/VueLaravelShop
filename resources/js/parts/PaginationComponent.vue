@@ -1,22 +1,10 @@
 <template>
-    <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-        <a class="pagination-previous" @click.prevent="changePage(1)" :disabled="pagination.current_page <= 1">First page</a>
-        <a class="pagination-previous" @click.prevent="changePage(pagination.current_page - 1)" :disabled="pagination.current_page <= 1">Previous</a>
-        <a class="pagination-next" @click.prevent="changePage(pagination.current_page + 1)" :disabled="pagination.current_page >= pagination.last_page">Next page</a>
-        <a class="pagination-next" @click.prevent="changePage(pagination.last_page)" :disabled="pagination.current_page >= pagination.last_page">Last page</a>
-        <ul class="pagination-list">
-            <li v-for="page in pages">
-                <a class="pagination-link" :class="isCurrentPage(page) ? 'is-current' : ''" @click.prevent="changePage(page)">{{ page }}</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="pagination">
+      <a href="#" class="prev-arrow" @click.prevent="changePage(pagination.current_page - 1)" :disabled="pagination.current_page <= 1"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+      <a  v-for="page in pages" :class="isCurrentPage(page) ? 'is-current' : ''" @click.prevent="changePage(page)">{{ page }}</a>
+      <a href="#" class="next-arrow" @click.prevent="changePage(pagination.current_page + 1)" :disabled="pagination.current_page >= pagination.last_page"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    </div>
 </template>
-
-<style>
-    .pagination {
-        margin-top: 40px;
-    }
-</style>
 
 <script>
     export default {
