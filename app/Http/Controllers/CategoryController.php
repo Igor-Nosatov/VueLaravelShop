@@ -13,7 +13,7 @@ class CategoryController extends Controller
 
   public function index()
  {
-       $data['product'] = Product::get();
+       $data['products'] = Product::get();
        $data['categories'] = Category::get();
        $data['colors'] = Color::get();
        $data['brands'] = Brand::get();

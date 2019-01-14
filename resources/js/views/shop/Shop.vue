@@ -128,9 +128,7 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
-         <pagination
-                        :pagination="pagination">
-                    </pagination>
+
        </div>
      </div>
    </div>
@@ -139,7 +137,9 @@
 </template>
 
 <script>
+
     export default {
+
       data(){
               return {
               products : [],
@@ -149,12 +149,12 @@
               }
           },
    beforeMount(){
-            axios.get("/api/shop")
+            axios.get('/api/shop')
                  .then(response => {
-                   this.products = response.data.product;
                    this.categories = response.data.categories;
                    this.colors = response.data.colors;
                    this.brands = response.data.brands;
+                   this.products = response.data.products;
                   }).catch(error => {
                  console.log(error)
                  });
