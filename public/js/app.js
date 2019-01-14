@@ -3413,65 +3413,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       products: [],
-      categories: [],
-      colors: [],
-      brands: []
+      loading: false,
+      error: false,
+      query: ''
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    search: function search() {
+      var _this = this;
 
-    var uri = "/api/shop/".concat(this.$route.params.id, "/products");
-    this.axios.get(uri).then(function (response) {
-      _this.products = response.data.product;
-      _this.categories = response.data.categories;
-      _this.colors = response.data.colors;
-      _this.brands = response.data.brands;
-    });
+      // Clear the error message.
+      this.error = ''; // Empty the products array so we can fill it with the new products.
+
+      this.products = []; // Set the loading property to true, this will display the "Searching..." button.
+
+      this.loading = true; // Making a get request to our API and passing the query to it.
+
+      this.$http.get('/api/search?q=' + this.query).then(function (response) {
+        // If there was an error set the error message, if not fill the products array.
+        response.body.error ? _this.error = response.body.error : _this.products = response.body; // The request is finished, change the loading to false again.
+
+        _this.loading = false; // Clear the query.
+
+        _this.query = '';
+      });
+    }
   }
 });
 
@@ -64722,50 +64692,57 @@ var render = function() {
         { staticClass: "search_input", attrs: { id: "search_input_box" } },
         [
           _c("div", { staticClass: "container" }, [
-            _c("form", { staticClass: "d-flex justify-content-between" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query,
-                    expression: "query"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "search_input",
-                  placeholder: "Search Here"
-                },
-                domProps: { value: _vm.query },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c(
+              "form",
+              {
+                staticClass: "d-flex justify-content-between",
+                attrs: { action: "/search" }
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query,
+                      expression: "query"
                     }
-                    _vm.query = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              !_vm.loading
-                ? _c("button", {
-                    staticClass: "btn",
-                    attrs: { type: "submit" },
-                    on: {
-                      click: function($event) {
-                        _vm.search()
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "search_input",
+                    placeholder: "Search Here"
+                  },
+                  domProps: { value: _vm.query },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
+                      _vm.query = $event.target.value
                     }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("span", {
-                staticClass: "lnr lnr-cross",
-                attrs: { id: "close_search", title: "Close Search" }
-              })
-            ])
+                  }
+                }),
+                _vm._v(" "),
+                !_vm.loading
+                  ? _c("button", {
+                      staticClass: "btn",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          _vm.search()
+                        }
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "lnr lnr-cross",
+                  attrs: { id: "close_search", title: "Close Search" }
+                })
+              ]
+            )
           ])
         ]
       )
@@ -67807,225 +67784,176 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-xl-3 col-lg-4 col-md-5" }, [
-          _c("div", { staticClass: "sidebar-categories" }, [
-            _c("div", { staticClass: "head" }, [_vm._v("Browse Categories")]),
+        _c(
+          "form",
+          {
+            staticClass: "d-flex justify-content-between",
+            attrs: { action: "/search" }
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.query,
+                  expression: "query"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                id: "search_input",
+                placeholder: "Search Here"
+              },
+              domProps: { value: _vm.query },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query = $event.target.value
+                }
+              }
+            }),
             _vm._v(" "),
+            _c("button", {
+              staticClass: "btn",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  _vm.search()
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "lnr lnr-cross",
+              attrs: { id: "close_search", title: "Close Search" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "section",
+          { staticClass: "lattest-product-area pb-40 category-list" },
+          [
             _c(
-              "ul",
-              { staticClass: "main-categories" },
-              _vm._l(_vm.categories, function(category, index) {
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.products, function(product, index) {
                 return _c(
-                  "li",
-                  { on: { key: index } },
+                  "div",
+                  { staticClass: "col-lg-4 col-md-6", on: { key: index } },
                   [
                     _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: {
-                          to: { name: "category", params: { id: category.id } }
-                        }
-                      },
-                      [_vm._v(_vm._s(category.name))]
+                      "div",
+                      { staticClass: "single-product" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: { to: { path: "/products/" + product.id } }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: { src: product.image, alt: product.name }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "product-details" }, [
+                              _c("h6", [_vm._v(_vm._s(product.name))]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "price" }, [
+                                _c("h6", [
+                                  _vm._v("$" + _vm._s(product.new_price))
+                                ]),
+                                _vm._v(" "),
+                                _c("h6", { staticClass: "l-through" }, [
+                                  _vm._v("$" + _vm._s(product.old_price))
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "prd-bottom" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "ti-bag" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("add to bag")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", {
+                                      staticClass: "lnr lnr-heart"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("Wishlist")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "lnr lnr-sync" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("compare")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "lnr lnr-move" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("view more")
+                                    ])
+                                  ]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ],
+                      1
                     )
-                  ],
-                  1
+                  ]
                 )
               }),
               0
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "sidebar-filter mt-50" }, [
-            _c("div", { staticClass: "top-filter-head" }, [
-              _vm._v("Product Filters")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "common-filter" }, [
-              _c("div", { staticClass: "head" }, [_vm._v("Brands")]),
-              _vm._v(" "),
-              _c("form", { attrs: { action: "#" } }, [
-                _c(
-                  "ul",
-                  _vm._l(_vm.brands, function(brand, index) {
-                    return _c(
-                      "li",
-                      { staticClass: "filter-list", on: { key: index } },
-                      [
-                        _c("input", {
-                          staticClass: "pixel-radio",
-                          attrs: { type: "radio", id: "apple", name: "brand" }
-                        }),
-                        _c("label", { attrs: { for: "apple" } }, [
-                          _vm._v(_vm._s(brand.name)),
-                          _c("span", [_vm._v("(29)")])
-                        ])
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "common-filter" }, [
-              _c("div", { staticClass: "head" }, [_vm._v("Color")]),
-              _vm._v(" "),
-              _c("form", { attrs: { action: "#" } }, [
-                _c(
-                  "ul",
-                  _vm._l(_vm.colors, function(color, index) {
-                    return _c(
-                      "li",
-                      { staticClass: "filter-list", on: { key: index } },
-                      [
-                        _c("input", {
-                          staticClass: "pixel-radio",
-                          attrs: { type: "radio", id: "black", name: "color" }
-                        }),
-                        _c("label", { attrs: { for: "black" } }, [
-                          _vm._v(_vm._s(color.name)),
-                          _c("span", [_vm._v("(29)")])
-                        ])
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
-        ]),
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "section",
-            { staticClass: "lattest-product-area pb-40 category-list" },
-            [
-              _c(
-                "div",
-                { staticClass: "row" },
-                _vm._l(_vm.products, function(product, index) {
-                  return _c(
-                    "div",
-                    { staticClass: "col-lg-4 col-md-6", on: { key: index } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "single-product" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: { to: { path: "/products/" + product.id } }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "img-fluid",
-                                attrs: { src: product.image, alt: product.name }
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "product-details" }, [
-                                _c("h6", [_vm._v(_vm._s(product.name))]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "price" }, [
-                                  _c("h6", [
-                                    _vm._v("$" + _vm._s(product.new_price))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("h6", { staticClass: "l-through" }, [
-                                    _vm._v("$" + _vm._s(product.old_price))
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "prd-bottom" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "ti-bag" }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("add to bag")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-heart"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("Wishlist")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-sync"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("compare")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-move"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("view more")
-                                      ])
-                                    ]
-                                  )
-                                ])
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                }),
-                0
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(3)
-        ])
+        _vm._m(2)
       ])
     ])
   ])
@@ -68065,32 +67993,6 @@ var staticRenderFns = [
             ])
           ]
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "common-filter" }, [
-      _c("div", { staticClass: "head" }, [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "price-range-area" }, [
-        _c("div", { attrs: { id: "price-range" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "value-wrapper d-flex" }, [
-          _c("div", { staticClass: "price" }, [_vm._v("Price:")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("$")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "lower-value" } }),
-          _vm._v(" "),
-          _c("div", { staticClass: "to" }, [_vm._v("to")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("$")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "upper-value" } })
-        ])
       ])
     ])
   },

@@ -19,6 +19,7 @@ import Router from './routes/routing.js'
 Vue.component('header-component', require('./parts/HeaderComponent').default);
 Vue.component('deals-component', require('./parts/DealsComponent').default);
 Vue.component('footer-component', require('./parts/FooterComponent').default);
+Vue.component('pagination', require('./parts/Pagination').default);
 
 const router = new VueRouter({
     mode: 'history',

@@ -16,52 +16,12 @@
  </section>
  <div class="container">
    <div class="row">
-     <div class="col-xl-3 col-lg-4 col-md-5">
-       <div class="sidebar-categories">
-         <div class="head">Browse Categories</div>
-         <ul class="main-categories">
+     <form action="/search" class="d-flex justify-content-between">
+       <input type="text" class="form-control" id="search_input" v-model="query" placeholder="Search Here">
+       <button type="submit" class="btn" @click="search()" ></button>
 
-        <li  v-for="(category,index) in categories"  @key="index">
-          <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
-       </li>
-
-         </ul>
-       </div>
-       <div class="sidebar-filter mt-50">
-         <div class="top-filter-head">Product Filters</div>
-         <div class="common-filter">
-           <div class="head">Brands</div>
-           <form action="#">
-             <ul>
-               <li class="filter-list" v-for="(brand,index) in brands"  @key="index"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
-             </ul>
-           </form>
-         </div>
-         <div class="common-filter">
-           <div class="head">Color</div>
-           <form action="#">
-             <ul>
-               <li class="filter-list" v-for="(color,index) in colors"  @key="index"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">{{ color.name }}<span>(29)</span></label></li>
-             </ul>
-           </form>
-         </div>
-         <div class="common-filter">
-           <div class="head">Price</div>
-           <div class="price-range-area">
-             <div id="price-range"></div>
-             <div class="value-wrapper d-flex">
-               <div class="price">Price:</div>
-               <span>$</span>
-               <div id="lower-value"></div>
-               <div class="to">to</div>
-               <span>$</span>
-               <div id="upper-value"></div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="col-xl-9 col-lg-8 col-md-7">
+       <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+     </form>
 
        <div class="filter-bar d-flex flex-wrap align-items-center">
          <div class="sorting">
@@ -156,20 +116,33 @@
       data(){
               return {
                 products : [],
-                categories : [],
-                colors : [],
-                brands : []
+                loading: false,
+                error: false,
+                query: ''
               }
           },
-            mounted(){
-              let uri = `/api/shop/${this.$route.params.id}/products`;
-                this.axios.get(uri).then((response) => {
-                    this.products = response.data.product;
-                    this.categories = response.data.categories;
-                    this.colors = response.data.colors;
-                    this.brands = response.data.brands;
-                });
-            }
+          methods: {
+    search: function() {
+        // Clear the error message.
+        this.error = '';
+        // Empty the products array so we can fill it with the new products.
+        this.products = [];
+        // Set the loading property to true, this will display the "Searching..." button.
+        this.loading = true;
+
+        // Making a get request to our API and passing the query to it.
+        this.$http.get('/api/search?q=' + this.query).then((response) => {
+            // If there was an error set the error message, if not fill the products array.
+            response.body.error ? this.error = response.body.error : this.products = response.body;
+            // The request is finished, change the loading to false again.
+            this.loading = false;
+            // Clear the query.
+            this.query = '';
+        });
+    }
+}
+
+
   }
 
 </script>

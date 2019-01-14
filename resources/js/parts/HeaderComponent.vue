@@ -52,7 +52,7 @@
       </div>
       <div class="search_input" id="search_input_box">
         <div class="container">
-          <form class="d-flex justify-content-between">
+          <form action="/search" class="d-flex justify-content-between">
             <input type="text" class="form-control" id="search_input" v-model="query" placeholder="Search Here">
             <button type="submit" class="btn" @click="search()" v-if="!loading"></button>
             <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
