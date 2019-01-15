@@ -8,7 +8,7 @@
          <nav class="d-flex align-items-center">
            <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
            <a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-           <a href="category.html">{{category_name.name}}</a>
+           <a href="category.html"></a>
          </nav>
        </div>
      </div>
@@ -70,19 +70,11 @@
            </select>
          </div>
          <div class="pagination">
-           <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-           <a href="#" class="active">1</a>
-           <a href="#">2</a>
-           <a href="#">3</a>
-           <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-           <a href="#">6</a>
-           <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
          </div>
        </div>
-
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
-
            <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
              <div class="single-product">
                <router-link :to="{ path: '/products/'+product.id}">
@@ -94,7 +86,6 @@
                    <h6 class="l-through">${{ product.old_price }}</h6>
                  </div>
                  <div class="prd-bottom">
-
                    <a href="" class="social-info">
                      <span class="ti-bag"></span>
                      <p class="hover-text">add to bag</p>
@@ -128,6 +119,9 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
+         <div class="pagination">
+           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+         </div>
        </div>
      </div>
    </div>
@@ -136,25 +130,35 @@
 </template>
 
 <script>
-    export default {
+export default {
         data(){
             return {
-                category_name : [],
                 products : [],
+                pagination: {
+                    'current_page': 1
+                },
                 categories : [],
                 colors : [],
                 brands : []
             }
         },
+        methods: {
+            fetchCategoryProducts() {
+              axios.get('/api/shop'+ this.$route.params.id +'?page=' + this.pagination.current_page)
+                  .then(response => {
+                      this.products = response.data.products.data;
+                      this.pagination = response.data.products;
+                      this.categories = response.data.categories;
+                      this.colors = response.data.colors;
+                      this.brands = response.data.brands;
+                  }).catch(error => {
+                      console.log(error)
+                  });
+
+            }
+        },
         beforeMount(){
-            let url = `/api/category/${this.$route.params.id}`
-            axios.get(url).then(response => {
-              this.category_name = response.data.products;
-              this.products = response.data.products.products;
-              this.categories = response.data.categories;
-              this.colors = response.data.colors;
-              this.brands = response.data.brands;
-            })
+          this.fetchCategoryProducts();
         }
     }
     </script>

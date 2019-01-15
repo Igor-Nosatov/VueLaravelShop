@@ -69,7 +69,9 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                    <div class="pagination">
+                      <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                    </div>
                 </div>
 
                 <section class="lattest-product-area pb-40 category-list">
@@ -120,7 +122,9 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-
+                    <div class="pagination">
+                      <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                    </div>
                 </div>
             </div>
         </div>
