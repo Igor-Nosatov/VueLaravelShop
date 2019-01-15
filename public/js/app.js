@@ -3316,6 +3316,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3332,7 +3335,8 @@ __webpack_require__.r(__webpack_exports__);
     fetchCategoryProducts: function fetchCategoryProducts() {
       var _this = this;
 
-      axios.get('/api/shop' + this.$route.params.id + '?page=' + this.pagination.current_page).then(function (response) {
+      var url = "/api/category/".concat(this.$route.params.id, " + ").concat(this.pagination.current_page);
+      axios.get(url).then(function (response) {
         _this.products = response.data.products.data;
         _this.pagination = response.data.products;
         _this.categories = response.data.categories;
@@ -42622,31 +42626,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
-          _c(
-            "div",
-            { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "pagination" },
-                [
-                  _vm.pagination.last_page > 1
-                    ? _c("pagination", {
-                        attrs: { pagination: _vm.pagination, offset: 5 },
-                        on: {
-                          paginate: function($event) {
-                            _vm.fetchProducts()
-                          }
-                        }
-                      })
-                    : _vm._e()
-                ],
-                1
-              )
-            ]
-          ),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "section",
@@ -42784,7 +42764,7 @@ var render = function() {
                         attrs: { pagination: _vm.pagination, offset: 5 },
                         on: {
                           paginate: function($event) {
-                            _vm.fetchProducts()
+                            _vm.fetchCategoryProducts()
                           }
                         }
                       })
@@ -42865,15 +42845,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sorting" }, [
-      _c("select", [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
-      ])
-    ])
+    return _c(
+      "div",
+      { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
+      [
+        _c("div", { staticClass: "sorting" }, [
+          _c("select", [
+            _c("option", { attrs: { value: "1" } }, [
+              _vm._v("Default sorting")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1" } }, [
+              _vm._v("Default sorting")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
+          ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this

@@ -69,12 +69,13 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
-         <div class="pagination">
-           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
-         </div>
+
        </div>
+
+
        <section class="lattest-product-area pb-40 category-list">
          <div class="row">
+
            <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
              <div class="single-product">
                <router-link :to="{ path: '/products/'+product.id}">
@@ -86,6 +87,7 @@
                    <h6 class="l-through">${{ product.old_price }}</h6>
                  </div>
                  <div class="prd-bottom">
+
                    <a href="" class="social-info">
                      <span class="ti-bag"></span>
                      <p class="hover-text">add to bag</p>
@@ -120,8 +122,9 @@
            </select>
          </div>
          <div class="pagination">
-           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
          </div>
+
        </div>
      </div>
    </div>
@@ -133,10 +136,10 @@
 export default {
         data(){
             return {
-                products : [],
-                pagination: {
-                    'current_page': 1
-                },
+              products: [],
+              pagination: {
+                  'current_page': 1
+              },
                 categories : [],
                 colors : [],
                 brands : []
@@ -144,17 +147,16 @@ export default {
         },
         methods: {
             fetchCategoryProducts() {
-              axios.get('/api/shop'+ this.$route.params.id +'?page=' + this.pagination.current_page)
-                  .then(response => {
-                      this.products = response.data.products.data;
-                      this.pagination = response.data.products;
-                      this.categories = response.data.categories;
-                      this.colors = response.data.colors;
-                      this.brands = response.data.brands;
-                  }).catch(error => {
-                      console.log(error)
-                  });
-
+              let url = `/api/category/${this.$route.params.id} + ${this.pagination.current_page}`
+              axios.get(url).then(response => {
+                this.products = response.data.products.data;
+                this.pagination = response.data.products;
+                this.categories = response.data.categories;
+                this.colors = response.data.colors;
+                this.brands = response.data.brands;
+              }).catch(error => {
+                  console.log(error)
+              });
             }
         },
         beforeMount(){

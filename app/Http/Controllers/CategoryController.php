@@ -23,7 +23,6 @@ class CategoryController extends Controller
  public function category($id)
     {
         $data['products'] = Product::query()->where('category_id', $id)->paginate(6);
-      //  $data['categories'] = Category::with('produtcs')->findOrFail($id)->get();
         $data['categories'] = Category::get();
         $data['colors'] = Color::get();
         $data['brands'] = Brand::get();
