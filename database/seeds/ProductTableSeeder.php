@@ -17,7 +17,7 @@ class ProductTableSeeder extends Seeder
           'category_id' => '1'
       ]);
       DB::table('products')->insert([
-          'name' => 'New Hammer',
+          'name' => 'BigBen',
           'new_price' => '150',
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
@@ -26,7 +26,7 @@ class ProductTableSeeder extends Seeder
           'category_id' => '2'
       ]);
       DB::table('products')->insert([
-          'name' => 'New Hammer',
+          'name' => 'BigBen',
           'new_price' => '150',
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
