@@ -2123,6 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2912,7 +2913,7 @@ __webpack_require__.r(__webpack_exports__);
   beforeMount: function beforeMount() {
     var _this = this;
 
-    axios.get("/api").then(function (response) {
+    axios.get('/api').then(function (response) {
       return _this.products = response.data;
     });
   }
@@ -3335,7 +3336,7 @@ __webpack_require__.r(__webpack_exports__);
     fetchCategoryProducts: function fetchCategoryProducts() {
       var _this = this;
 
-      var url = "/api/category/".concat(this.$route.params.id, " + ").concat(this.pagination.current_page);
+      var url = "/api/category/".concat(this.$route.params.id, "?page= + ").concat(this.pagination.current_page);
       axios.get(url).then(function (response) {
         _this.products = response.data.products.data;
         _this.pagination = response.data.products;
@@ -3367,146 +3368,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      products: [],
-      loading: false,
-      error: false,
-      query: ''
-    };
-  },
-  methods: {
-    search: function search() {
-      var _this = this;
-
-      // Clear the error message.
-      this.error = ''; // Empty the products array so we can fill it with the new products.
-
-      this.products = []; // Set the loading property to true, this will display the "Searching..." button.
-
-      this.loading = true; // Making a get request to our API and passing the query to it.
-
-      this.$http.get('/api/search?q=' + this.query).then(function (response) {
-        // If there was an error set the error message, if not fill the products array.
-        response.body.error ? _this.error = response.body.error : _this.products = response.body; // The request is finished, change the loading to false again.
-
-        _this.loading = false; // Clear the query.
-
-        _this.query = '';
-      });
-    }
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -39766,47 +39628,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "search_input", attrs: { id: "search_input_box" } },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c(
-              "form",
-              {
-                staticClass: "d-flex justify-content-between",
-                attrs: { action: "/search" }
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.filter,
-                      expression: "filter"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "search" },
-                  domProps: { value: _vm.filter },
-                  on: {
-                    keyup: function($event) {
-                      _vm.search()
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.filter = $event.target.value
-                    }
-                  }
-                })
-              ]
-            )
-          ])
-        ]
-      )
+      _vm._m(4)
     ])
   ])
 }
@@ -39904,6 +39726,41 @@ var staticRenderFns = [
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "search_input", attrs: { id: "search_input_box" } },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "form",
+            {
+              staticClass: "d-flex justify-content-between",
+              attrs: { action: "/search" }
+            },
+            [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "What are you looking for?"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-default", attrs: { type: "button" } },
+                [_vm._v("Search!")]
+              )
+            ]
+          )
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -42901,344 +42758,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "form",
-          {
-            staticClass: "d-flex justify-content-between",
-            attrs: { action: "/search" }
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.query,
-                  expression: "query"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                id: "search_input",
-                placeholder: "Search Here"
-              },
-              domProps: { value: _vm.query },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.query = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("button", {
-              staticClass: "btn",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  _vm.search()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("span", {
-              staticClass: "lnr lnr-cross",
-              attrs: { id: "close_search", title: "Close Search" }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "section",
-          { staticClass: "lattest-product-area pb-40 category-list" },
-          [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.products, function(product, index) {
-                return _c(
-                  "div",
-                  { staticClass: "col-lg-4 col-md-6", on: { key: index } },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "single-product" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: { to: { path: "/products/" + product.id } }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              attrs: { src: product.image, alt: product.name }
-                            }),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "product-details" }, [
-                              _c("h6", [_vm._v(_vm._s(product.name))]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "price" }, [
-                                _c("h6", [
-                                  _vm._v("$" + _vm._s(product.new_price))
-                                ]),
-                                _vm._v(" "),
-                                _c("h6", { staticClass: "l-through" }, [
-                                  _vm._v("$" + _vm._s(product.old_price))
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "prd-bottom" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "social-info",
-                                    attrs: { href: "" }
-                                  },
-                                  [
-                                    _c("span", { staticClass: "ti-bag" }),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "hover-text" }, [
-                                      _vm._v("add to bag")
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "social-info",
-                                    attrs: { href: "" }
-                                  },
-                                  [
-                                    _c("span", {
-                                      staticClass: "lnr lnr-heart"
-                                    }),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "hover-text" }, [
-                                      _vm._v("Wishlist")
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "social-info",
-                                    attrs: { href: "" }
-                                  },
-                                  [
-                                    _c("span", { staticClass: "lnr lnr-sync" }),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "hover-text" }, [
-                                      _vm._v("compare")
-                                    ])
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "social-info",
-                                    attrs: { href: "" }
-                                  },
-                                  [
-                                    _c("span", { staticClass: "lnr lnr-move" }),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "hover-text" }, [
-                                      _vm._v("view more")
-                                    ])
-                                  ]
-                                )
-                              ])
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                )
-              }),
-              0
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(2)
-      ])
-    ])
-  ])
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "banner-area organic-breadcrumb" }, [
-      _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end"
-          },
-          [
-            _c("div", { staticClass: "col-first" }, [
-              _c("h1", [_vm._v("Shop Category page")]),
-              _vm._v(" "),
-              _c("nav", { staticClass: "d-flex align-items-center" }, [
-                _c("a", { attrs: { href: "index.html" } }, [
-                  _vm._v("Home"),
-                  _c("span", { staticClass: "lnr lnr-arrow-right" })
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("Shop"),
-                  _c("span", { staticClass: "lnr lnr-arrow-right" })
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "category.html" } }, [
-                  _vm._v("Fashion Category")
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
-      [
-        _c("div", { staticClass: "sorting" }, [
-          _c("select", [
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Default sorting")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Default sorting")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sorting mr-auto" }, [
-          _c("select", [
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pagination" }, [
-          _c("a", { staticClass: "prev-arrow", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-long-arrow-left",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "active", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("2")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("3")]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dot-dot", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-ellipsis-h",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("6")]),
-          _vm._v(" "),
-          _c("a", { staticClass: "next-arrow", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-long-arrow-right",
-              attrs: { "aria-hidden": "true" }
-            })
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
-      [
-        _c("div", { staticClass: "sorting mr-auto" }, [
-          _c("select", [
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Show 12")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pagination" }, [
-          _c("a", { staticClass: "prev-arrow", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-long-arrow-left",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "active", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("2")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("3")]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dot-dot", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-ellipsis-h",
-              attrs: { "aria-hidden": "true" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("6")]),
-          _vm._v(" "),
-          _c("a", { staticClass: "next-arrow", attrs: { href: "#" } }, [
-            _c("i", {
-              staticClass: "fa fa-long-arrow-right",
-              attrs: { "aria-hidden": "true" }
-            })
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -53,7 +53,8 @@
       <div class="search_input" id="search_input_box">
         <div class="container">
           <form action="/search" class="d-flex justify-content-between">
-            <input type="text" class="form-control" v-model="filter" placeholder="search" @keyup="search()">
+            <input type="text" placeholder="What are you looking for?" class="form-control">
+            <button class="btn btn-default" type="button">Search!</button>
           </form>
         </div>
       </div>

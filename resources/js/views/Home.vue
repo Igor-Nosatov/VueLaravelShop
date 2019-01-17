@@ -363,7 +363,7 @@
               }
           },
           beforeMount(){
-              axios.get("/api").then(response => this.products = response.data)
+              axios.get('/api').then(response => this.products = response.data)
           }
     }
 </script>

@@ -147,7 +147,7 @@ export default {
         },
         methods: {
             fetchCategoryProducts() {
-              let url = `/api/category/${this.$route.params.id} + ${this.pagination.current_page}`
+              let url = `/api/category/${this.$route.params.id}?page= + ${this.pagination.current_page}`
               axios.get(url).then(response => {
                 this.products = response.data.products.data;
                 this.pagination = response.data.products;
