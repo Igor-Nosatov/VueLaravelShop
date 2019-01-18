@@ -18,11 +18,17 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-5">
                 <div class="sidebar-categories">
-                    <div class="head">search Bar</div>
-                    <form class="" action="search" method="GET">
-                        <input type="text" name="name" v-on:change="fetchProducts()" v-model="filter.name" placeholder="name">
-                        <button type="submit" v-on:click="fetchProducts()">Search</button>
-                    </form>
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <div class="icon-addon addon-md">
+                                <input type="text" placeholder="What are you looking for?" class="form-control" v-model="query">
+                            </div>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" @click="searchProduct()" v-if="!loading">Search!</button>
+                                <button class="btn btn-default" type="button" disabled="disabled" v-if="loading">Searching...</button>
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="sidebar-filter mt-50">
                     <div class="common-filter">
@@ -48,7 +54,10 @@
 
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
-
+                      <div class="alert alert-danger" role="alert" v-if="error">
+                          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                          @{{ error }}
+                      </div>
                         <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
@@ -94,40 +103,40 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-
-
+                    <div class="pagination">
+                      <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="searchProduct()"></pagination>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </template>
-
-
 <script>
 export default {
     data() {
         return {
             products: [],
-            filter: {
-                'name': ''
+            pagination: {
+                'current_page': 1
             },
-            errors: {}
+            loading: false,
+            error: false,
+            query: ''
         }
     },
     methods: {
-        fetchProducts() {
-          let url = `/api/search?name= + ${this.filter.name}`
-          axios.get(url).then(response => {
-                  this.products = response.data.products;
-              }).catch(error => {
-                  console.log(error)
-              });
-        }
-    },
-
-    beforeMount() {
-        this.fetchProducts();
+        searchProduct() {
+        this.error = '';
+        this.products = [];
+        this.loading = true;
+        this.$http.get('/api/search?name=' + this.query + '&page=' + this.pagination.current_page ).then((response) => {
+            this.products = response.data.products.data;
+            this.pagination = response.data.products;
+            this.loading = false;
+            this.query = '';
+        });
     }
+  }
 }
 </script>

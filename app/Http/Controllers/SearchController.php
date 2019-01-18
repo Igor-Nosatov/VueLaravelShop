@@ -11,9 +11,9 @@ class SearchController extends Controller
   {
     $products = new Product();
     if($request->name!=""){
-        $products = $products->where('name', 'like', '%'.$request->name.'%');
+        $products = $products->where('name', 'like', '%'.$request->name.'%')->paginate(6);
     }
-    $data['products'] = $products->latest()->get();
+    $data['products'] = $products;
     return response()->json($data, 200);
   }
 }
