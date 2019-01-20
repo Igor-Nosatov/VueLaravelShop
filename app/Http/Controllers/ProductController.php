@@ -30,9 +30,10 @@
             ]);
         }
 
-        public function show(Product $product)
+        public function show($id)
         {
-            return response()->json($product,200);
+            $data['product'] = Product::with('category')->find($id);
+            return response()->json($data,200);
         }
 
         public function uploadFile(Request $request)

@@ -1,4 +1,4 @@
-import Home from '../views/Home';
+import Home from '../views/home/Home';
 import Shop from '../views/shop/Shop';
 import Category from '../views/shop/Category';
 import Search from '../views/shop/Search';

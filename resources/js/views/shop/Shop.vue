@@ -31,7 +31,12 @@
                         <div class="head">Brands</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(brand,index) in brands" @key="index"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">{{ brand.name }}<span>(29)</span></label></li>
+                                <li class="filter-list" v-for="(brand,index) in brands" @key="index" >
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand">
+                                    <label for="apple">{{ brand.name }}
+                                        <span>(29)</span>
+                                    </label>
+                                </li>
                             </ul>
                         </form>
                     </div>
@@ -39,7 +44,12 @@
                         <div class="head">Color</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(color,index) in colors" @key="index"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">{{ color.name }}<span>(29)</span></label></li>
+                                <li class="filter-list" v-for="(color,index) in colors" @key="index">
+                                  <input class="pixel-radio" type="radio" id="black" name="color">
+                                  <label for="black">{{ color.name }}
+                                    <span>(29)</span>
+                                  </label>
+                                </li>
                             </ul>
                         </form>
                     </div>
@@ -70,7 +80,7 @@
                         </select>
                     </div>
                     <div class="pagination">
-                      <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
                     </div>
                 </div>
 
@@ -123,7 +133,7 @@
                         </select>
                     </div>
                     <div class="pagination">
-                      <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
                     </div>
                 </div>
             </div>

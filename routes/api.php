@@ -10,6 +10,7 @@ Route::post('register', 'UserController@register');
 Route::get('/products', 'ProductController@index');
 Route::post('/upload-file', 'ProductController@uploadFile');
 Route::get('/search', 'SearchController@search');
+Route::get('/product/{product}', 'ProductController@show');
 
     Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/users','UserController@index');
