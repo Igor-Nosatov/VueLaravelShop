@@ -2124,7 +2124,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: null,
+      user_type: 0,
+      isLoggedIn: localStorage.getItem('jwt') != null
+    };
+  },
+  mounted: function mounted() {
+    this.setDefaults();
+  },
+  methods: {
+    setDefaults: function setDefaults() {
+      if (this.isLoggedIn) {
+        var user = JSON.parse(localStorage.getItem('user'));
+        this.name = user.name;
+        this.user_type = user.is_admin;
+      }
+    },
+    change: function change() {
+      this.isLoggedIn = localStorage.getItem('jwt') != null;
+      this.setDefaults();
+    },
+    logout: function logout() {
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('user');
+      this.change();
+      this.$router.push('/');
+    }
+  }
+});
 
 /***/ }),
 
@@ -43512,7 +43542,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "pagination" },
+                { staticClass: "ml-auto" },
                 [
                   _vm.pagination.last_page > 1
                     ? _c("pagination", {

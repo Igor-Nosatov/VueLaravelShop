@@ -79,7 +79,7 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="pagination">
+                    <div class="ml-auto">
                         <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
                     </div>
                 </div>
