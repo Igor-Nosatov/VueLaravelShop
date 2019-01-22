@@ -69,6 +69,9 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
+         <div class="ml-auto">
+             <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
+         </div>
 
        </div>
 
@@ -121,10 +124,9 @@
              <option value="1">Default sorting</option>
            </select>
          </div>
-         <div class="pagination">
-           <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
+         <div class="ml-auto">
+             <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
          </div>
-
        </div>
      </div>
    </div>

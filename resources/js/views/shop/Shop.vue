@@ -31,8 +31,8 @@
                         <div class="head">Brands</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(brand,index) in brands" @key="index" >
-                                    <input class="pixel-radio" type="radio" id="apple" name="brand">
+                                <li class="filter-list" v-for="(brand,index) in brands" @key="index">
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand" >
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
                                     </label>
@@ -44,11 +44,11 @@
                         <div class="head">Color</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(color,index) in colors" @key="index">
-                                  <input class="pixel-radio" type="radio" id="black" name="color">
-                                  <label for="black">{{ color.name }}
-                                    <span>(29)</span>
-                                  </label>
+                                <li class="filter-list" v-for="(color,index) in colors" @key="index" v-model="color" >
+                                    <input  class="pixel-radio" type="radio" id="black" name="color" >
+                                    <label for="black">{{ color.name }}
+                                        <span>(29)</span>
+                                    </label>
                                 </li>
                             </ul>
                         </form>
@@ -132,8 +132,8 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="pagination">
-                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="filterList()"></pagination>
+                    <div class="ml-auto">
+                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,13 @@ export default {
             },
             categories: [],
             colors: [],
-            brands: []
+            brands: [],
+            min: 0,
+            max: 0,
+            start: 0,
+            end: 0,
+            brand: '',
+            color: ''
         }
     },
     methods: {
@@ -168,31 +174,19 @@ export default {
                 }).catch(error => {
                     console.log(error)
                 });
+        },
+        filterList() {
+            let products = this.products
+            return _.filter(products, function(query) {
+                let price = query.price >= this.start && query.price <= this.end,
+                    color = this.color ? (query.color.name == this.color) : true,
+                    brand = this.brand ? (query.brand.name == this.brand) : true;
+                return price && color && size
+            })
         }
     },
-
-
-    computed:{
-    filterList(){
-      let vm = this, lists = vm.products
-      return _.filter(lists, function(query){
-        let price = query.price >= vm.start && query.price <= vm.end,
-            brand = vm.brand ? (query.brand == vm.brand) : true,
-            color = vm.color ? (query.color == vm.color) : true;
-        return price && color && size
-      })
+    beforeMount() {
+        this.fetchProducts();
     }
-  },
-
-  mounted(){
-    let vm = this,
-        products = vm.products,
-        max = _.maxBy(products, 'price').price,
-        min = _.minBy(products, 'price').price
-    vm.start = min
-    vm.end = max
-    vm.min = min
-    vm.max = max
-  }
 }
 </script>
