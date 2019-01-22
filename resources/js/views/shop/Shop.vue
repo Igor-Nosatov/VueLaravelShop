@@ -133,7 +133,7 @@
                         </select>
                     </div>
                     <div class="pagination">
-                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="filterList()"></pagination>
                     </div>
                 </div>
             </div>
@@ -170,9 +170,26 @@ export default {
                 });
         }
     },
-
-    beforeMount() {
-        this.fetchProducts();
+    computed:{
+    filterList(){
+      let vm = this, lists = vm.products
+      return _.filter(lists, function(query){
+        let price = query.price >= vm.start && query.price <= vm.end,
+            brand = vm.brand ? (query.brand == vm.brand) : true,
+            color = vm.color ? (query.color == vm.color) : true;
+        return price && color && size
+      })
     }
+  },
+  mounted(){
+    let vm = this,
+        products = vm.products,
+        max = _.maxBy(products, 'price').price,
+        min = _.minBy(products, 'price').price
+    vm.start = min
+    vm.end = max
+    vm.min = min
+    vm.max = max
+  }
 }
 </script>

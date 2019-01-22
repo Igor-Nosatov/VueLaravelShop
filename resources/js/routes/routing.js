@@ -27,8 +27,9 @@ const routes = [{
         component: Category
     },
     {
-        path: '/search',
+        path: '/shop/search',
         name: 'search',
+        props: true,
         component: Search
     },
     {
