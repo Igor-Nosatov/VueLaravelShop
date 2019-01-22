@@ -170,6 +170,8 @@ export default {
                 });
         }
     },
+
+
     computed:{
     filterList(){
       let vm = this, lists = vm.products
@@ -181,6 +183,7 @@ export default {
       })
     }
   },
+
   mounted(){
     let vm = this,
         products = vm.products,

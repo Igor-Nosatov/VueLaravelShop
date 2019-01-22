@@ -18,6 +18,14 @@ class Product extends Model
   {
     return $this->belongsTo('App\Category', 'category_id');
   }
+  public function brand()
+  {
+    return $this->belongsTo('App\Brand', 'brand_id');
+  }
+  public function color()
+  {
+    return $this->belongsTo('App\Color', 'color_id');
+  }
 
   public function orders()
   {
