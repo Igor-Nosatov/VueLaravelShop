@@ -8,7 +8,6 @@ use App\Color;
 use App\Brand;
 use Illuminate\Http\Request;
 
-
 class CategoryController extends Controller
 {
     public function index(Request $request)
@@ -39,7 +38,6 @@ class CategoryController extends Controller
         {
          $products = $products->where('old_price','<=',request('max_price'));
         }
-
 
         $data['products'] = $products->paginate(6)->appends([
           'brand' => request('brand'),
