@@ -3884,20 +3884,14 @@ __webpack_require__.r(__webpack_exports__);
       },
       categories: [],
       colors: [],
-      brands: [],
-      min: 0,
-      max: 0,
-      start: 0,
-      end: 0,
-      brand: '',
-      color: ''
+      brands: []
     };
   },
   methods: {
     fetchProducts: function fetchProducts() {
       var _this = this;
 
-      axios.get('/api/shop?page=' + this.pagination.current_page).then(function (response) {
+      axios.get('/api/shop?' + 'color=1' + '&page=' + this.pagination.current_page).then(function (response) {
         _this.products = response.data.products.data;
         _this.pagination = response.data.products;
         _this.categories = response.data.categories;
@@ -3905,15 +3899,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.brands = response.data.brands;
       }).catch(function (error) {
         console.log(error);
-      });
-    },
-    filterList: function filterList() {
-      var products = this.products;
-      return _.filter(products, function (query) {
-        var price = query.price >= this.start && query.price <= this.end,
-            color = this.color ? query.color.name == this.color : true,
-            brand = this.brand ? query.brand.name == this.brand : true;
-        return price && color && size;
       });
     }
   },

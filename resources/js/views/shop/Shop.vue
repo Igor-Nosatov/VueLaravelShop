@@ -32,7 +32,7 @@
                         <form action="#">
                             <ul>
                                 <li class="filter-list" v-for="(brand,index) in brands" @key="index">
-                                    <input class="pixel-radio" type="radio" id="apple" name="brand" >
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand" v-model="brandSelected" @click = selectedBrand()>
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
                                     </label>
@@ -44,8 +44,8 @@
                         <div class="head">Color</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(color,index) in colors" v-model="color" @key="index">
-                                    <input  class="pixel-radio" type="radio" id="black" name="color" >
+                                <li class="filter-list" v-for="(color,index) in colors" @key="index">
+                                    <input class="pixel-radio" type="radio" id="black" name="color">
                                     <label for="black">{{ color.name }}
                                         <span>(29)</span>
                                     </label>
@@ -153,18 +153,12 @@ export default {
             },
             categories: [],
             colors: [],
-            brands: [],
-            min: 0,
-            max: 0,
-            start: 0,
-            end: 0,
-            brand: '',
-            color: ''
+            brands: []
         }
     },
     methods: {
         fetchProducts() {
-            axios.get('/api/shop?page=' + this.pagination.current_page)
+            axios.get('/api/shop?' + 'color=1' + '&page=' + this.pagination.current_page)
                 .then(response => {
                     this.products = response.data.products.data;
                     this.pagination = response.data.products;
@@ -174,15 +168,6 @@ export default {
                 }).catch(error => {
                     console.log(error)
                 });
-        },
-        filterList() {
-            let products = this.products
-            return _.filter(products, function(query) {
-                let price = query.price >= this.start && query.price <= this.end,
-                    color = this.color ? (query.color.name == this.color) : true,
-                    brand = this.brand ? (query.brand.name == this.brand) : true;
-                return price && color && size
-            })
         }
     },
     beforeMount() {
