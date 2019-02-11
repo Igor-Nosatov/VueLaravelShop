@@ -44,7 +44,7 @@
                         <div class="head">Color</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(color,index) in colors" @key="index">
+                                <li class="filter-list" v-for="(color,index) in colors" v-model="color" @key="index">
                                     <input  class="pixel-radio" type="radio" id="black" name="color" >
                                     <label for="black">{{ color.name }}
                                         <span>(29)</span>

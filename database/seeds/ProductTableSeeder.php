@@ -9,11 +9,12 @@ class ProductTableSeeder extends Seeder
     {
 
       DB::table('products')->insert([
+
           'name' => 'Big',
           'new_price' => '150',
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-          'old_price' => '300',
+          'old_price' => '299',
           'image' => '/img/product/p1.jpg',
           'category_id' => '1',
           'brand_id' => '1',
@@ -35,7 +36,7 @@ class ProductTableSeeder extends Seeder
           'new_price' => '150',
           'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-          'old_price' => '300',
+          'old_price' => '298',
           'image' => '/img/product/p3.jpg',
           'category_id' => '3',
           'brand_id' => '3',
