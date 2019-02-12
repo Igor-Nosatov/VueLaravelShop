@@ -12,16 +12,6 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $data['products'] = Product::with(['color','brand'])->paginate(6);
-        $data['categories'] = Category::get();
-        $data['colors'] = Color::get();
-        $data['brands'] = Brand::get();
-
-        return response()->json($data, 200);
-    }
-
-    public function show(Request $request)
-    {
         $products = new Product;
 
         if (request()->has('brand'))

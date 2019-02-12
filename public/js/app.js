@@ -2256,7 +2256,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'search',
           params: {
-            products: response.data.products.data
+            products: response.data.products
           }
         });
       }).catch(function (error) {});
