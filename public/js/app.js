@@ -2256,7 +2256,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'search',
           params: {
-            products: response.data.products
+            products: response.data.products.data
           }
         });
       }).catch(function (error) {});
@@ -3887,19 +3887,35 @@ __webpack_require__.r(__webpack_exports__);
       brands: []
     };
   },
-  methods: {
-    fetchProducts: function fetchProducts() {
+  computed: {
+    filteredLinks: function filteredLinks() {
       var _this = this;
 
-      axios.get('/api/shop?' + 'color=1' + '&page=' + this.pagination.current_page).then(function (response) {
-        _this.products = response.data.products.data;
-        _this.pagination = response.data.products;
-        _this.categories = response.data.categories;
-        _this.colors = response.data.colors;
-        _this.brands = response.data.brands;
+      return this.products.filter(function (product) {
+        return link.color_id.match(_this.selectColor);
+      });
+    }
+  },
+  methods: {
+    fetchProducts: function fetchProducts() {
+      var _this2 = this;
+
+      var url = "/api/shop?page= + ".concat(this.pagination.current_page);
+      axios.get(url).then(function (response) {
+        _this2.products = response.data.products.data;
+        _this2.pagination = response.data.products;
+        _this2.categories = response.data.categories;
+        _this2.colors = response.data.colors;
+        _this2.brands = response.data.brands;
       }).catch(function (error) {
         console.log(error);
       });
+    },
+    selectBrand: function selectBrand() {
+      this.message = this.message.split('').reverse().join('');
+    },
+    selectColor: function selectColor() {
+      this.message = this.message.split('').reverse().join('');
     }
   },
   beforeMount: function beforeMount() {

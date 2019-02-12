@@ -6,11 +6,10 @@ Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@register');
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'CategoryController@index');
+Route::get('/shop/search', 'SearchController@search');
 Route::get('/category/{shop}', 'CategoryController@category');
 Route::get('/products', 'ProductController@index');
 Route::post('/upload-file', 'ProductController@uploadFile');
-Route::get('/shop/search', 'SearchController@search');
-Route::get('/shop/search/category', 'SearchController@categoryAndFilter');
 Route::get('/product/{product}', 'ProductController@show');
 
     Route::group(['middleware' => 'auth:api'], function(){

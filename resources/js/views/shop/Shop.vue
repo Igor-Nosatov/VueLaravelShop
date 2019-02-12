@@ -32,7 +32,7 @@
                         <form action="#">
                             <ul>
                                 <li class="filter-list" v-for="(brand,index) in brands" @key="index">
-                                    <input class="pixel-radio" type="radio" id="apple" name="brand" v-model="brandSelected" @click = selectedBrand()>
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand">
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
                                     </label>
@@ -156,19 +156,32 @@ export default {
             brands: []
         }
     },
+  computed: {
+    filteredLinks() {
+      return this.products.filter((product)  => {
+        return link.color_id.match(this.selectColor)
+      })
+    }
+  },
     methods: {
         fetchProducts() {
-            axios.get('/api/shop?' + 'color=1' + '&page=' + this.pagination.current_page)
-                .then(response => {
-                    this.products = response.data.products.data;
-                    this.pagination = response.data.products;
-                    this.categories = response.data.categories;
-                    this.colors = response.data.colors;
-                    this.brands = response.data.brands;
-                }).catch(error => {
-                    console.log(error)
-                });
-        }
+            let url = `/api/shop?page= + ${this.pagination.current_page}`
+            axios.get(url).then(response => {
+                this.products = response.data.products.data;
+                this.pagination = response.data.products;
+                this.categories = response.data.categories;
+                this.colors = response.data.colors;
+                this.brands = response.data.brands;
+            }).catch(error => {
+                console.log(error)
+            });
+        },
+        selectBrand() {
+            this.message = this.message.split('').reverse().join('')
+        },
+        selectColor() {
+            this.message = this.message.split('').reverse().join('')
+        },
     },
     beforeMount() {
         this.fetchProducts();
