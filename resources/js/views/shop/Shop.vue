@@ -161,6 +161,8 @@ export default {
             page: 1,
             perPage: 9,
             pages: [],
+            selectedColor: '',
+            selectedBrand: '',
         }
     },
     methods: {
@@ -199,7 +201,14 @@ export default {
     },
     computed: {
         displayedProducts() {
-            return this.paginate(this.products);
+            let vm = this, products = vm.paginate(this.products)
+            return _.filter(products, function(query) {
+                let price = query.price >= vm.start && query.price <= vm.end,
+                    color = vm.selectedColor ? (query.color.id == vm.selectedColor) : true,
+                    size = vm.selectedBrand ? (query.brand.id == vm.selectedBrand) : true;
+                return price && color && size
+            })
+
         }
     },
 }

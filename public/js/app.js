@@ -3915,7 +3915,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     displayedProducts: function displayedProducts() {
-      return this.paginate(this.products);
+      var vm = this,
+          products = vm.paginate(this.products);
+      return _.filter(products, function (query) {
+        var price = query.price >= vm.start && query.price <= vm.end,
+            color = vm.color ? query.color == vm.color : true,
+            size = vm.size ? query.size == vm.size : true;
+        return price && color && size;
+      });
     }
   }
 });
