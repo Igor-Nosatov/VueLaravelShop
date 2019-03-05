@@ -6,6 +6,7 @@ Route::post('/login', 'UserController@login');
 Route::post('/register', 'UserController@register');
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'CategoryController@index');
+Route::post('/shop', 'CategoryController@index');
 Route::get('/shop/search', 'SearchController@search');
 Route::get('/category/{shop}', 'CategoryController@category');
 Route::get('/products', 'ProductController@index');

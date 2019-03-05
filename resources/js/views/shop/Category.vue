@@ -70,7 +70,7 @@
            </select>
          </div>
          <div class="ml-auto">
-             <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
+
          </div>
 
        </div>
@@ -125,7 +125,7 @@
            </select>
          </div>
          <div class="ml-auto">
-             <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchCategoryProducts()"></pagination>
+
          </div>
        </div>
      </div>
@@ -139,9 +139,7 @@ export default {
         data(){
             return {
               products: [],
-              pagination: {
-                  'current_page': 1
-              },
+
                 categories : [],
                 colors : [],
                 brands : []
@@ -149,10 +147,9 @@ export default {
         },
         methods: {
             fetchCategoryProducts() {
-              let url = `/api/category/${this.$route.params.id}?page= + ${this.pagination.current_page}`
+              let url = `/api/category/${this.$route.params.id}`
               axios.get(url).then(response => {
-                this.products = response.data.products.data;
-                this.pagination = response.data.products;
+                this.products = response.data.products;
                 this.categories = response.data.categories;
                 this.colors = response.data.colors;
                 this.brands = response.data.brands;
@@ -161,7 +158,7 @@ export default {
               });
             }
         },
-        beforeMount(){
+        mounted(){
           this.fetchCategoryProducts();
         }
     }

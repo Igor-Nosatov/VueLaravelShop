@@ -31,7 +31,7 @@
                         <div class="head">Brands</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(brand,index) in brands" @key="index">
+                                <li class="filter-list" v-for="brand in brands">
                                     <input class="pixel-radio" type="radio" id="apple" name="brand">
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
@@ -44,7 +44,7 @@
                         <div class="head">Color</div>
                         <form action="#">
                             <ul>
-                                <li class="filter-list" v-for="(color,index) in colors" @key="index">
+                                <li class="filter-list" v-for="color in colors">
                                     <input class="pixel-radio" type="radio" id="black" name="color">
                                     <label for="black">{{ color.name }}
                                         <span>(29)</span>
@@ -79,15 +79,19 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="ml-auto">
-                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                    <div class="pagination ml-auto">
+                        <a v-if="page != 1" @click="page--">
+                            <i class="fa fa-long-arrow-left" aria-hidden="true"></i> </a>
+                        <a v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
+                        </a>
+                        <a @click="page++" v-if="page < pages.length"> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>
                     </div>
                 </div>
 
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
 
-                        <div class="col-lg-4 col-md-6" v-for="(product,index) in products" @key="index">
+                        <div class="col-lg-4 col-md-6" v-for="product in displayedProducts">
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
                                     <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -132,8 +136,12 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="ml-auto">
-                        <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchProducts()"></pagination>
+                    <div class="pagination ml-auto">
+                        <a v-if="page != 1" @click="page--">
+                            <i class="fa fa-long-arrow-left" aria-hidden="true"></i> </a>
+                        <a v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
+                        </a>
+                        <a @click="page++" v-if="page < pages.length"> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>
                     </div>
                 </div>
             </div>
@@ -148,27 +156,19 @@ export default {
     data() {
         return {
             products: [],
-            pagination: {
-                'current_page': 1
-            },
             categories: [],
             colors: [],
-            brands: []
+            brands: [],
+            page: 1,
+            perPage: 9,
+            pages: [],
         }
     },
-  computed: {
-    filteredLinks() {
-      return this.products.filter((product)  => {
-        return link.color_id.match(this.selectColor)
-      })
-    }
-  },
     methods: {
         fetchProducts() {
-            let url = `/api/shop?page= + ${this.pagination.current_page}`
+            let url = `/api/shop`
             axios.get(url).then(response => {
-                this.products = response.data.products.data;
-                this.pagination = response.data.products;
+                this.products = response.data.products;
                 this.categories = response.data.categories;
                 this.colors = response.data.colors;
                 this.brands = response.data.brands;
@@ -176,15 +176,32 @@ export default {
                 console.log(error)
             });
         },
-        selectBrand() {
-            this.message = this.message.split('').reverse().join('')
+        setPages() {
+            let numberOfPages = Math.ceil(this.products.length / this.perPage);
+            for (let index = 1; index <= numberOfPages; index++) {
+                this.pages.push(index);
+            }
         },
-        selectColor() {
-            this.message = this.message.split('').reverse().join('')
-        },
+        paginate(products) {
+            let page = this.page;
+            let perPage = this.perPage;
+            let from = (page * perPage) - perPage;
+            let to = (page * perPage);
+            return products.slice(from, to);
+        }
     },
-    beforeMount() {
+    created() {
         this.fetchProducts();
-    }
+    },
+    watch: {
+        products() {
+            this.setPages();
+        }
+    },
+    computed: {
+        displayedProducts() {
+            return this.paginate(this.products);
+        }
+    },
 }
 </script>
