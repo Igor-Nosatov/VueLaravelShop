@@ -32,7 +32,7 @@
                         <form action="#">
                             <ul>
                                 <li class="filter-list" v-for="brand in brands">
-                                    <input class="pixel-radio" type="radio" id="apple" name="brand"  :value="brand.id" v-model="selectedBrand">
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand">
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
                                     </label>
@@ -152,17 +152,26 @@
 
 <script>
 export default {
+
     data() {
         return {
+            current: 1,
             products: [],
             categories: [],
             colors: [],
             brands: [],
-            page: 1,
-            perPage: 9,
-            pages: [],
+            paginate: 6,
+            paginate_total: 0,
+            selectedColor: '',
             selectedBrand: '',
-            selectedColor: ''
+        }
+    },
+    created() {
+        this.fetchProducts();
+    },
+    computed: {
+        totalPages: function() {
+            return Math.ceil(this.resultCount / this.itemsPerPage);
         }
     },
     methods: {
@@ -177,36 +186,27 @@ export default {
                 console.log(error)
             });
         },
-        setPages() {
-            let numberOfPages = Math.ceil(this.products.length / this.perPage);
-            for (let index = 1; index <= numberOfPages; index++) {
-                this.pages.push(index);
-            }
+        refresh: function() {
+            this.$children[0].refresh();
         },
-        paginate(products) {
-            let page = this.page;
-            let perPage = this.perPage;
-            let from = (page * perPage) - perPage;
-            let to = (page * perPage);
-            return products.slice(from, to);
+        sortvia: function(sortparam, order) {
+            this.order = this.order * -1;
+            this.sortparam = sortparam;
+        },
+        setPage: function(pageNumber) {
+            this.currentPage = pageNumber;
+            console.log(pageNumber);
         }
     },
-    created() {
-        this.fetchProducts();
-    },
-    watch: {
-        products() {
-            this.setPages();
+    filters: {
+        paginate: function(list) {
+            this.resultCount = list.length;
+            if (this.currentPage >= this.totalPages) {
+                this.currentPage = Math.max(0, this.totalPages - 1);
+            }
+            var index = this.currentPage * this.itemsPerPage;
+            return list.slice(index, index + this.itemsPerPage);
         }
-    },
-    computed: {
-        displayedProducts() {
-            let vm = this, products = vm.products;
-            return _.filter(products, function(query) {
-                let color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
-                return color
-            })
-        }
-    },
+    }
 }
 </script>
