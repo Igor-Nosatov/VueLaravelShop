@@ -32,7 +32,7 @@
                         <form action="#">
                             <ul>
                                 <li class="filter-list" v-for="brand in brands">
-                                    <input class="pixel-radio" type="radio" id="apple" name="brand">
+                                    <input class="pixel-radio" type="radio" id="apple" name="brand"  :value="brand.id" v-model="selectedBrand">
                                     <label for="apple">{{ brand.name }}
                                         <span>(29)</span>
                                     </label>
@@ -45,7 +45,7 @@
                         <form action="#">
                             <ul>
                                 <li class="filter-list" v-for="color in colors">
-                                    <input class="pixel-radio" type="radio" id="black" name="color">
+                                    <input class="pixel-radio" type="radio" id="black" name="color" :value="color.id" v-model="selectedColor">
                                     <label for="black">{{ color.name }}
                                         <span>(29)</span>
                                     </label>
@@ -161,8 +161,8 @@ export default {
             page: 1,
             perPage: 9,
             pages: [],
-            selectedColor: '',
             selectedBrand: '',
+            selectedColor: ''
         }
     },
     methods: {
@@ -201,14 +201,11 @@ export default {
     },
     computed: {
         displayedProducts() {
-            let vm = this, products = vm.paginate(this.products)
+            let vm = this, products = vm.products;
             return _.filter(products, function(query) {
-                let price = query.price >= vm.start && query.price <= vm.end,
-                    color = vm.selectedColor ? (query.color.id == vm.selectedColor) : true,
-                    size = vm.selectedBrand ? (query.brand.id == vm.selectedBrand) : true;
-                return price && color && size
+                let color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
+                return color
             })
-
         }
     },
 }

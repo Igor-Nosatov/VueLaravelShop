@@ -3873,7 +3873,9 @@ __webpack_require__.r(__webpack_exports__);
       brands: [],
       page: 1,
       perPage: 9,
-      pages: []
+      pages: [],
+      selectedBrand: '',
+      selectedColor: ''
     };
   },
   methods: {
@@ -3916,12 +3918,10 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     displayedProducts: function displayedProducts() {
       var vm = this,
-          products = vm.paginate(this.products);
+          products = vm.products;
       return _.filter(products, function (query) {
-        var price = query.price >= vm.start && query.price <= vm.end,
-            color = vm.color ? query.color == vm.color : true,
-            size = vm.size ? query.size == vm.size : true;
-        return price && color && size;
+        var color = vm.selectedColor ? query.color_id == vm.selectedColor : true;
+        return color;
       });
     }
   }
@@ -43662,8 +43662,25 @@ var render = function() {
                   _vm._l(_vm.brands, function(brand) {
                     return _c("li", { staticClass: "filter-list" }, [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedBrand,
+                            expression: "selectedBrand"
+                          }
+                        ],
                         staticClass: "pixel-radio",
-                        attrs: { type: "radio", id: "apple", name: "brand" }
+                        attrs: { type: "radio", id: "apple", name: "brand" },
+                        domProps: {
+                          value: brand.id,
+                          checked: _vm._q(_vm.selectedBrand, brand.id)
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.selectedBrand = brand.id
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "apple" } }, [
@@ -43689,8 +43706,25 @@ var render = function() {
                   _vm._l(_vm.colors, function(color) {
                     return _c("li", { staticClass: "filter-list" }, [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedColor,
+                            expression: "selectedColor"
+                          }
+                        ],
                         staticClass: "pixel-radio",
-                        attrs: { type: "radio", id: "black", name: "color" }
+                        attrs: { type: "radio", id: "black", name: "color" },
+                        domProps: {
+                          value: color.id,
+                          checked: _vm._q(_vm.selectedColor, color.id)
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.selectedColor = color.id
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "black" } }, [
