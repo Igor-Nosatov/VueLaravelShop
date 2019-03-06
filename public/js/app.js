@@ -3707,10 +3707,227 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/shop/Shop.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/acer/web/VueLaravelShop-master/resources/js/views/shop/Shop.vue: return is a reserved word (210:8)\n\n\u001b[0m \u001b[90m 208 | \u001b[39m            \u001b[36mreturn\u001b[39m products\u001b[33m.\u001b[39mslice(from\u001b[33m,\u001b[39m to)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 209 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 210 | \u001b[39m        \u001b[36mreturn\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpaginate(products)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 211 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 212 | \u001b[39m}\u001b[0m\n\u001b[0m \u001b[90m 213 | \u001b[39m\u001b[0m\n    at Parser.raise (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:3834:17)\n    at Parser.checkReservedWord (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6989:12)\n    at Parser.parseObjectProperty (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6725:12)\n    at Parser.parseObjPropValue (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6745:101)\n    at Parser.parseObj (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6660:12)\n    at Parser.parseExprAtom (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6225:21)\n    at Parser.parseExprSubscripts (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5848:23)\n    at Parser.parseMaybeUnary (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5828:21)\n    at Parser.parseExprOps (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5717:23)\n    at Parser.parseMaybeConditional (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5690:23)\n    at Parser.parseMaybeAssign (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5635:21)\n    at Parser.parseObjectProperty (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6720:101)\n    at Parser.parseObjPropValue (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6745:101)\n    at Parser.parseObj (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6660:12)\n    at Parser.parseExprAtom (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:6225:21)\n    at Parser.parseExprSubscripts (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5848:23)\n    at Parser.parseMaybeUnary (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5828:21)\n    at Parser.parseExprOps (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5717:23)\n    at Parser.parseMaybeConditional (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5690:23)\n    at Parser.parseMaybeAssign (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:5635:21)\n    at Parser.parseExportDefaultExpression (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:8290:24)\n    at Parser.parseExport (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:8228:31)\n    at Parser.parseStatementContent (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:7290:27)\n    at Parser.parseStatement (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:7199:17)\n    at Parser.parseBlockOrModuleBlockBody (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:7757:25)\n    at Parser.parseBlockBody (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:7744:10)\n    at Parser.parseTopLevel (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:7164:10)\n    at Parser.parse (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:8565:17)\n    at parse (/home/acer/web/VueLaravelShop-master/node_modules/@babel/parser/lib/index.js:10537:38)\n    at parser (/home/acer/web/VueLaravelShop-master/node_modules/@babel/core/lib/transformation/normalize-file.js:170:34)\n    at normalizeFile (/home/acer/web/VueLaravelShop-master/node_modules/@babel/core/lib/transformation/normalize-file.js:138:11)\n    at runSync (/home/acer/web/VueLaravelShop-master/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/home/acer/web/VueLaravelShop-master/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/home/acer/web/VueLaravelShop-master/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      products: [],
+      categories: [],
+      colors: [],
+      brands: [],
+      page: 1,
+      perPage: 9,
+      pages: [],
+      selectedBrand: '',
+      selectedColor: ''
+    };
+  },
+  methods: {
+    fetchProducts: function fetchProducts() {
+      var _this = this;
+
+      var url = "/api/shop";
+      axios.get(url).then(function (response) {
+        _this.products = response.data.products;
+        _this.categories = response.data.categories;
+        _this.colors = response.data.colors;
+        _this.brands = response.data.brands;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    setPages: function setPages() {
+      var numberOfPages = Math.ceil(this.products.length / this.perPage);
+
+      for (var index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate: function paginate(products) {
+      var page = this.page;
+      var perPage = this.perPage;
+      var from = page * perPage - perPage;
+      var to = page * perPage;
+      return products.slice(from, to);
+    }
+  },
+  created: function created() {
+    this.fetchProducts();
+  },
+  watch: {
+    products: function products() {
+      this.setPages();
+    }
+  },
+  computed: {
+    displayedProducts: function displayedProducts() {
+      var vm = this,
+          products = vm.products;
+      return _.filter(products, function (query) {
+        var brand = vm.selectedBrand ? query.brand_id == vm.selectedBrand : true,
+            color = vm.selectedColor ? query.color_id == vm.selectedColor : true;
+        return brand && color;
+      });
+      return vm.paginate(products);
+    }
+  }
+});
 
 /***/ }),
 
@@ -43447,8 +43664,25 @@ var render = function() {
                   _vm._l(_vm.brands, function(brand) {
                     return _c("li", { staticClass: "filter-list" }, [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedBrand,
+                            expression: "selectedBrand"
+                          }
+                        ],
                         staticClass: "pixel-radio",
-                        attrs: { type: "radio", id: "apple", name: "brand" }
+                        attrs: { type: "radio", id: "apple", name: "brand" },
+                        domProps: {
+                          value: brand.id,
+                          checked: _vm._q(_vm.selectedBrand, brand.id)
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.selectedBrand = brand.id
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "apple" } }, [
@@ -60393,15 +60627,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./resources/js/views/shop/Shop.vue ***!
   \******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shop_vue_vue_type_template_id_730e9dc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Shop.vue?vue&type=template&id=730e9dc0& */ "./resources/js/views/shop/Shop.vue?vue&type=template&id=730e9dc0&");
 /* harmony import */ var _Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Shop.vue?vue&type=script&lang=js& */ "./resources/js/views/shop/Shop.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -60431,15 +60664,13 @@ component.options.__file = "resources/js/views/shop/Shop.vue"
 /*!*******************************************************************!*\
   !*** ./resources/js/views/shop/Shop.vue?vue&type=script&lang=js& ***!
   \*******************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Shop.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/shop/Shop.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Shop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
