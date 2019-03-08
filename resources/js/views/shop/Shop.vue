@@ -178,8 +178,7 @@ export default {
             });
         },
         setPages() {
-            let numberOfPages = Math.ceil(this.products.length / this.perPage);
-            for (let index = 1; index <= numberOfPages; index++) {
+            for (let index = 1; index <= this.totalPage; index++) {
                 this.pages.push(index);
             }
         },
@@ -200,17 +199,21 @@ export default {
         }
     },
     computed: {
-        displayedProducts() {
-            let vm = this, products = vm.products;
-            
-            return _.filter(products, function(query) {
+        filterProducts() {
+            let vm = this,
+                products = vm.products;
+            let filter_products = _.filter(products, function(query) {
                 let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
                     color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
                 return brand && color
             });
-
-            return vm.paginate(products);
-
+            return filter_products;
+        },
+        totalPage() {
+            return Math.ceil(this.filterProducts.length / this.perPage);
+        },
+        displayedProducts() {
+            return this.paginate(this.filterProducts);
         }
     },
 }
