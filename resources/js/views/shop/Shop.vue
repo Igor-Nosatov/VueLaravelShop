@@ -1,3 +1,9 @@
+<style scoped>
+ul>li>a.current:first-child {
+    color: red !important;
+}
+</style>
+
 <template>
 <div>
     <section class="banner-area organic-breadcrumb">
@@ -80,18 +86,14 @@
                         </select>
                     </div>
                     <div class="pagination ml-auto">
-                        <a v-if="page != 1" @click="page--">
-                            <i class="fa fa-long-arrow-left" aria-hidden="true"></i> </a>
-                        <a v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
-                        </a>
-                        <a @click="page++" v-if="page < pages.length"> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>
+
                     </div>
                 </div>
 
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
 
-                        <div class="col-lg-4 col-md-6" v-for="product in displayedProducts">
+                        <div class="col-lg-4 col-md-6" v-for="product in paginate">
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
                                     <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -137,11 +139,11 @@
                         </select>
                     </div>
                     <div class="pagination ml-auto">
-                        <a v-if="page != 1" @click="page--">
-                            <i class="fa fa-long-arrow-left" aria-hidden="true"></i> </a>
-                        <a v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
-                        </a>
-                        <a @click="page++" v-if="page < pages.length"> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>
+                        <ul>
+                            <li v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                                <a  v-bind:key="pageNumber" href="#" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -152,18 +154,48 @@
 
 <script>
 export default {
+    created() {
+        this.fetchProducts();
+    },
     data() {
         return {
             products: [],
+            currentPage: 1,
+            itemsPerPage: 9,
+            resultCount: 0,
             categories: [],
             colors: [],
             brands: [],
-            page: 1,
-            perPage: 9,
-            pages: [],
             selectedBrand: '',
             selectedColor: ''
         }
+    },
+
+    computed: {
+        filterProducts() {
+            let vm = this,
+                products = vm.products;
+            let filter_products = _.filter(products, function(query) {
+                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
+                return brand && color
+            });
+            return filter_products;
+        },
+        totalPages() {
+            return Math.ceil(this.resultCount / this.itemsPerPage)
+        },
+        paginate() {
+            if (!this.filterProducts || this.filterProducts.length != this.filterProducts.length) {
+                return
+            }
+            this.resultCount = this.filterProducts.length
+            if (this.currentPage >= this.totalPages) {
+                this.currentPage = this.totalPages
+            }
+            let index = this.currentPage * this.itemsPerPage - this.itemsPerPage
+            return this.filterProducts.slice(index, index + this.itemsPerPage)
+        },
     },
     methods: {
         fetchProducts() {
@@ -177,44 +209,11 @@ export default {
                 console.log(error)
             });
         },
-        setPages() {
-            for (let index = 1; index <= this.totalPage; index++) {
-                this.pages.push(index);
-            }
+        setPage(pageNumber) {
+            this.currentPage = pageNumber;
         },
-        paginate(products) {
-            let page = this.page;
-            let perPage = this.perPage;
-            let from = (page * perPage) - perPage;
-            let to = (page * perPage);
-            return products.slice(from, to);
-        }
-    },
-    created() {
-        this.fetchProducts();
-    },
-    watch: {
-        products() {
-            this.setPages();
-        }
-    },
-    computed: {
-        filterProducts() {
-            let vm = this,
-                products = vm.products;
-            let filter_products = _.filter(products, function(query) {
-                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
-                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
-                return brand && color
-            });
-            return filter_products;
-        },
-        totalPage() {
-            return Math.ceil(this.filterProducts.length / this.perPage);
-        },
-        displayedProducts() {
-            return this.paginate(this.filterProducts);
-        }
-    },
+
+    }
+
 }
 </script>
