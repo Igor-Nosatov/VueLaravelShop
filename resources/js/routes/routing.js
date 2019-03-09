@@ -21,14 +21,12 @@ const routes = [{
         path: '/shop',
         name: 'shop',
         component: Shop
-    }
-
-    /*,
+    }/*,
     {
         path: '/category/:id',
         name: 'category',
         component: Category
-    },
+    }
     {
         path: '/shop/search',
         name: 'search',

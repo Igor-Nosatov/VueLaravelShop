@@ -54470,75 +54470,75 @@ var routes = [{
   component: _views_shop_Shop__WEBPACK_IMPORTED_MODULE_1__["default"]
   /*,
   {
-      path: '/category/:id',
-      name: 'category',
-      component: Category
+     path: '/category/:id',
+     name: 'category',
+     component: Category
+  }
+  {
+     path: '/shop/search',
+     name: 'search',
+     props: true,
+     component: Search
   },
   {
-      path: '/shop/search',
-      name: 'search',
-      props: true,
-      component: Search
+     path: '/login',
+     name: 'login',
+     component: Login
   },
   {
-      path: '/login',
-      name: 'login',
-      component: Login
+     path: '/register',
+     name: 'register',
+     component: Register
   },
   {
-      path: '/register',
-      name: 'register',
-      component: Register
+     path: '/products/:id',
+     name: 'single-products',
+     component: SingleProduct
   },
   {
-      path: '/products/:id',
-      name: 'single-products',
-      component: SingleProduct
+     path: '/confirmation',
+     name: 'confirmation',
+     component: Confirmation
   },
   {
-      path: '/confirmation',
-      name: 'confirmation',
-      component: Confirmation
+     path: '/order',
+     name: 'order',
+     component: Order,
   },
   {
-      path: '/order',
-      name: 'order',
-      component: Order,
-   },
-  {
-      path: '/checkout',
-      name: 'checkout',
-      component: Checkout,
-      props: (route) => ({
-          pid: route.query.pid
-      })
+     path: '/checkout',
+     name: 'checkout',
+     component: Checkout,
+     props: (route) => ({
+         pid: route.query.pid
+     })
   },
   {
-      path: '/dashboard',
-      name: 'userboard',
-      component: UserBoard,
-      meta: {
-          requiresAuth: true,
-          is_user: true
-      }
+     path: '/dashboard',
+     name: 'userboard',
+     component: UserBoard,
+     meta: {
+         requiresAuth: true,
+         is_user: true
+     }
   },
   {
-      path: '/admin/:page',
-      name: 'admin-pages',
-      component: Admin,
-      meta: {
-          requiresAuth: true,
-          is_admin: true
-      }
+     path: '/admin/:page',
+     name: 'admin-pages',
+     component: Admin,
+     meta: {
+         requiresAuth: true,
+         is_admin: true
+     }
   },
   {
-      path: '/admin',
-      name: 'admin',
-      component: Admin,
-      meta: {
-          requiresAuth: true,
-          is_admin: true
-      }
+     path: '/admin',
+     name: 'admin',
+     component: Admin,
+     meta: {
+         requiresAuth: true,
+         is_admin: true
+     }
   }*/
 
 }];
