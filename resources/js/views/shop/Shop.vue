@@ -1,8 +1,3 @@
-<style scoped>
-ul>li>a.current:first-child {
-    color: red !important;
-}
-</style>
 
 <template>
 <div>
@@ -89,11 +84,9 @@ ul>li>a.current:first-child {
 
                     </div>
                 </div>
-
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
-
-                        <div class="col-lg-4 col-md-6" v-for="product in paginate">
+                        <div class="col-lg-4 col-md-6" v-for="product in displayProducts">
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
                                     <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -126,7 +119,6 @@ ul>li>a.current:first-child {
                                 </router-link>
                             </div>
                         </div>
-
                     </div>
                 </section>
 
@@ -138,12 +130,10 @@ ul>li>a.current:first-child {
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="pagination ml-auto">
-                        <ul>
-                            <li v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
-                                <a  v-bind:key="pageNumber" href="#" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
-                            </li>
-                        </ul>
+                    <div class="pagination ml-auto">  
+                            <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                                <a v-bind:key="pageNumber"  @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -162,40 +152,13 @@ export default {
             products: [],
             currentPage: 1,
             itemsPerPage: 9,
-            resultCount: 0,
+            resultCount: 1,
             categories: [],
             colors: [],
             brands: [],
             selectedBrand: '',
             selectedColor: ''
         }
-    },
-
-    computed: {
-        filterProducts() {
-            let vm = this,
-                products = vm.products;
-            let filter_products = _.filter(products, function(query) {
-                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
-                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
-                return brand && color
-            });
-            return filter_products;
-        },
-        totalPages() {
-            return Math.ceil(this.resultCount / this.itemsPerPage)
-        },
-        paginate() {
-            if (!this.filterProducts || this.filterProducts.length != this.filterProducts.length) {
-                return
-            }
-            this.resultCount = this.filterProducts.length
-            if (this.currentPage >= this.totalPages) {
-                this.currentPage = this.totalPages
-            }
-            let index = this.currentPage * this.itemsPerPage - this.itemsPerPage
-            return this.filterProducts.slice(index, index + this.itemsPerPage)
-        },
     },
     methods: {
         fetchProducts() {
@@ -209,11 +172,35 @@ export default {
                 console.log(error)
             });
         },
+        paginate(products) {
+            let page = this.currentPage;
+            let itemsPerPage = this.itemsPerPage;
+            let from = (page * itemsPerPage) - itemsPerPage;
+            let to = (page * itemsPerPage);
+            return products.slice(from, to);
+        },
         setPage(pageNumber) {
             this.currentPage = pageNumber;
+        }
+    },
+    computed: {
+        filterProducts() {
+            let vm = this,
+                products = vm.products;
+            let filter_products = _.filter(products, function(query) {
+                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
+                return brand && color
+            });
+            return filter_products;
         },
-
+        displayProducts() {
+            return this.paginate(this.filterProducts);
+        },
+        totalPages() {
+            let pageCount = this.resultCount = this.filterProducts.length;
+            return Math.ceil(this.resultCount / this.itemsPerPage)
+        }
     }
-
 }
 </script>
