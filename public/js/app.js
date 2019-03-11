@@ -2846,11 +2846,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.fetchProducts();
+  },
   data: function data() {
     return {
       products: [],
@@ -2862,8 +2861,8 @@ __webpack_require__.r(__webpack_exports__);
       brands: [],
       selectedBrand: '',
       selectedColor: '',
-      minPrice: '',
-      maxPrice: ''
+      minPrice: 0,
+      maxPrice: 300
     };
   },
   methods: {
@@ -2897,10 +2896,10 @@ __webpack_require__.r(__webpack_exports__);
           products = vm.products;
 
       var filter_products = _.filter(products, function (query) {
-        var price = query.price >= vm.minPrice && query.price <= vm.maxPrice,
-            brand = vm.selectedBrand ? query.brand_id == vm.selectedBrand : true,
-            color = vm.selectedColor ? query.color_id == vm.selectedColor : true;
-        return price && brand && color;
+        var brand = vm.selectedBrand ? query.brand_id == vm.selectedBrand : true,
+            color = vm.selectedColor ? query.color_id == vm.selectedColor : true,
+            price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
+        return brand && color && price;
       });
 
       return filter_products;
@@ -2912,9 +2911,6 @@ __webpack_require__.r(__webpack_exports__);
       var pageCount = this.resultCount = this.filterProducts.length;
       return Math.ceil(this.resultCount / this.productsPerPage);
     }
-  },
-  mounted: function mounted() {
-    this.fetchProducts();
   }
 });
 
@@ -39675,43 +39671,55 @@ var render = function() {
               _c("div", { staticClass: "head" }, [_vm._v("Price")]),
               _vm._v(" "),
               _c("div", { staticClass: "price-range-area" }, [
-                _c("fieldset", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.minPrice,
-                        expression: "minPrice"
-                      }
-                    ],
-                    attrs: { type: "range", id: "start", min: "0", max: "149" },
-                    domProps: { value: _vm.minPrice },
-                    on: {
-                      __r: function($event) {
-                        _vm.minPrice = $event.target.value
-                      }
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.minPrice,
+                      expression: "minPrice"
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.maxPrice,
-                        expression: "maxPrice"
-                      }
-                    ],
-                    attrs: { type: "range", id: "end", min: "150", max: "300" },
-                    domProps: { value: _vm.maxPrice },
-                    on: {
-                      __r: function($event) {
-                        _vm.maxPrice = $event.target.value
-                      }
+                  ],
+                  attrs: {
+                    type: "range",
+                    id: "start",
+                    min: "0",
+                    max: "149",
+                    value: "0",
+                    step: "10"
+                  },
+                  domProps: { value: _vm.minPrice },
+                  on: {
+                    __r: function($event) {
+                      _vm.minPrice = $event.target.value
                     }
-                  })
-                ])
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.maxPrice,
+                      expression: "maxPrice"
+                    }
+                  ],
+                  attrs: {
+                    type: "range",
+                    id: "end",
+                    min: "150",
+                    max: "300",
+                    value: "300",
+                    step: "10"
+                  },
+                  domProps: { value: _vm.maxPrice },
+                  on: {
+                    __r: function($event) {
+                      _vm.maxPrice = $event.target.value
+                    }
+                  }
+                })
               ])
             ])
           ])

@@ -57,12 +57,8 @@
                     <div class="common-filter">
                         <div class="head">Price</div>
                         <div class="price-range-area">
-                        <fieldset>
-                        	 <input type="range" id="start" v-model="minPrice"
-                        					 min="0" max="149">
-                        	 <input type="range" id="end" v-model="maxPrice"
-                        					 min="150" max="300">
-                            </fieldset>
+                            <input type="range" id="start" v-model="minPrice" min="0" max="149" value="0" step="10">
+                            <input type="range" id="end" v-model="maxPrice" min="150" max="300" value="300" step="10">
                         </div>
                     </div>
                 </div>
@@ -143,6 +139,9 @@
 
 <script>
 export default {
+    created() {
+        this.fetchProducts();
+    },
     data() {
         return {
             products: [],
@@ -154,8 +153,8 @@ export default {
             brands: [],
             selectedBrand: '',
             selectedColor: '',
-            minPrice:'',
-            maxPrice:''
+            minPrice: 0,
+            maxPrice: 300
         }
     },
     methods: {
@@ -186,10 +185,10 @@ export default {
             let vm = this,
                 products = vm.products
             let filter_products = _.filter(products, function(query) {
-                let price = query.price >= vm.minPrice && query.price <= vm.maxPrice,
-                    brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
-                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
-                return price && brand && color
+                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
+                    price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
+                return brand && color && price
             });
             return filter_products;
         },
@@ -200,9 +199,7 @@ export default {
             let pageCount = this.resultCount = this.filterProducts.length;
             return Math.ceil(this.resultCount / this.productsPerPage)
         }
-    },
-    mounted() {
-        this.fetchProducts();
     }
+
 }
 </script>
