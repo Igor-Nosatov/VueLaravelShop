@@ -2846,6 +2846,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -2888,6 +2896,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     setPage: function setPage(pageNumber) {
       this.currentPage = pageNumber;
+    },
+    sortProducts: function sortProducts(key, direction) {
+      this.sort = "".concat(key, " > ").concat(direction);
+
+      if (direction === 'asc') {
+        this.filterProducts.sort(function (a, b) {
+          return a[key] > b[key] ? 1 : -1;
+        });
+      } else {
+        this.filterProducts.sort(function (a, b) {
+          return a[key] < b[key] ? 1 : -1;
+        });
+      }
     }
   },
   computed: {
@@ -39670,7 +39691,7 @@ var render = function() {
             _c("div", { staticClass: "common-filter" }, [
               _c("div", { staticClass: "head" }, [_vm._v("Price")]),
               _vm._v(" "),
-              _c("div", { staticClass: "price-range-area" }, [
+              _c("div", { staticClass: "textinputs" }, [
                 _c("input", {
                   directives: [
                     {
@@ -39680,9 +39701,9 @@ var render = function() {
                       expression: "minPrice"
                     }
                   ],
+                  staticClass: "minPrice",
                   attrs: {
                     type: "range",
-                    id: "start",
                     min: "0",
                     max: "149",
                     value: "0",
@@ -39705,9 +39726,9 @@ var render = function() {
                       expression: "maxPrice"
                     }
                   ],
+                  staticClass: "maxPrice",
                   attrs: {
                     type: "range",
-                    id: "end",
                     min: "150",
                     max: "300",
                     value: "300",
@@ -39876,7 +39897,39 @@ var render = function() {
             "div",
             { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
             [
-              _vm._m(2),
+              _c("div", { staticClass: "sorting" }, [
+                _c("select", [
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "1" },
+                      on: {
+                        click: function($event) {
+                          _vm.sortProducts("name", "asc")
+                        }
+                      }
+                    },
+                    [_vm._v("Default sorting")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "1" },
+                      on: {
+                        click: function($event) {
+                          _vm.sortProducts("name", "desc")
+                        }
+                      }
+                    },
+                    [_vm._v("Default sorting")]
+                  ),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "1" } }, [
+                    _vm._v("Default sorting")
+                  ])
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -39946,20 +39999,6 @@ var staticRenderFns = [
             ])
           ]
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sorting" }, [
-      _c("select", [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
       ])
     ])
   },
