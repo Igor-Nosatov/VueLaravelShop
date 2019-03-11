@@ -12,7 +12,7 @@ class CreateTableProduct extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->float('new_price');
+            $table->float('price');
             $table->text('description');
             $table->float('old_price');
             $table->string('image');

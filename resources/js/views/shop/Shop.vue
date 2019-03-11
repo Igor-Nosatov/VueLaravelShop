@@ -57,15 +57,12 @@
                     <div class="common-filter">
                         <div class="head">Price</div>
                         <div class="price-range-area">
-                            <div id="price-range"></div>
-                            <div class="value-wrapper d-flex">
-                                <div class="price">Price:</div>
-                                <span>$</span>
-                                <div id="lower-value"></div>
-                                <div class="to">to</div>
-                                <span>$</span>
-                                <div id="upper-value"></div>
-                            </div>
+                        <fieldset>
+                        	 <input type="range" id="start" v-model="minPrice"
+                        					 min="0" max="149">
+                        	 <input type="range" id="end" v-model="maxPrice"
+                        					 min="150" max="300">
+                            </fieldset>
                         </div>
                     </div>
                 </div>
@@ -81,7 +78,9 @@
                         </select>
                     </div>
                     <div class="pagination ml-auto">
-
+                        <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                            <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                        </div>
                     </div>
                 </div>
                 <section class="lattest-product-area pb-40 category-list">
@@ -93,7 +92,7 @@
                                     <div class="product-details">
                                         <h6>{{ product.name }}</h6>
                                         <div class="price">
-                                            <h6>${{ product.new_price }}</h6>
+                                            <h6>${{ product.price }}</h6>
                                             <h6 class="l-through">${{ product.old_price }}</h6>
                                         </div>
                                         <div class="prd-bottom">
@@ -130,10 +129,10 @@
                             <option value="1">Default sorting</option>
                         </select>
                     </div>
-                    <div class="pagination ml-auto">  
-                            <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
-                                <a v-bind:key="pageNumber"  @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
-                            </div>
+                    <div class="pagination ml-auto">
+                        <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                            <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,20 +143,19 @@
 
 <script>
 export default {
-    created() {
-        this.fetchProducts();
-    },
     data() {
         return {
             products: [],
             currentPage: 1,
-            itemsPerPage: 9,
+            productsPerPage: 9,
             resultCount: 1,
             categories: [],
             colors: [],
             brands: [],
             selectedBrand: '',
-            selectedColor: ''
+            selectedColor: '',
+            minPrice:'',
+            maxPrice:''
         }
     },
     methods: {
@@ -174,9 +172,9 @@ export default {
         },
         paginate(products) {
             let page = this.currentPage;
-            let itemsPerPage = this.itemsPerPage;
-            let from = (page * itemsPerPage) - itemsPerPage;
-            let to = (page * itemsPerPage);
+            let productsPerPage = this.productsPerPage;
+            let from = (page * productsPerPage) - productsPerPage;
+            let to = (page * productsPerPage);
             return products.slice(from, to);
         },
         setPage(pageNumber) {
@@ -186,11 +184,12 @@ export default {
     computed: {
         filterProducts() {
             let vm = this,
-                products = vm.products;
+                products = vm.products
             let filter_products = _.filter(products, function(query) {
-                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                let price = query.price >= vm.minPrice && query.price <= vm.maxPrice,
+                    brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
                     color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true;
-                return brand && color
+                return price && brand && color
             });
             return filter_products;
         },
@@ -199,8 +198,11 @@ export default {
         },
         totalPages() {
             let pageCount = this.resultCount = this.filterProducts.length;
-            return Math.ceil(this.resultCount / this.itemsPerPage)
+            return Math.ceil(this.resultCount / this.productsPerPage)
         }
+    },
+    mounted() {
+        this.fetchProducts();
     }
 }
 </script>

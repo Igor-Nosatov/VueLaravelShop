@@ -99,7 +99,7 @@
                                     <div class="product-details">
                                         <h6>{{ product.name }}</h6>
                                         <div class="price">
-                                            <h6>${{ product.new_price }}</h6>
+                                            <h6>${{ product.price }}</h6>
                                             <h6 class="l-through">${{ product.old_price }}</h6>
                                         </div>
                                         <div class="prd-bottom">

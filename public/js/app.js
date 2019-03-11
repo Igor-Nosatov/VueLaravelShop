@@ -2850,22 +2850,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.fetchProducts();
-  },
   data: function data() {
     return {
       products: [],
       currentPage: 1,
-      itemsPerPage: 9,
+      productsPerPage: 9,
       resultCount: 1,
       categories: [],
       colors: [],
       brands: [],
       selectedBrand: '',
-      selectedColor: ''
+      selectedColor: '',
+      minPrice: '',
+      maxPrice: ''
     };
   },
   methods: {
@@ -2884,9 +2882,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     paginate: function paginate(products) {
       var page = this.currentPage;
-      var itemsPerPage = this.itemsPerPage;
-      var from = page * itemsPerPage - itemsPerPage;
-      var to = page * itemsPerPage;
+      var productsPerPage = this.productsPerPage;
+      var from = page * productsPerPage - productsPerPage;
+      var to = page * productsPerPage;
       return products.slice(from, to);
     },
     setPage: function setPage(pageNumber) {
@@ -2899,9 +2897,10 @@ __webpack_require__.r(__webpack_exports__);
           products = vm.products;
 
       var filter_products = _.filter(products, function (query) {
-        var brand = vm.selectedBrand ? query.brand_id == vm.selectedBrand : true,
+        var price = query.price >= vm.minPrice && query.price <= vm.maxPrice,
+            brand = vm.selectedBrand ? query.brand_id == vm.selectedBrand : true,
             color = vm.selectedColor ? query.color_id == vm.selectedColor : true;
-        return brand && color;
+        return price && brand && color;
       });
 
       return filter_products;
@@ -2911,8 +2910,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     totalPages: function totalPages() {
       var pageCount = this.resultCount = this.filterProducts.length;
-      return Math.ceil(this.resultCount / this.itemsPerPage);
+      return Math.ceil(this.resultCount / this.productsPerPage);
     }
+  },
+  mounted: function mounted() {
+    this.fetchProducts();
   }
 });
 
@@ -34707,7 +34709,7 @@ return jQuery;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.14.7
+ * @version 1.14.6
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -35275,11 +35277,7 @@ function isFixed(element) {
   if (getStyleComputedProperty(element, 'position') === 'fixed') {
     return true;
   }
-  var parentNode = getParentNode(element);
-  if (!parentNode) {
-    return false;
-  }
-  return isFixed(parentNode);
+  return isFixed(getParentNode(element));
 }
 
 /**
@@ -35935,23 +35933,18 @@ function getRoundedOffsets(data, shouldRound) {
   var _data$offsets = data.offsets,
       popper = _data$offsets.popper,
       reference = _data$offsets.reference;
-  var round = Math.round,
-      floor = Math.floor;
 
+
+  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
+  var isVariation = data.placement.indexOf('-') !== -1;
+  var sameWidthOddness = reference.width % 2 === popper.width % 2;
+  var bothOddWidth = reference.width % 2 === 1 && popper.width % 2 === 1;
   var noRound = function noRound(v) {
     return v;
   };
 
-  var referenceWidth = round(reference.width);
-  var popperWidth = round(popper.width);
-
-  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
-  var isVariation = data.placement.indexOf('-') !== -1;
-  var sameWidthParity = referenceWidth % 2 === popperWidth % 2;
-  var bothOddWidth = referenceWidth % 2 === 1 && popperWidth % 2 === 1;
-
-  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthParity ? round : floor;
-  var verticalToInteger = !shouldRound ? noRound : round;
+  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthOddness ? Math.round : Math.floor;
+  var verticalToInteger = !shouldRound ? noRound : Math.round;
 
   return {
     left: horizontalToInteger(bothOddWidth && !isVariation && shouldRound ? popper.left - 1 : popper.left),
@@ -39678,12 +39671,87 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(1)
+            _c("div", { staticClass: "common-filter" }, [
+              _c("div", { staticClass: "head" }, [_vm._v("Price")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "price-range-area" }, [
+                _c("fieldset", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.minPrice,
+                        expression: "minPrice"
+                      }
+                    ],
+                    attrs: { type: "range", id: "start", min: "0", max: "149" },
+                    domProps: { value: _vm.minPrice },
+                    on: {
+                      __r: function($event) {
+                        _vm.minPrice = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.maxPrice,
+                        expression: "maxPrice"
+                      }
+                    ],
+                    attrs: { type: "range", id: "end", min: "150", max: "300" },
+                    domProps: { value: _vm.maxPrice },
+                    on: {
+                      __r: function($event) {
+                        _vm.maxPrice = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ])
+            ])
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-xl-9 col-lg-8 col-md-7" }, [
-          _vm._m(2),
+          _c(
+            "div",
+            { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "pagination ml-auto" },
+                _vm._l(_vm.totalPages, function(pageNumber) {
+                  return Math.abs(pageNumber - _vm.currentPage) < 3 ||
+                    pageNumber == _vm.totalPages ||
+                    pageNumber == 1
+                    ? _c("div", [
+                        _c(
+                          "a",
+                          {
+                            key: pageNumber,
+                            class: { current: _vm.currentPage === pageNumber },
+                            on: {
+                              click: function($event) {
+                                _vm.setPage(pageNumber)
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(pageNumber))]
+                        )
+                      ])
+                    : _vm._e()
+                }),
+                0
+              )
+            ]
+          ),
           _vm._v(" "),
           _c(
             "section",
@@ -39713,9 +39781,7 @@ var render = function() {
                               _c("h6", [_vm._v(_vm._s(product.name))]),
                               _vm._v(" "),
                               _c("div", { staticClass: "price" }, [
-                                _c("h6", [
-                                  _vm._v("$" + _vm._s(product.new_price))
-                                ]),
+                                _c("h6", [_vm._v("$" + _vm._s(product.price))]),
                                 _vm._v(" "),
                                 _c("h6", { staticClass: "l-through" }, [
                                   _vm._v("$" + _vm._s(product.old_price))
@@ -39802,7 +39868,7 @@ var render = function() {
             "div",
             { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
             [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "div",
@@ -39879,53 +39945,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "common-filter" }, [
-      _c("div", { staticClass: "head" }, [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "price-range-area" }, [
-        _c("div", { attrs: { id: "price-range" } }),
+    return _c("div", { staticClass: "sorting" }, [
+      _c("select", [
+        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
         _vm._v(" "),
-        _c("div", { staticClass: "value-wrapper d-flex" }, [
-          _c("div", { staticClass: "price" }, [_vm._v("Price:")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("$")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "lower-value" } }),
-          _vm._v(" "),
-          _c("div", { staticClass: "to" }, [_vm._v("to")]),
-          _vm._v(" "),
-          _c("span", [_vm._v("$")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "upper-value" } })
-        ])
+        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
-      [
-        _c("div", { staticClass: "sorting" }, [
-          _c("select", [
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Default sorting")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Default sorting")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pagination ml-auto" })
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -42695,8 +42723,8 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.5.22
- * (c) 2014-2019 Evan You
+ * Vue.js v2.5.21
+ * (c) 2014-2018 Evan You
  * Released under the MIT License.
  */
 
@@ -43325,7 +43353,7 @@ if (true) {
       ? vm.options
       : vm._isVue
         ? vm.$options || vm.constructor.options
-        : vm;
+        : vm || {};
     var name = options.name || options._componentTag;
     var file = options.__file;
     if (!name && file) {
@@ -43420,9 +43448,9 @@ Dep.prototype.notify = function notify () {
   }
 };
 
-// The current target watcher being evaluated.
-// This is globally unique because only one watcher
-// can be evaluated at a time.
+// the current target watcher being evaluated.
+// this is globally unique because there could be only one
+// watcher being evaluated at any time.
 Dep.target = null;
 var targetStack = [];
 
@@ -43950,26 +43978,13 @@ function mergeHook (
   parentVal,
   childVal
 ) {
-  var res = childVal
+  return childVal
     ? parentVal
       ? parentVal.concat(childVal)
       : Array.isArray(childVal)
         ? childVal
         : [childVal]
-    : parentVal;
-  return res
-    ? dedupeHooks(res)
-    : res
-}
-
-function dedupeHooks (hooks) {
-  var res = [];
-  for (var i = 0; i < hooks.length; i++) {
-    if (res.indexOf(hooks[i]) === -1) {
-      res.push(hooks[i]);
-    }
-  }
-  return res
+    : parentVal
 }
 
 LIFECYCLE_HOOKS.forEach(function (hook) {
@@ -44205,7 +44220,7 @@ function mergeOptions (
   normalizeProps(child, vm);
   normalizeInject(child, vm);
   normalizeDirectives(child);
-
+  
   // Apply extends and mixins on the child options,
   // but only if it is a raw options object that isn't
   // the result of another mergeOptions call.
@@ -45138,8 +45153,6 @@ function resolveAsyncComponent (
       // (async resolves are shimmed as synchronous during SSR)
       if (!sync) {
         forceRender(true);
-      } else {
-        contexts.length = 0;
       }
     });
 
@@ -45307,8 +45320,8 @@ function eventsMixin (Vue) {
     }
     // array of events
     if (Array.isArray(event)) {
-      for (var i$1 = 0, l = event.length; i$1 < l; i$1++) {
-        vm.$off(event[i$1], fn);
+      for (var i = 0, l = event.length; i < l; i++) {
+        vm.$off(event[i], fn);
       }
       return vm
     }
@@ -45321,14 +45334,16 @@ function eventsMixin (Vue) {
       vm._events[event] = null;
       return vm
     }
-    // specific handler
-    var cb;
-    var i = cbs.length;
-    while (i--) {
-      cb = cbs[i];
-      if (cb === fn || cb.fn === fn) {
-        cbs.splice(i, 1);
-        break
+    if (fn) {
+      // specific handler
+      var cb;
+      var i$1 = cbs.length;
+      while (i$1--) {
+        cb = cbs[i$1];
+        if (cb === fn || cb.fn === fn) {
+          cbs.splice(i$1, 1);
+          break
+        }
       }
     }
     return vm
@@ -47489,14 +47504,34 @@ function resolveConstructorOptions (Ctor) {
 function resolveModifiedOptions (Ctor) {
   var modified;
   var latest = Ctor.options;
+  var extended = Ctor.extendOptions;
   var sealed = Ctor.sealedOptions;
   for (var key in latest) {
     if (latest[key] !== sealed[key]) {
       if (!modified) { modified = {}; }
-      modified[key] = latest[key];
+      modified[key] = dedupe(latest[key], extended[key], sealed[key]);
     }
   }
   return modified
+}
+
+function dedupe (latest, extended, sealed) {
+  // compare latest and sealed to ensure lifecycle hooks won't be duplicated
+  // between merges
+  if (Array.isArray(latest)) {
+    var res = [];
+    sealed = Array.isArray(sealed) ? sealed : [sealed];
+    extended = Array.isArray(extended) ? extended : [extended];
+    for (var i = 0; i < latest.length; i++) {
+      // push original options and not sealed options to exclude duplicated options
+      if (extended.indexOf(latest[i]) >= 0 || sealed.indexOf(latest[i]) < 0) {
+        res.push(latest[i]);
+      }
+    }
+    return res
+  } else {
+    return latest
+  }
 }
 
 function Vue (options) {
@@ -47867,7 +47902,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.5.22';
+Vue.version = '2.5.21';
 
 /*  */
 
