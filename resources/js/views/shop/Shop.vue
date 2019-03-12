@@ -1,3 +1,40 @@
+<style scoped>
+.reset-btn{
+border:none;
+font-size:12px ;
+font-weight:800;
+padding: 0 16px;
+line-height: 40px;
+}
+.wrap-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.wrap-flex {
+    display: flex;
+}
+
+.minPrice {
+    width: 80px;
+}
+
+.maxPrice {
+    width: 80px;
+    right: 8.5px;
+}
+
+input[type=range]::-moz-range-track {
+    background-color: #ffff4d;
+}
+.max {
+    margin-left: 140px;
+    position: absolute;
+}
+
+</style>
+
+
 
 <template>
 <div>
@@ -27,15 +64,11 @@
                         </li>
                     </ul>
                 </div>
-                
                 <div class="sidebar-filter mt-50">
-
                     <div class="top-filter-head">Product Filters</div>
-
-
                     <div class="common-filter">
                         <div class="head">Brands</div>
-                        <form action="#">
+                        <form>
                             <ul>
                                 <li class="filter-list" v-for="brand in brands">
                                     <input class="pixel-radio" type="radio" id="apple" name="brand" :value="brand.id" v-model="selectedBrand">
@@ -44,13 +77,12 @@
                                     </label>
                                 </li>
                             </ul>
+                            <button class="primary-btn reset-btn" type="reset" value="Reset">Reset</button>
                         </form>
                     </div>
-
-
                     <div class="common-filter">
                         <div class="head">Color</div>
-                        <form action="#">
+                        <form>
                             <ul>
                                 <li class="filter-list" v-for="color in colors">
                                     <input class="pixel-radio" type="radio" id="black" name="color" :value="color.id" v-model="selectedColor">
@@ -59,89 +91,97 @@
                                     </label>
                                 </li>
                             </ul>
+                            <button class="primary-btn reset-btn" type="reset" value="Reset">Reset</button>
                         </form>
                     </div>
-
                     <div class="common-filter">
                         <div class="head">Price</div>
-                        <div class="textinputs">
-                            <input type="range" class="minPrice"  v-model="minPrice" min="0" max="149" value="0" step="10">
-                            <input type="range" class="maxPrice"  v-model="maxPrice" min="150" max="300" value="300" step="10">
+                        <div class="wrap-grid">
+                            <div class="wrap-flex">
+                                <input type="range" class="minPrice" v-model="minPrice" min="0" max="149" value="0" step="10">
+                                <input type="range" class="maxPrice" v-model="maxPrice" min="150" max="300" value="300" step="10">
+                            </div>
                         </div>
-                    </div>
-            </div>
-        </div>
-        <div class="col-xl-9 col-lg-8 col-md-7">
-
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-                <div class="sorting">
-                    <select>
-                        <option value="1">Default sorting</option>
-                        <option value="1">Default sorting</option>
-                        <option value="1">Default sorting</option>
-                    </select>
-                </div>
-                <div class="pagination ml-auto">
-                    <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
-                        <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
-                    </div>
-                </div>
-            </div>
-            <section class="lattest-product-area pb-40 category-list">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6" v-for="product in displayProducts">
-                        <div class="single-product">
-                            <router-link :to="{ path: '/products/'+product.id}">
-                                <img :src="product.image" :alt="product.name" class="img-fluid">
-                                <div class="product-details">
-                                    <h6>{{ product.name }}</h6>
-                                    <div class="price">
-                                        <h6>${{ product.price }}</h6>
-                                        <h6 class="l-through">${{ product.old_price }}</h6>
-                                    </div>
-                                    <div class="prd-bottom">
-
-                                        <a href="" class="social-info">
-                                            <span class="ti-bag"></span>
-                                            <p class="hover-text">add to bag</p>
-                                        </a>
-                                        <a href="" class="social-info">
-                                            <span class="lnr lnr-heart"></span>
-                                            <p class="hover-text">Wishlist</p>
-                                        </a>
-                                        <a href="" class="social-info">
-                                            <span class="lnr lnr-sync"></span>
-                                            <p class="hover-text">compare</p>
-                                        </a>
-                                        <a href="" class="social-info">
-                                            <span class="lnr lnr-move"></span>
-                                            <p class="hover-text">view more</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </router-link>
+                        <div class="wrap-grid">
+                            <div class="wrap-flex">
+                                <span class="min">{{minPrice}}</span>
+                                <span class="max">{{maxPrice}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-7">
 
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-                <div class="sorting">
-                    <select>
-                        <option @click="sortProducts('name', 'asc')" value="1">Default sorting</option>
-                        <option @click="sortProducts('name', 'desc')" value="1">Default sorting</option>
-                        <option value="1">Default sorting</option>
-                    </select>
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sorting">
+                        <select>
+                            <option value="1">Default sorting</option>
+                            <option value="1">Default sorting</option>
+                            <option value="1">Default sorting</option>
+                        </select>
+                    </div>
+                    <div class="pagination ml-auto">
+                        <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                            <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="pagination ml-auto">
-                    <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
-                        <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                <section class="lattest-product-area pb-40 category-list">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" v-for="product in displayProducts">
+                            <div class="single-product">
+                                <router-link :to="{ path: '/products/'+product.id}">
+                                    <img :src="product.image" :alt="product.name" class="img-fluid">
+                                    <div class="product-details">
+                                        <h6>{{ product.name }}</h6>
+                                        <div class="price">
+                                            <h6>${{ product.price }}</h6>
+                                            <h6 class="l-through">${{ product.old_price }}</h6>
+                                        </div>
+                                        <div class="prd-bottom">
+
+                                            <a href="" class="social-info">
+                                                <span class="ti-bag"></span>
+                                                <p class="hover-text">add to bag</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-heart"></span>
+                                                <p class="hover-text">Wishlist</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-sync"></span>
+                                                <p class="hover-text">compare</p>
+                                            </a>
+                                            <a href="" class="social-info">
+                                                <span class="lnr lnr-move"></span>
+                                                <p class="hover-text">view more</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sorting">
+                        <select>
+                            <option @click="sortProducts('name', 'asc')" value="1">Default sorting</option>
+                            <option @click="sortProducts('name', 'desc')" value="1">Default sorting</option>
+                            <option value="1">Default sorting</option>
+                        </select>
+                    </div>
+                    <div class="pagination ml-auto">
+                        <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                            <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </template>
 
