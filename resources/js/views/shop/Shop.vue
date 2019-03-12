@@ -61,7 +61,7 @@ input[type=range]::-moz-range-track {
                     <div class="head">Browse Categories</div>
                     <ul class="main-categories">
                         <li v-for="(category,index) in categories" @key="index">
-                            <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}</router-link>
+                            <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}<span>({{category.name.length}})</span></router-link>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@ input[type=range]::-moz-range-track {
                                 <li class="filter-list" v-for="brand in brands">
                                     <input class="pixel-radio" type="radio" id="apple" name="brand" :value="brand.id" v-model="selectedBrand">
                                     <label for="apple">{{ brand.name }}
-                                        <span>(29)</span>
+                                        <span>({{brand.name.length}})</span>
                                     </label>
                                 </li>
                             </ul>
@@ -88,7 +88,7 @@ input[type=range]::-moz-range-track {
                                 <li class="filter-list" v-for="color in colors">
                                     <input class="pixel-radio" type="radio" id="black" name="color" :value="color.id" v-model="selectedColor">
                                     <label for="black">{{ color.name }}
-                                        <span>(29)</span>
+                                        <span>({{color.name.length}})</span>
                                     </label>
                                 </li>
                             </ul>
@@ -116,10 +116,10 @@ input[type=range]::-moz-range-track {
 
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <select @change="sortProducts('price', 'asc')">
+                        <select>
                             <option selected> choose sort</option>
-                            <option> lowest price</option>
-                            <option> highest price</option>
+                            <option> <button class="button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button></option>
+                            <option> <button class="button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE ASC</button></option>
                         </select>
                     </div>
                     <div class="pagination ml-auto">
@@ -168,9 +168,8 @@ input[type=range]::-moz-range-track {
 
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-
-                    <button class="button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button>
-<button class="button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE DESC</button>
+                        <button class="sorting button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button>
+                        <button class="sorting button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE DESC</button>
                     </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">

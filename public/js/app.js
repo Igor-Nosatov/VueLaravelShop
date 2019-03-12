@@ -2892,7 +2892,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -40270,7 +40269,12 @@ var render = function() {
                           to: { name: "category", params: { id: category.id } }
                         }
                       },
-                      [_vm._v(_vm._s(category.name))]
+                      [
+                        _vm._v(_vm._s(category.name)),
+                        _c("span", [
+                          _vm._v("(" + _vm._s(category.name.length) + ")")
+                        ])
+                      ]
                     )
                   ],
                   1
@@ -40320,7 +40324,9 @@ var render = function() {
                           _vm._s(brand.name) +
                             "\n                                        "
                         ),
-                        _c("span", [_vm._v("(29)")])
+                        _c("span", [
+                          _vm._v("(" + _vm._s(brand.name.length) + ")")
+                        ])
                       ])
                     ])
                   }),
@@ -40373,7 +40379,9 @@ var render = function() {
                           _vm._s(color.name) +
                             "\n                                        "
                         ),
-                        _c("span", [_vm._v("(29)")])
+                        _c("span", [
+                          _vm._v("(" + _vm._s(color.name.length) + ")")
+                        ])
                       ])
                     ])
                   }),
@@ -40474,29 +40482,35 @@ var render = function() {
                     _vm._v(" choose sort")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "option",
-                    {
-                      on: {
-                        change: function($event) {
-                          _vm.sortProducts("price", "asc")
+                  _c("option", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button button-price",
+                        on: {
+                          click: function($event) {
+                            _vm.sortProducts("price", "asc")
+                          }
                         }
-                      }
-                    },
-                    [_vm._v(" lowest price")]
-                  ),
+                      },
+                      [_vm._v("SORT BY PRICE ASC")]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "option",
-                    {
-                      on: {
-                        change: function($event) {
-                          _vm.sortProducts("price", "desc")
+                  _c("option", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button button-price",
+                        on: {
+                          click: function($event) {
+                            _vm.sortProducts("price", "desc")
+                          }
                         }
-                      }
-                    },
-                    [_vm._v(" highest price")]
-                  )
+                      },
+                      [_vm._v("SORT BY PRICE ASC")]
+                    )
+                  ])
                 ])
               ]),
               _vm._v(" "),
@@ -40648,7 +40662,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "button button-price",
+                    staticClass: "sorting button button-price",
                     on: {
                       click: function($event) {
                         _vm.sortProducts("price", "asc")
@@ -40661,7 +40675,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "button button-price",
+                    staticClass: "sorting button button-price",
                     on: {
                       click: function($event) {
                         _vm.sortProducts("price", "desc")
