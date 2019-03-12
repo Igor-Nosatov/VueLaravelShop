@@ -2892,6 +2892,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -2907,6 +2908,7 @@ __webpack_require__.r(__webpack_exports__);
       brands: [],
       selectedBrand: '',
       selectedColor: '',
+      sort: '',
       minPrice: 0,
       maxPrice: 300
     };
@@ -2939,11 +2941,11 @@ __webpack_require__.r(__webpack_exports__);
       this.sort = "".concat(key, " > ").concat(direction);
 
       if (direction === 'asc') {
-        this.filterProducts.sort(function (a, b) {
+        this.products.sort(function (a, b) {
           return a[key] > b[key] ? 1 : -1;
         });
       } else {
-        this.filterProducts.sort(function (a, b) {
+        this.products.sort(function (a, b) {
           return a[key] < b[key] ? 1 : -1;
         });
       }
@@ -7246,7 +7248,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.reset-btn[data-v-730e9dc0]{\nborder:none;\nfont-size:12px ;\nfont-weight:800;\n}\n.wrap-grid[data-v-730e9dc0] {\n    display: grid;\n    grid-template-columns: auto auto auto;\n}\n.wrap-flex[data-v-730e9dc0] {\n    display: flex;\n}\n.minPrice[data-v-730e9dc0] {\n    width: 80px;\n}\n.maxPrice[data-v-730e9dc0] {\n    width: 80px;\n    right: 8.5px;\n}\ninput[type=range][data-v-730e9dc0]::-moz-range-track {\n    background-color: #ffff4d;\n}\n.max[data-v-730e9dc0] {\n    margin-left: 140px;\n    position: absolute;\n}\n\n", ""]);
+exports.push([module.i, "\n.reset-btn[data-v-730e9dc0] {\n    border: none;\n    font-size: 12px;\n    font-weight: 800;\n    padding: 0 16px;\n    line-height: 40px;\n}\n.wrap-grid[data-v-730e9dc0] {\n    display: grid;\n    grid-template-columns: auto auto auto;\n}\n.wrap-flex[data-v-730e9dc0] {\n    display: flex;\n}\n.minPrice[data-v-730e9dc0] {\n    width: 80px;\n}\n.maxPrice[data-v-730e9dc0] {\n    width: 80px;\n    right: 8.5px;\n}\ninput[type=range][data-v-730e9dc0]::-moz-range-track {\n    background-color: #ffff4d;\n}\n.max[data-v-730e9dc0] {\n    margin-left: 140px;\n    position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -40466,7 +40468,37 @@ var render = function() {
             "div",
             { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
             [
-              _vm._m(1),
+              _c("div", { staticClass: "sorting" }, [
+                _c("select", [
+                  _c("option", { attrs: { selected: "" } }, [
+                    _vm._v(" choose sort")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      on: {
+                        change: function($event) {
+                          _vm.sortProducts("price", "asc")
+                        }
+                      }
+                    },
+                    [_vm._v(" lowest price")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "option",
+                    {
+                      on: {
+                        change: function($event) {
+                          _vm.sortProducts("price", "desc")
+                        }
+                      }
+                    },
+                    [_vm._v(" highest price")]
+                  )
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -40613,37 +40645,31 @@ var render = function() {
             { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
             [
               _c("div", { staticClass: "sorting" }, [
-                _c("select", [
-                  _c(
-                    "option",
-                    {
-                      attrs: { value: "1" },
-                      on: {
-                        click: function($event) {
-                          _vm.sortProducts("name", "asc")
-                        }
+                _c(
+                  "button",
+                  {
+                    staticClass: "button button-price",
+                    on: {
+                      click: function($event) {
+                        _vm.sortProducts("price", "asc")
                       }
-                    },
-                    [_vm._v("Default sorting")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "option",
-                    {
-                      attrs: { value: "1" },
-                      on: {
-                        click: function($event) {
-                          _vm.sortProducts("name", "desc")
-                        }
+                    }
+                  },
+                  [_vm._v("SORT BY PRICE ASC")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button button-price",
+                    on: {
+                      click: function($event) {
+                        _vm.sortProducts("price", "desc")
                       }
-                    },
-                    [_vm._v("Default sorting")]
-                  ),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [
-                    _vm._v("Default sorting")
-                  ])
-                ])
+                    }
+                  },
+                  [_vm._v("SORT BY PRICE DESC")]
+                )
               ]),
               _vm._v(" "),
               _c(
@@ -40714,20 +40740,6 @@ var staticRenderFns = [
             ])
           ]
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sorting" }, [
-      _c("select", [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "1" } }, [_vm._v("Default sorting")])
       ])
     ])
   }

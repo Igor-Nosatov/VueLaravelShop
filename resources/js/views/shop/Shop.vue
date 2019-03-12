@@ -1,11 +1,12 @@
 <style scoped>
-.reset-btn{
-border:none;
-font-size:12px ;
-font-weight:800;
-padding: 0 16px;
-line-height: 40px;
+.reset-btn {
+    border: none;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 0 16px;
+    line-height: 40px;
 }
+
 .wrap-grid {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -27,11 +28,11 @@ line-height: 40px;
 input[type=range]::-moz-range-track {
     background-color: #ffff4d;
 }
+
 .max {
     margin-left: 140px;
     position: absolute;
 }
-
 </style>
 
 
@@ -115,10 +116,10 @@ input[type=range]::-moz-range-track {
 
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <select>
-                            <option value="1">Default sorting</option>
-                            <option value="1">Default sorting</option>
-                            <option value="1">Default sorting</option>
+                        <select @change="sortProducts('price', 'asc')">
+                            <option selected> choose sort</option>
+                            <option> lowest price</option>
+                            <option> highest price</option>
                         </select>
                     </div>
                     <div class="pagination ml-auto">
@@ -167,11 +168,9 @@ input[type=range]::-moz-range-track {
 
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <select>
-                            <option @click="sortProducts('name', 'asc')" value="1">Default sorting</option>
-                            <option @click="sortProducts('name', 'desc')" value="1">Default sorting</option>
-                            <option value="1">Default sorting</option>
-                        </select>
+
+                    <button class="button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button>
+<button class="button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE DESC</button>
                     </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
@@ -201,6 +200,7 @@ export default {
             brands: [],
             selectedBrand: '',
             selectedColor: '',
+            sort: '',
             minPrice: 0,
             maxPrice: 300
         }
@@ -230,11 +230,12 @@ export default {
         sortProducts(key, direction) {
             this.sort = `${key} > ${direction}`
             if (direction === 'asc') {
-                this.filterProducts.sort((a, b) => a[key] > b[key] ? 1 : -1)
+                this.products.sort((a, b) => a[key] > b[key] ? 1 : -1)
             } else {
-                this.filterProducts.sort((a, b) => a[key] < b[key] ? 1 : -1)
+                this.products.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
         }
+
     },
     computed: {
         filterProducts() {
