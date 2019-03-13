@@ -113,14 +113,19 @@ input[type=range]::-moz-range-track {
                 </div>
             </div>
             <div class="col-xl-9 col-lg-8 col-md-7">
-
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <select>
-                            <option selected> choose sort</option>
-                            <option> <button class="button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button></option>
-                            <option> <button class="button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE ASC</button></option>
-                        </select>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort By
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                            <button class="dropdown-item" @click="sortProducts('price', 'desc')"type="button">high to low price</button>
+                            <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                            <button class="dropdown-item" @click="sortProducts('name', 'desc')"type="button">sort by desc</button>
+                        </div>
+                    </div>
                     </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
@@ -165,11 +170,19 @@ input[type=range]::-moz-range-track {
                         </div>
                     </div>
                 </section>
-
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                        <button class="sorting button button-price" @click="sortProducts('price', 'asc')">SORT BY PRICE ASC</button>
-                        <button class="sorting button button-price" @click="sortProducts('price', 'desc')">SORT BY PRICE DESC</button>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort By
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                                <button class="dropdown-item" @click="sortProducts('price', 'desc')"type="button">high to low price</button>
+                                <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                                <button class="dropdown-item" @click="sortProducts('name', 'desc')"type="button">sort by desc</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">

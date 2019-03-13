@@ -1,7 +1,6 @@
 import Home from '../views/home/Home';
 import Shop from '../views/shop/Shop';
-
-/*import Category from '../views/shop/Category';
+import Category from '../views/shop/Category';
 import Search from '../views/shop/Search';
 import Login from '../views/Login'
 import Register from '../views/Register'
@@ -10,7 +9,7 @@ import Checkout from '../views/Checkout'
 import Confirmation from '../views/Confirmation'
 import UserBoard from '../views/UserBoard'
 import Admin from '../views/Admin'
-import Order from '../views/Order'*/
+import Order from '../views/Order'
 
 const routes = [{
         name: 'home',
@@ -21,17 +20,17 @@ const routes = [{
         path: '/shop',
         name: 'shop',
         component: Shop
-    }/*,
-    {
-        path: '/category/:id',
-        name: 'category',
-        component: Category
-    }
+    },
     {
         path: '/shop/search',
         name: 'search',
         props: true,
         component: Search
+    },
+    {
+        path: '/category/:id',
+        name: 'category',
+        component: Category
     },
     {
         path: '/login',
@@ -93,7 +92,7 @@ const routes = [{
             requiresAuth: true,
             is_admin: true
         }
-    }*/
+    }
   ]
 
 export default routes

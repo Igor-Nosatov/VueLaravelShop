@@ -1,5 +1,5 @@
 <template>
-<div class="search_input" id="search_input_box">
+<div >
     <div class="container">
         <form class="d-flex justify-content-between">
             <input v-model.lazy="keywords" type="text" class="form-control" id="search_input" placeholder="Search Here">

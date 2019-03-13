@@ -142,15 +142,15 @@
     props: ['products'],
     data() {
         return {
-            products: [],
             categories: [],
             colors: [],
-            brands: []
+            brands: [],
+            products:[]
         }
     },
     methods: {
-        fetchCategoryAndFilter() {
-            axios.get('/api/shop/search/category')
+        fetchCategory() {
+            axios.get('/api/shop')
                 .then(response => {
                     this.categories = response.data.categories;
                     this.colors = response.data.colors;
@@ -162,7 +162,7 @@
     },
     beforeMount()
     {
-      this.fetchCategoryAndFilter();
+      this.fetchCategory();
     }
   }
 </script>
