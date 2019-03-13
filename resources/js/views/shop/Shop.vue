@@ -1,41 +1,3 @@
-<style scoped>
-.reset-btn {
-    border: none;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 0 16px;
-    line-height: 40px;
-}
-
-.wrap-grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-.wrap-flex {
-    display: flex;
-}
-
-.minPrice {
-    width: 80px;
-}
-
-.maxPrice {
-    width: 80px;
-    right: 8.5px;
-}
-
-input[type=range]::-moz-range-track {
-    background-color: #ffff4d;
-}
-
-.max {
-    margin-left: 140px;
-    position: absolute;
-}
-</style>
-
-
 
 <template>
 <div>
@@ -78,7 +40,7 @@ input[type=range]::-moz-range-track {
                                     </label>
                                 </li>
                             </ul>
-                            <button class="primary-btn reset-btn" type="reset" value="Reset">Reset</button>
+                            <button class="primary-btn reset-btn" id="reset" @click="reset">Reset</button>
                         </form>
                     </div>
                     <div class="common-filter">
@@ -92,7 +54,7 @@ input[type=range]::-moz-range-track {
                                     </label>
                                 </li>
                             </ul>
-                            <button class="primary-btn reset-btn" type="reset" value="Reset">Reset</button>
+                            <button class="primary-btn reset-btn" id="reset" @click="reset">Reset</button>
                         </form>
                     </div>
                     <div class="common-filter">
@@ -115,17 +77,17 @@ input[type=range]::-moz-range-track {
             <div class="col-xl-9 col-lg-8 col-md-7">
                 <div class="filter-bar d-flex flex-wrap align-items-center">
                     <div class="sorting">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort By
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
-                            <button class="dropdown-item" @click="sortProducts('price', 'desc')"type="button">high to low price</button>
-                            <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
-                            <button class="dropdown-item" @click="sortProducts('name', 'desc')"type="button">sort by desc</button>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort By
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                                <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
+                                <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                                <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
@@ -178,9 +140,9 @@ input[type=range]::-moz-range-track {
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
-                                <button class="dropdown-item" @click="sortProducts('price', 'desc')"type="button">high to low price</button>
+                                <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
                                 <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
-                                <button class="dropdown-item" @click="sortProducts('name', 'desc')"type="button">sort by desc</button>
+                                <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
                             </div>
                         </div>
                     </div>
@@ -214,7 +176,8 @@ export default {
             selectedColor: '',
             sort: '',
             minPrice: 0,
-            maxPrice: 300
+            maxPrice: 300,
+            renderComponent: true
         }
     },
     methods: {
@@ -246,8 +209,10 @@ export default {
             } else {
                 this.products.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
+        },
+        reset() {
+            Object.assign(this.products, this.$options.products.call(this));
         }
-
     },
     computed: {
         filterProducts() {
