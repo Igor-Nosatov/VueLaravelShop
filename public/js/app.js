@@ -2182,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       keywords: null,
-      products: []
+      search_products: []
     };
   },
   methods: {
@@ -2197,7 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'search',
           params: {
-            products: response.data.products
+            search_products: response.data.products
           }
         });
       }).catch(function (error) {});
@@ -3674,13 +3674,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['products'],
+  props: ['search_products'],
   data: function data() {
     return {
       categories: [],
       colors: [],
-      brands: [],
-      products: []
+      brands: []
     };
   },
   methods: {
@@ -40123,9 +40122,10 @@ var render = function() {
           directives: [
             {
               name: "model",
-              rawName: "v-model",
+              rawName: "v-model.lazy",
               value: _vm.keywords,
-              expression: "keywords"
+              expression: "keywords",
+              modifiers: { lazy: true }
             }
           ],
           staticClass: "form-control",
@@ -40136,10 +40136,7 @@ var render = function() {
           },
           domProps: { value: _vm.keywords },
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
+            change: function($event) {
               _vm.keywords = $event.target.value
             }
           }
@@ -43377,114 +43374,104 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "row" },
-                _vm._l(_vm.products, function(product, index) {
-                  return _c(
-                    "div",
-                    { staticClass: "col-lg-4 col-md-6", on: { key: index } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "single-product" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              attrs: { to: { path: "/products/" + product.id } }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "img-fluid",
-                                attrs: { src: product.image, alt: product.name }
-                              }),
+                _vm._l(_vm.search_products, function(product) {
+                  return _c("div", { staticClass: "col-lg-4 col-md-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "single-product" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: { to: { path: "/products/" + product.id } }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: { src: product.image, alt: product.name }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "product-details" }, [
+                              _c("h6", [_vm._v(_vm._s(product.name))]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "product-details" }, [
-                                _c("h6", [_vm._v(_vm._s(product.name))]),
+                              _c("div", { staticClass: "price" }, [
+                                _c("h6", [_vm._v("$" + _vm._s(product.price))]),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "price" }, [
-                                  _c("h6", [
-                                    _vm._v("$" + _vm._s(product.new_price))
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("h6", { staticClass: "l-through" }, [
-                                    _vm._v("$" + _vm._s(product.old_price))
-                                  ])
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "prd-bottom" }, [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", { staticClass: "ti-bag" }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("add to bag")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-heart"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("Wishlist")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-sync"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("compare")
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "social-info",
-                                      attrs: { href: "" }
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass: "lnr lnr-move"
-                                      }),
-                                      _vm._v(" "),
-                                      _c("p", { staticClass: "hover-text" }, [
-                                        _vm._v("view more")
-                                      ])
-                                    ]
-                                  )
+                                _c("h6", { staticClass: "l-through" }, [
+                                  _vm._v("$" + _vm._s(product.old_price))
                                 ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "prd-bottom" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "ti-bag" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("add to bag")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", {
+                                      staticClass: "lnr lnr-heart"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("Wishlist")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "lnr lnr-sync" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("compare")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: { href: "" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "lnr lnr-move" }),
+                                    _vm._v(" "),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("view more")
+                                    ])
+                                  ]
+                                )
                               ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
                 }),
                 0
               )
