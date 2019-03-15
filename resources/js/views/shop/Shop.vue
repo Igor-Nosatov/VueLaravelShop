@@ -137,11 +137,13 @@
                     </div>
                 </section>
                 <div class="filter-bar d-flex flex-wrap align-items-center">
-                    <div class="sorting">
+                <div class="sortAndsearch">
+                    <div>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort By
                             </button>
+
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
                                 <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
@@ -151,8 +153,9 @@
                         </div>
                     </div>
                     <form class="d-flex justify-content-between">
-                        <input type="text" v-model="search" placeholder="search" />
+                        <input type="text" class="search" v-model="search" placeholder="search" />
                     </form>
+                </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>

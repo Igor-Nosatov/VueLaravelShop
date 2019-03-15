@@ -20,9 +20,9 @@
                 <div class="sidebar-categories">
                     <div class="head">Browse Categories</div>
                     <ul class="main-categories">
-                    <li v-for="(category,index) in categories" @key="index">
-                        <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}<span>({{category.name.length}})</span></router-link>
-                    </li>
+                        <li v-for="(category,index) in categories" @key="index">
+                            <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}<span>({{category.name.length}})</span></router-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="sidebar-filter mt-50">
@@ -71,29 +71,31 @@
                 </div>
             </div>
             <div class="col-xl-9 col-lg-8 col-md-7">
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-                <div class="sorting">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort By
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
-                            <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
-                            <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
-                            <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                <div class="filter-bar d-flex flex-wrap align-items-center">
+                    <div class="sortAndsearch">
+                        <div class="sorting">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort By
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                                    <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="d-flex justify-content-between">
+                            <input type="text" class="search" v-model="search" placeholder="search" />
+                        </form>
+                    </div>
+                    <div class="pagination ml-auto">
+                        <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
+                            <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
                         </div>
                     </div>
                 </div>
-                <form class="d-flex justify-content-between">
-                    <input type="text" v-model="search" placeholder="search" />
-                </form>
-                <div class="pagination ml-auto">
-                    <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
-                        <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
-                    </div>
-                </div>
-            </div>
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
                         <div class="col-lg-4 col-md-6" v-for="product in displayProducts">
@@ -134,11 +136,13 @@
                 </section>
 
                 <div class="filter-bar d-flex flex-wrap align-items-center">
-                    <div class="sorting">
+                <div class="sortAndsearch">
+                    <div>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort By
                             </button>
+
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
                                 <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
@@ -148,8 +152,9 @@
                         </div>
                     </div>
                     <form class="d-flex justify-content-between">
-                        <input type="text" v-model="search" placeholder="search" />
+                        <input type="text" class="search" v-model="search" placeholder="search" />
                     </form>
+                </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -181,7 +186,7 @@ export default {
             sort: '',
             minPrice: 0,
             maxPrice: 300,
-            search:''
+            search: ''
         }
     },
     methods: {
@@ -216,29 +221,29 @@ export default {
         }
     },
     computed: {
-    searchProducts() {
-        return this.products.filter(product => {
-            return product.name.toLowerCase().includes(this.search.toLowerCase());
-        })
-    },
-    filterProducts() {
-        let vm = this,
-            products = vm.searchProducts
-        let filter_products = _.filter(products, function(query) {
-            let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
-                color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
-                price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
-            return brand && color && price
-        });
-        return filter_products;
-    },
-    displayProducts() {
-        return this.paginate(this.filterProducts);
-    },
-    totalPages() {
-        let pageCount = this.resultCount = this.filterProducts.length;
-        return Math.ceil(this.resultCount / this.productsPerPage)
-    }
+        searchProducts() {
+            return this.products.filter(product => {
+                return product.name.toLowerCase().includes(this.search.toLowerCase());
+            })
+        },
+        filterProducts() {
+            let vm = this,
+                products = vm.searchProducts
+            let filter_products = _.filter(products, function(query) {
+                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
+                    price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
+                return brand && color && price
+            });
+            return filter_products;
+        },
+        displayProducts() {
+            return this.paginate(this.filterProducts);
+        },
+        totalPages() {
+            let pageCount = this.resultCount = this.filterProducts.length;
+            return Math.ceil(this.resultCount / this.productsPerPage)
+        }
     }
 }
 </script>
