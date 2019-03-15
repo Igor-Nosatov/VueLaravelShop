@@ -7,7 +7,7 @@ Route::post('/register', 'UserController@register');
 Route::get('/', 'HomeController@index');
 Route::get('/shop', 'ShopController@index');
 Route::post('/shop', 'ShopController@index');
-Route::get('/shop/search', 'SearchController@search');
+Route::get('/shop/search', 'ShopController@search');
 Route::get('/category/{shop}', 'ShopController@category');
 Route::get('/products', 'ProductController@index');
 Route::post('/upload-file', 'ProductController@uploadFile');

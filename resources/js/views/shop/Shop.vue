@@ -40,7 +40,6 @@
                                     </label>
                                 </li>
                             </ul>
-                            <button class="primary-btn reset-btn" id="reset" @click="reset">Reset</button>
                         </form>
                     </div>
                     <div class="common-filter">
@@ -54,7 +53,6 @@
                                     </label>
                                 </li>
                             </ul>
-                            <button class="primary-btn reset-btn" id="reset" @click="reset">Reset</button>
                         </form>
                     </div>
                     <div class="common-filter">
@@ -176,8 +174,7 @@ export default {
             selectedColor: '',
             sort: '',
             minPrice: 0,
-            maxPrice: 300,
-            renderComponent: true
+            maxPrice: 300
         }
     },
     methods: {
@@ -209,9 +206,6 @@ export default {
             } else {
                 this.products.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
-        },
-        reset() {
-            Object.assign(this.products, this.$options.products.call(this));
         }
     },
     computed: {
@@ -234,6 +228,5 @@ export default {
             return Math.ceil(this.resultCount / this.productsPerPage)
         }
     }
-
 }
 </script>

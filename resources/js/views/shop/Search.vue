@@ -85,7 +85,7 @@
                   <section class="lattest-product-area pb-40 category-list">
                       <div class="row">
 
-                          <div class="col-lg-4 col-md-6" v-for="product in search_products">
+                          <div class="col-lg-4 col-md-6" v-for="product in pr">
                               <div class="single-product">
                                   <router-link :to="{ path: '/products/'+product.id}">
                                       <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -139,7 +139,7 @@
 
 <script>
   export default {
-    props: ['search_products'],
+    props: ['pr'],
     data() {
         return {
             categories: [],
@@ -149,7 +149,7 @@
     },
     methods: {
         fetchCategory() {
-            axios.get('/api/shop')
+            axios.get('/api/shop/search?name=' + this.keywords)
                 .then(response => {
                     this.categories = response.data.categories;
                     this.colors = response.data.colors;
