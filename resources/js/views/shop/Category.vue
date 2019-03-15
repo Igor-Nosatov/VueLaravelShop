@@ -20,9 +20,9 @@
                 <div class="sidebar-categories">
                     <div class="head">Browse Categories</div>
                     <ul class="main-categories">
-                        <li v-for="(category,index) in categories" @key="index">
-                            <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name.length}}</router-link>
-                        </li>
+                    <li v-for="(category,index) in categories" @key="index">
+                        <router-link :to="{name: 'category', params: {id: category.id}}" class="nav-link">{{category.name}}<span>({{category.name.length}})</span></router-link>
+                    </li>
                     </ul>
                 </div>
                 <div class="sidebar-filter mt-50">
@@ -85,6 +85,9 @@
                         </div>
                     </div>
                 </div>
+                <form class="d-flex justify-content-between">
+                    <input type="text" v-model="search" placeholder="search" />
+                </form>
                 <div class="pagination ml-auto">
                     <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                         <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -144,6 +147,9 @@
                             </div>
                         </div>
                     </div>
+                    <form class="d-flex justify-content-between">
+                        <input type="text" v-model="search" placeholder="search" />
+                    </form>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -174,7 +180,8 @@ export default {
             selectedColor: '',
             sort: '',
             minPrice: 0,
-            maxPrice: 300
+            maxPrice: 300,
+            search:''
         }
     },
     methods: {
@@ -209,24 +216,29 @@ export default {
         }
     },
     computed: {
-        filterProducts() {
-            let vm = this,
-                products = vm.products
-            let filter_products = _.filter(products, function(query) {
-                let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
-                    color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
-                    price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
-                return brand && color && price
-            });
-            return filter_products;
-        },
-        displayProducts() {
-            return this.paginate(this.filterProducts);
-        },
-        totalPages() {
-            let pageCount = this.resultCount = this.filterProducts.length;
-            return Math.ceil(this.resultCount / this.productsPerPage)
-        }
+    searchProducts() {
+        return this.products.filter(product => {
+            return product.name.toLowerCase().includes(this.search.toLowerCase());
+        })
+    },
+    filterProducts() {
+        let vm = this,
+            products = vm.searchProducts
+        let filter_products = _.filter(products, function(query) {
+            let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
+                color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
+                price = query.price >= vm.minPrice && query.price <= vm.maxPrice;
+            return brand && color && price
+        });
+        return filter_products;
+    },
+    displayProducts() {
+        return this.paginate(this.filterProducts);
+    },
+    totalPages() {
+        let pageCount = this.resultCount = this.filterProducts.length;
+        return Math.ceil(this.resultCount / this.productsPerPage)
+    }
     }
 }
 </script>

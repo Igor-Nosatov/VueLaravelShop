@@ -79,6 +79,7 @@
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort By
                             </button>
+
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
                                 <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
@@ -87,6 +88,9 @@
                             </div>
                         </div>
                     </div>
+                    <form class="d-flex justify-content-between">
+                        <input type="text" v-model="search" placeholder="search" />
+                    </form>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -144,6 +148,9 @@
                             </div>
                         </div>
                     </div>
+                    <form class="d-flex justify-content-between">
+                        <input type="text" v-model="search" placeholder="search" />
+                    </form>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -174,7 +181,8 @@ export default {
             selectedColor: '',
             sort: '',
             minPrice: 0,
-            maxPrice: 300
+            maxPrice: 300,
+            search:''
         }
     },
     methods: {
@@ -209,9 +217,14 @@ export default {
         }
     },
     computed: {
+        searchProducts() {
+            return this.products.filter(product => {
+                return product.name.toLowerCase().includes(this.search.toLowerCase());
+            })
+        },
         filterProducts() {
             let vm = this,
-                products = vm.products
+                products = vm.searchProducts
             let filter_products = _.filter(products, function(query) {
                 let brand = vm.selectedBrand ? (query.brand_id == vm.selectedBrand) : true,
                     color = vm.selectedColor ? (query.color_id == vm.selectedColor) : true,
