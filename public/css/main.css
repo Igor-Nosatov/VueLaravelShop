@@ -5818,5 +5818,17 @@ label {
         margin-left: 140px;
         position: absolute;
     }
+    .sortAndsearch{
+      margin-top:10px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-gap:40px;
+
+    }
+    .search{
+      margin-left: 20px;
+      width:230px;
+      height:38px;
+    }
 
 /*# sourceMappingURL=main.css.map */

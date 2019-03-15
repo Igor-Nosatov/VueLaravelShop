@@ -21,12 +21,6 @@ const routes = [{
         component: Shop
     },
     {
-        path: '/shop/search',
-        name: 'search',
-        props: true,
-        component: Search
-    },
-    {
         path: '/category/:id',
         name: 'category',
         component: Category

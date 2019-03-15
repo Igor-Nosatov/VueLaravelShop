@@ -3686,6 +3686,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -43419,115 +43421,118 @@ var render = function() {
             "div",
             { staticClass: "filter-bar d-flex flex-wrap align-items-center" },
             [
-              _c("div", { staticClass: "sorting" }, [
-                _c("div", { staticClass: "dropdown" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary dropdown-toggle",
-                      attrs: {
-                        type: "button",
-                        id: "dropdownMenu2",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
+              _c("div", { staticClass: "sortAndsearch" }, [
+                _c("div", [
+                  _c("div", { staticClass: "dropdown" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-secondary dropdown-toggle",
+                        attrs: {
+                          type: "button",
+                          id: "dropdownMenu2",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                    Sort By\n                                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu",
+                        attrs: { "aria-labelledby": "dropdownMenu2" }
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.sortProducts("price", "asc")
+                              }
+                            }
+                          },
+                          [_vm._v("low to high price")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.sortProducts("price", "desc")
+                              }
+                            }
+                          },
+                          [_vm._v("high to low price")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.sortProducts("name", "asc")
+                              }
+                            }
+                          },
+                          [_vm._v("sort by asc")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.sortProducts("name", "desc")
+                              }
+                            }
+                          },
+                          [_vm._v("sort by desc")]
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("form", { staticClass: "d-flex justify-content-between" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
                       }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                Sort By\n                            "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "dropdown-menu",
-                      attrs: { "aria-labelledby": "dropdownMenu2" }
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.sortProducts("price", "asc")
-                            }
-                          }
-                        },
-                        [_vm._v("low to high price")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.sortProducts("price", "desc")
-                            }
-                          }
-                        },
-                        [_vm._v("high to low price")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.sortProducts("name", "asc")
-                            }
-                          }
-                        },
-                        [_vm._v("sort by asc")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "dropdown-item",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.sortProducts("name", "desc")
-                            }
-                          }
-                        },
-                        [_vm._v("sort by desc")]
-                      )
-                    ]
-                  )
+                    ],
+                    staticClass: "search",
+                    attrs: { type: "text", placeholder: "search" },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
                 ])
-              ]),
-              _vm._v(" "),
-              _c("form", { staticClass: "d-flex justify-content-between" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.search,
-                      expression: "search"
-                    }
-                  ],
-                  attrs: { type: "text", placeholder: "search" },
-                  domProps: { value: _vm.search },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.search = $event.target.value
-                    }
-                  }
-                })
               ]),
               _vm._v(" "),
               _c(
@@ -59221,11 +59226,6 @@ var routes = [{
   path: '/shop',
   name: 'shop',
   component: _views_shop_Shop__WEBPACK_IMPORTED_MODULE_1__["default"]
-}, {
-  path: '/shop/search',
-  name: 'search',
-  props: true,
-  component: Search
 }, {
   path: '/category/:id',
   name: 'category',

@@ -74,23 +74,25 @@
             </div>
             <div class="col-xl-9 col-lg-8 col-md-7">
                 <div class="filter-bar d-flex flex-wrap align-items-center">
-                    <div class="sorting">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sort By
-                            </button>
+                    <div class="sortAndsearch">
+                        <div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort By
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
-                                <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
-                                <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
-                                <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                                    <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                                </div>
                             </div>
                         </div>
+                        <form class="d-flex justify-content-between">
+                            <input type="text" class="search" v-model="search" placeholder="search" />
+                        </form>
                     </div>
-                    <form class="d-flex justify-content-between">
-                        <input type="text" v-model="search" placeholder="search" />
-                    </form>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -182,7 +184,7 @@ export default {
             sort: '',
             minPrice: 0,
             maxPrice: 300,
-            search:''
+            search: ''
         }
     },
     methods: {
