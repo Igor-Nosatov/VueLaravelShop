@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="main-block">
     <section class="banner-area organic-breadcrumb">
         <div class="container">
             <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -25,23 +25,25 @@
                 <div class="col-lg-5 offset-lg-1">
                     <div class="s_product_text">
                         <h3>{{product.name}}</h3>
-                        <h2>${{product.new_price}}</h2>
+                        <h2>${{product.price}}</h2>
                         <ul class="list">
                             <li><a class="active" href="#"><span>Category</span> : {{product.category.name}}</a></li>
                             <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                         </ul>
                         <p>{{product.description}}</p>
-                        <div class="product_count">
-                            <label for="qty">Quantity:</label>
-                            <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-                        </div>
-                        <div class="card_area d-flex align-items-center">
-                            <router-link :to="{ path: '/order?pid='+product.id }" class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</router-link>
-                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-                        </div>
+                        <form @submit.prevent="addProduct">
+                            <input type="hidden" value="product.name" v-model="product.name">
+                            <input type="hidden" value="product.image" v-model="product.image">
+                            <div class="product_count">
+                                <label for="qty">Quantity:</label>
+                                <input type="number" v-model="product.qty" class="input-text qty">
+                            </div>
+                            <div class="card_area d-flex align-items-center">
+                                <router-link :to="{ path: '/order?pid='+product.id }" class="col-md-4 btn btn-sm btn-primary float-right">Buy Now</router-link>
+                                <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
+                                <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

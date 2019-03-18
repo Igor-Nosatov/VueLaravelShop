@@ -1,26 +1,18 @@
 <?php
-    namespace App;
 
-    use Illuminate\Database\Eloquent\Model;
-    use Illuminate\Database\Eloquent\SoftDeletes;
+namespace App;
 
-    class Order extends Model
-    {
-        use SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-        protected $fillable = [
-            'product_id', 'user_id', 'quantity', 'address'
-        ];
+class Order extends Model
+{
+	use SoftDeletes;
 
-        public function user()
-        {
-            return $this->belongsTo(User::class, 'user_id');
-        }
+	protected $table = 'orders';
 
-        public function product()
-        {
-            return $this->belongsTo(Product::class, 'product_id');
-        }
-        
+	protected $fillable = [
+		'name', 'image', 'price', 'qty'
+	];
 
-    }
+}

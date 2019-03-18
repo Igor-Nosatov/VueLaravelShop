@@ -1,5 +1,5 @@
 <template>
-<div>
+<div  class="main-block">
     <section class="banner-area">
         <banner></banner>
     </section>

@@ -2,7 +2,6 @@
     <div>
       <header-component></header-component>
        <router-view :key="$route.fullPath"  @loggedIn="change"></router-view>
-       <deals-component></deals-component>
        <footer-component></footer-component>
     </div>
 </template>

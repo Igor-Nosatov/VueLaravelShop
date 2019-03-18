@@ -1,6 +1,6 @@
 
 <template>
-<div>
+<div class="main-block">
     <section class="banner-area organic-breadcrumb">
         <div class="container">
             <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -18,7 +18,6 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-5">
-
                 <div class="sidebar-categories">
                     <div class="head">Browse Categories</div>
                     <ul class="main-categories">
@@ -105,57 +104,63 @@
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
                                     <img :src="product.image" :alt="product.name" class="img-fluid">
-                                    <div class="product-details">
-                                        <h6>{{ product.name }}</h6>
-                                        <div class="price">
-                                            <h6>${{ product.price }}</h6>
-                                            <h6 class="l-through">${{ product.old_price }}</h6>
-                                        </div>
-                                        <div class="prd-bottom">
-
-                                            <a href="" class="social-info">
-                                                <span class="ti-bag"></span>
-                                                <p class="hover-text">add to bag</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-heart"></span>
-                                                <p class="hover-text">Wishlist</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-sync"></span>
-                                                <p class="hover-text">compare</p>
-                                            </a>
-                                            <a href="" class="social-info">
-                                                <span class="lnr lnr-move"></span>
-                                                <p class="hover-text">view more</p>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </router-link>
+                                <div class="product-details">
+                                    <h6>{{ product.name }}</h6>
+                                    <div class="price">
+                                        <h6>${{ product.price }}</h6>
+                                        <h6 class="l-through">${{ product.old_price }}</h6>
+                                    </div>
+                                    <div class="prd-bottom">
+                                        <a class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <form v-on:submit="addToOrder()">
+                                                <input type="hidden" value="product.name" v-model="order.name">
+                                                <input type="hidden" value="product.image" v-model="order.image">
+                                                <input type="hidden" value="product.price" v-model="order.price">
+                                                <input type="hidden" value="1" v-model="order.qty">
+                                                <button type="submit" class="hover-text">add to bag</button>
+                                            </form>
+                                        </a>
+                                        <a class="social-info">
+                                        <form v-on:submit="addToWishList()">
+                                            <input type="hidden" value="product.name" v-model="order.name">
+                                            <input type="hidden" value="product.image" v-model="order.image">
+                                            <input type="hidden" value="product.price" v-model="order.price">
+                                            <input type="hidden" value="1" v-model="order.qty">
+                                            <button type="submit" class="hover-text">add to wishlist</button>
+                                        </form>
+                                        </a>
+                                        <router-link :to="{ path: '/products/'+product.id}" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">view more</p>
+                                        </router-link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 <div class="filter-bar d-flex flex-wrap align-items-center">
-                <div class="sortAndsearch">
-                    <div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Sort By
-                            </button>
+                    <div class="sortAndsearch">
+                        <div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Sort By
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
-                                <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
-                                <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
-                                <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <button class="dropdown-item" @click="sortProducts('price', 'asc')" type="button">low to high price</button>
+                                    <button class="dropdown-item" @click="sortProducts('price', 'desc')" type="button">high to low price</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'asc')" type="button">sort by asc</button>
+                                    <button class="dropdown-item" @click="sortProducts('name', 'desc')" type="button">sort by desc</button>
+                                </div>
                             </div>
                         </div>
+                        <form class="d-flex justify-content-between">
+                            <input type="text" class="search" v-model="search" placeholder="search" />
+                        </form>
                     </div>
-                    <form class="d-flex justify-content-between">
-                        <input type="text" class="search" v-model="search" placeholder="search" />
-                    </form>
-                </div>
                     <div class="pagination ml-auto">
                         <div v-for="pageNumber in totalPages" v-if="Math.abs(pageNumber - currentPage) < 3 || pageNumber == totalPages || pageNumber == 1">
                             <a v-bind:key="pageNumber" @click="setPage(pageNumber)" :class="{'current': currentPage === pageNumber }">{{ pageNumber }}</a>
@@ -187,7 +192,19 @@ export default {
             sort: '',
             minPrice: 0,
             maxPrice: 300,
-            search: ''
+            search: '',
+            order: {
+                name: '',
+                image: '',
+                price: '',
+                qty: ''
+            },
+            wishlist: {
+                name: '',
+                image: '',
+                price: '',
+                qty: ''
+            }
         }
     },
     methods: {
@@ -219,6 +236,26 @@ export default {
             } else {
                 this.products.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
+        },
+        addToOrder() {
+            axios.post('api/order', this.order)
+                .then((res) => {
+                    this.task.name = '';
+                    this.task.image = '';
+                    this.task.price = '';
+                    this.task.qty = '';
+                })
+                .catch((err) => console.error(err));
+        },
+        addToWishList() {
+            axios.post('api/wishlist', this.wishlist)
+                .then((res) => {
+                    this.task.name = '';
+                    this.task.image = '';
+                    this.task.price = '';
+                    this.task.qty = '';
+                })
+                .catch((err) => console.error(err));
         }
     },
     computed: {
