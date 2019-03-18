@@ -100,7 +100,7 @@
                 </div>
                 <section class="lattest-product-area pb-40 category-list">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6" v-for="product in displayProducts">
+                        <div class="col-lg-4 col-md-6" v-for="(product, index) in displayProducts" @key="index">
                             <div class="single-product">
                                 <router-link :to="{ path: '/products/'+product.id}">
                                     <img :src="product.image" :alt="product.name" class="img-fluid">
@@ -112,25 +112,16 @@
                                         <h6 class="l-through">${{ product.old_price }}</h6>
                                     </div>
                                     <div class="prd-bottom">
-                                        <a class="social-info">
+
+                                        <a class="social-info" @click="addToOrder()">
                                             <span class="ti-bag"></span>
-                                            <form v-on:submit="addToOrder()">
-                                                <input type="hidden" value="product.name" v-model="order.name">
-                                                <input type="hidden" value="product.image" v-model="order.image">
-                                                <input type="hidden" value="product.price" v-model="order.price">
-                                                <input type="hidden" value="1" v-model="order.qty">
-                                                <button type="submit" class="hover-text">add to bag</button>
-                                            </form>
+                                            <p class="hover-text">add to bag</p>
                                         </a>
                                         <a class="social-info">
-                                        <form v-on:submit="addToWishList()">
-                                            <input type="hidden" value="product.name" v-model="order.name">
-                                            <input type="hidden" value="product.image" v-model="order.image">
-                                            <input type="hidden" value="product.price" v-model="order.price">
-                                            <input type="hidden" value="1" v-model="order.qty">
-                                            <button type="submit" class="hover-text">add to wishlist</button>
-                                        </form>
+                                            <span class="lnr lnr-heart"></span>
+                                            <p class="hover-text">Wishlist</p>
                                         </a>
+
                                         <router-link :to="{ path: '/products/'+product.id}" class="social-info">
                                             <span class="lnr lnr-move"></span>
                                             <p class="hover-text">view more</p>
@@ -181,6 +172,7 @@ export default {
     data() {
         return {
             products: [],
+            order: [],
             currentPage: 1,
             productsPerPage: 9,
             resultCount: 1,
@@ -193,18 +185,7 @@ export default {
             minPrice: 0,
             maxPrice: 300,
             search: '',
-            order: {
-                name: '',
-                image: '',
-                price: '',
-                qty: ''
-            },
-            wishlist: {
-                name: '',
-                image: '',
-                price: '',
-                qty: ''
-            }
+            qty:1
         }
     },
     methods: {
@@ -236,26 +217,6 @@ export default {
             } else {
                 this.products.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
-        },
-        addToOrder() {
-            axios.post('api/order', this.order)
-                .then((res) => {
-                    this.task.name = '';
-                    this.task.image = '';
-                    this.task.price = '';
-                    this.task.qty = '';
-                })
-                .catch((err) => console.error(err));
-        },
-        addToWishList() {
-            axios.post('api/wishlist', this.wishlist)
-                .then((res) => {
-                    this.task.name = '';
-                    this.task.image = '';
-                    this.task.price = '';
-                    this.task.qty = '';
-                })
-                .catch((err) => console.error(err));
         }
     },
     computed: {

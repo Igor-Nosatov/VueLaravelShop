@@ -3523,10 +3523,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -3534,6 +3530,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       products: [],
+      order: [],
       currentPage: 1,
       productsPerPage: 9,
       resultCount: 1,
@@ -3546,12 +3543,7 @@ __webpack_require__.r(__webpack_exports__);
       minPrice: 0,
       maxPrice: 300,
       search: '',
-      order: {
-        name: '',
-        image: '',
-        price: '',
-        qty: ''
-      }
+      qty: 1
     };
   },
   methods: {
@@ -3590,14 +3582,30 @@ __webpack_require__.r(__webpack_exports__);
           return a[key] < b[key] ? 1 : -1;
         });
       }
+    },
+    addToOrder: function addToOrder(product) {
+      var _this2 = this;
+
+      console.log("Hey!@");
+      axios.post('api/order/add', {
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        qty: this.qty
+      }).then(function (response) {
+        return _this2.products.push(product);
+      }).catch(function (error) {
+        return console.log(error);
+      });
     }
   },
   computed: {
     searchProducts: function searchProducts() {
-      var _this2 = this;
+      var _this3 = this;
 
       return this.products.filter(function (product) {
-        return product.name.toLowerCase().includes(_this2.search.toLowerCase());
+        return product.name.toLowerCase().includes(_this3.search.toLowerCase());
       });
     },
     filterProducts: function filterProducts() {
@@ -43103,198 +43111,89 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "row" },
-                _vm._l(_vm.displayProducts, function(product) {
-                  return _c("div", { staticClass: "col-lg-4 col-md-6" }, [
-                    _c(
-                      "div",
-                      { staticClass: "single-product" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: { to: { path: "/products/" + product.id } }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              attrs: { src: product.image, alt: product.name }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-details" }, [
-                          _c("h6", [_vm._v(_vm._s(product.name))]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "price" }, [
-                            _c("h6", [_vm._v("$" + _vm._s(product.price))]),
-                            _vm._v(" "),
-                            _c("h6", { staticClass: "l-through" }, [
-                              _vm._v("$" + _vm._s(product.old_price))
-                            ])
-                          ]),
-                          _vm._v(" "),
+                _vm._l(_vm.displayProducts, function(product, index) {
+                  return _c(
+                    "div",
+                    { staticClass: "col-lg-4 col-md-6", on: { key: index } },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "single-product" },
+                        [
                           _c(
-                            "div",
-                            { staticClass: "prd-bottom" },
+                            "router-link",
+                            {
+                              attrs: { to: { path: "/products/" + product.id } }
+                            },
                             [
-                              _c("a", { staticClass: "social-info" }, [
-                                _c("span", { staticClass: "ti-bag" }),
-                                _vm._v(" "),
+                              _c("img", {
+                                staticClass: "img-fluid",
+                                attrs: { src: product.image, alt: product.name }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "product-details" }, [
+                            _c("h6", [_vm._v(_vm._s(product.name))]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "price" }, [
+                              _c("h6", [_vm._v("$" + _vm._s(product.price))]),
+                              _vm._v(" "),
+                              _c("h6", { staticClass: "l-through" }, [
+                                _vm._v("$" + _vm._s(product.old_price))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "prd-bottom" },
+                              [
                                 _c(
-                                  "form",
+                                  "a",
                                   {
+                                    staticClass: "social-info",
                                     on: {
-                                      submit: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.addProduct($event)
+                                      click: function($event) {
+                                        _vm.addToOrder(product)
                                       }
                                     }
                                   },
                                   [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.order.name,
-                                          expression: "order.name"
-                                        }
-                                      ],
-                                      attrs: {
-                                        type: "hidden",
-                                        value: "product.name"
-                                      },
-                                      domProps: { value: _vm.order.name },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.order,
-                                            "name",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
+                                    _c("span", { staticClass: "ti-bag" }),
                                     _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.order.image,
-                                          expression: "order.image"
-                                        }
-                                      ],
-                                      attrs: {
-                                        type: "hidden",
-                                        value: "product.image"
-                                      },
-                                      domProps: { value: _vm.order.image },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.order,
-                                            "image",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("add to bag")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._m(1, true),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "social-info",
+                                    attrs: {
+                                      to: { path: "/products/" + product.id }
+                                    }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "lnr lnr-move" }),
                                     _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.order.price,
-                                          expression: "order.price"
-                                        }
-                                      ],
-                                      attrs: {
-                                        type: "hidden",
-                                        value: "product.price"
-                                      },
-                                      domProps: { value: _vm.order.price },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.order,
-                                            "price",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.order.qty,
-                                          expression: "order.qty"
-                                        }
-                                      ],
-                                      attrs: { type: "hidden", value: "1" },
-                                      domProps: { value: _vm.order.qty },
-                                      on: {
-                                        input: function($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.order,
-                                            "qty",
-                                            $event.target.value
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      { staticClass: "hover-text" },
-                                      [_vm._v("add to bag")]
-                                    )
+                                    _c("p", { staticClass: "hover-text" }, [
+                                      _vm._v("view more")
+                                    ])
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(1, true),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "social-info",
-                                  attrs: {
-                                    to: { path: "/products/" + product.id }
-                                  }
-                                },
-                                [
-                                  _c("span", { staticClass: "lnr lnr-move" }),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "hover-text" }, [
-                                    _vm._v("view more")
-                                  ])
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ])
+                              ],
+                              1
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ]
+                  )
                 }),
                 0
               )

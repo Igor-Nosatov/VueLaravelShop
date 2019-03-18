@@ -14,15 +14,9 @@ class OrderController extends Controller
     return response()->json($orders,200);
   }
 
-  public function store(Request $request)
+  public function store(Request $request, $id)
    {
-      $order = new Order([
-       'name' => $request->get('name'),
-       'image' => $request->get('image'),
-       'price' => $request->get('price'),
-       'qty' => $request ->get('qty')
-    ]);
-      $order->save();
-     return response()->json('successfully added product to cart');
+        
+
    }
 }
